@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="服务器," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Rookie`Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="随机密码生成    openssl rand -base64 32date | md5sumdate +%s | sha256sum | base64 | head -c 32 ; echocat &#x2F;dev&#x2F;urandom | tr -dc _A-Z-a-z-0-9+$.?*#\&#x2F;@! | head -c${1:-64};echo;">
+<meta name="keywords" content="服务器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="服务器维护指南">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.rookie.live&#x2F;2017&#x2F;05&#x2F;12&#x2F;servicepro&#x2F;index.html">
+<meta property="og:site_name" content="Rookie&#96;Blog">
+<meta property="og:description" content="随机密码生成    openssl rand -base64 32date | md5sumdate +%s | sha256sum | base64 | head -c 32 ; echocat &#x2F;dev&#x2F;urandom | tr -dc _A-Z-a-z-0-9+$.?*#\&#x2F;@! | head -c${1:-64};echo;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-07-25T07:00:00.000Z">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.rookie.live/2017/05/12/servicepro/"/>
+
+
+
+
+
+  <title>服务器维护指南 | Rookie`Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Rookie`Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Always believe that something wonderful is about to happen</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            Commonweal 404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.rookie.live/2017/05/12/servicepro/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rookie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rookie`Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">服务器维护指南</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-12T09:49:33+08:00">
+                2017-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/12/servicepro/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/05/12/servicepro/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="随机密码生成">随机密码生成</h3>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs cpp">openssl rand -base64 <span class="hljs-number">32</span><br>date | md5sum<br>date +%s | sha256sum | base64 | head -c <span class="hljs-number">32</span> ; echo<br>cat /dev/urandom | tr -dc _A-Z-a-z-<span class="hljs-number">0</span>-<span class="hljs-number">9</span>+$.?*<span class="hljs-preprocessor">#\/@! | head -c${<span class="hljs-number">1</span>:-<span class="hljs-number">64</span>};echo;</span><br></code></pre>
+
+
+<a id="more"></a>
+
+
+<h3 id="ssh免密码登陆">SSH免密码登陆</h3>
+
+<ol><li rel="1">在本地输入<code>ssh-keygen -t rsa</code> ，PS：如果已有，可跳过1、2步</li>
+<li rel="2">本地<code>~/.ssh</code>目录会生成两个文件：<code>id_rsa</code>和<code>id_rsa.pub</code></li>
+<li rel="3"><code>scp ~/.ssh/id_rsa.pub www@112.124.121.91:/home/www</code>，将本地<code>id_rsa.pub</code>拷贝到服务器</li>
+<li rel="4">登录www用户，输入<code>cat ~/id_rsa.pub &gt;&gt; authorized_keys</code></li>
+<li rel="5">这是就可以免密码登陆了</li>
+</ol>
+
+
+
+<h3 id="添加用户和用户组">添加用户和用户组</h3>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs stata">groupadd www  <span class="hljs-comment">//新建www工作组</span><br>useradd -<span class="hljs-keyword">g</span> www www  <span class="hljs-comment">//新建www用户并增加到test工作组</span><br>passwd www <span class="hljs-comment">// 修改www用户密码</span><br></code></pre>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs 1c">visudo <span class="hljs-comment">//需要修改此文件，使新创建的用户可以使用sudo命令, 仿照文件内容修改即可</span><br></code></pre>
+
+
+
+<h3 id="环境搭建以下操作均在www用户下进行">环境搭建（以下操作均在www用户下进行）</h3>
+
+<ol start="1"><li rel="1">NVM</li>
+</ol>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs vim">curl -<span class="hljs-keyword">o</span>- http<span class="hljs-variable">s:</span>//raw.githubusercontent.<span class="hljs-keyword">com</span>/creationix/nvm/v0.<span class="hljs-number">33.1</span>/install.<span class="hljs-keyword">sh</span> | bash<br></code></pre>
+
+<ol start="2"><li rel="2">Node</li>
+</ol>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs cpp">nvm install v6<span class="hljs-number">.10</span><span class="hljs-number">.0</span><br></code></pre>
+
+<ol start="3"><li rel="3">MySQL</li>
+</ol>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs vala"><span class="hljs-preprocessor"># 查看系统版本</span><br>lsb_release -a<br><span class="hljs-preprocessor"># 下载 for CenteOS 7</span><br>wget http:<span class="hljs-comment">//dev.mysql.com/get/mysql57-community-release-el7-7.noarch.rpm</span><br><span class="hljs-preprocessor"># 添加资源库</span><br>yum localinstall mysql57-community-release-el7-<span class="hljs-number">7.</span>noarch.rpm <br><span class="hljs-preprocessor"># 验证MySQL是否已被添加到本地资源库</span><br>yum repolist enabled | grep <span class="hljs-string">"mysql.*-community.*"</span><br><span class="hljs-preprocessor"># 安装</span><br>sudo yum install mysql-community-server<br><span class="hljs-preprocessor"># 启动</span><br>sudo service mysqld start<br><span class="hljs-preprocessor"># 查看启动状态</span><br>sudo service mysqld status<br><span class="hljs-preprocessor"># 生成root临时密码</span><br>grep <span class="hljs-string">'temporary password'</span> /<span class="hljs-keyword">var</span>/log/mysqld.log<br><span class="hljs-preprocessor"># 安全设置</span><br>mysql_secure_installation<br><span class="hljs-preprocessor"># 更新MySQL</span><br>yum update mysql-server<br><span class="hljs-preprocessor"># 创建数据库</span><br>create database wisdom_estate;<br><span class="hljs-preprocessor"># 授予www用户的数据库的所有权限</span><br>grant all privileges on wisdom_estate.* to www@<span class="hljs-string">'%'</span> identified by <span class="hljs-string">'此处是密码'</span>;<br><span class="hljs-preprocessor"># 修改www用户密码</span><br>mysqladmin -u www -p password<br></code></pre>
+
+<ol start="4"><li rel="4"><a href="http://www.redis.cn" target="_blank">Redis</a></li>
+</ol>
+
+<pre class="prettyprint hljs-dark"><code class="hljs cpp">下载，解压，编译:<br>$ wget http:<span class="hljs-comment">//download.redis.io/releases/redis-3.2.8.tar.gz</span><br>$ tar xzf redis-<span class="hljs-number">3.2</span><span class="hljs-number">.8</span>.tar.gz<br>$ cd redis-<span class="hljs-number">3.2</span><span class="hljs-number">.8</span><br>$ make<br></code></pre>
+
+<blockquote>
+  <p>PS: <a href="https://github.com/luin/medis" target="_blank">Redis 客户端</a></p>
+</blockquote>
+
+<h3 id="ngix">ngix</h3>
+
+<ol start="1"><li rel="1">创建文件：<code>/etc/yum.repos.d/nginx.repo</code>，内容为：</li>
+</ol>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs ini"><span class="hljs-title">[nginx]</span><br><span class="hljs-setting">name=<span class="hljs-value">nginx repo</span></span><br><span class="hljs-setting">baseurl=<span class="hljs-value">http://nginx.org/packages/centos/<span class="hljs-number">7</span>/<span class="hljs-variable">$basearch</span>/</span></span><br><span class="hljs-setting">gpgcheck=<span class="hljs-value"><span class="hljs-number">0</span></span></span><br><span class="hljs-setting">enabled=<span class="hljs-value"><span class="hljs-number">1</span></span></span><br></code></pre>
+
+<p></p><ol start="2"><li rel="2">安装，<code>sudo yum install nginx</code></li>
+<li rel="3">启动，<code>service nginx start</code></li>
+<li rel="3">查看启动状态，<code>service nginx status</code> OR <code>systemctl status nginx.service</code> <br></li></ol><p></p>
+
+<blockquote>
+  Default configuration directory: /etc/nginx/ <br>
+  Default SSL and vhost config directory: /etc/nginx/conf.d/ <br>
+  Default log file directory: /var/log/nginx/ <br>
+  Default document root directory: /usr/share/nginx/html <br>
+  Default configuration file: /etc/nginx/nginx.conf <br>
+  Default server access log file: /var/log/nginx/access.log <br>
+  Default server access log file: /var/log/nginx/error.log <br>
+  <br>
+  CentOS 7 默认使用firewall，不是iptables。在不开防火墙的情况下，80端口默认是关闭的，必须开放80端口，才能访问服务器 <br>
+  <code>firewall-cmd --zone=public --add-port=80/tcp --permanent</code> <br>
+  <code>firewall-cmd --reload</code> <br>
+   <code>firewall-cmd --list-ports</code>
+
+  </blockquote>
+
+
+<h3 id="ssh登录服务器"><a href="#ssh登录服务器" class="headerlink" title="ssh登录服务器"></a>ssh登录服务器</h3><p><code>ssh username@domain
+$ ssh -p vps 端口号 root@vpsIP 地址
+示例:  ssh -p 27887 root@104.224.173.167</code></p>
+<p>新建文件夹:<br><code>mkdir /tmp/wp</code></p>
+<p>查看80端口是否被占用<br><code>sudo netstat -tnlp | grep :80  or   ss -tnlp | grep :80</code></p>
+<h3 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h3><p>查看docker程序是否正常工作<br><code>sudo docker info</code></p>
+<p>常看 docker 运行<br><code>docker ps -a</code></p>
+<p><code>yum install docker</code> #安装docker<br><code>systemctl start docker.service</code>#启动docker<br><code>systemctl enable docker.service</code> #docker开机启动<br><code>docker -v</code> #查看docker版本<br><code>docker info</code> #查看docker具体信息<br><code>docker pull centos</code>#下载官网centos image<br><code>docker images</code> #显示已有image<br><code>docker stop $(docker ps -a -q)</code>#停止所有容器<br><code>docker stop container_id</code> #停止特定容器<br><code>docker rm $(docker ps -a -q)</code> #删除所有container<br><code>docker rmi $(docker images -q)</code> #删除所有image<br><code>docker inspect container_name</code> #查看容器信息<br><code>docker inspect container_name | grep IPAddress</code> #查看当前容器ip地地址<br><code>docker attach --sig-proxy=false 304f5db405ec</code>  (按control +c 退出不停止容器)<br><code>docker commit</code>  &lt;容器id&gt;  &lt;新镜像名称&gt;<br><code>docker rmi  imageid</code> #删除image<br><code>sudo usermod -a -G docker wisely</code>#非root用户使用<br><code>docker run -i -t centos /bin/bash</code> #启动系统 此方式运行的容器，退出后容器就会关闭。</p>
+<p>进入 docker 容器<br><code>docker exec -ti phabricator bash</code></p>
+<h3 id="Linux-命令"><a href="#Linux-命令" class="headerlink" title="Linux 命令"></a>Linux 命令</h3><p>新建一个文件夹<br><code>/srv/docker</code></p>
+<p>权限问题<br><code>sudo chmod -R 777 /srv/</code></p>
+<p>结束程序:<br><code>killall -9 wnTKYg</code></p>
+<p>查看是否有 java程序<br><code>ps aux | grep java</code></p>
+<p>查看临时文件夹<br><code>ls /tmp/</code></p>
+<p>查看所有的东西<br><code>ls la</code></p>
+<p>查看操作系统的版本<br><code>cat /etc/redhat-release</code></p>
+<p>查看当前打开的端口<br><code>netstat –an</code></p>
+<p>查看磁盘信息<br><code>fdisk –l</code><br><code>df –h</code></p>
+<p>查看cpu的信息<br><code>cat /proc/cpuinfo</code></p>
+<p>查看内存信息<br><code>cat /proc/meminfo</code></p>
+<p>查看板卡信息<br><code>lspci</code><br><code>cat /proc/pci</code></p>
+<p>查看当前系统运行情况<br><code>ps –aux</code></p>
+<p>输入下面的ps命令，显示所有运行中的进程：<br><code>ps aux | less</code></p>
+<p>scp 复制<br><code>scp [OPTIONS] file_source file_target</code></p>
+<blockquote>
+<p>OPTIONS：<br>-v 和大多数 linux命令中的-v意思一样，用来显示进度。可以用来查看连接、认证、或是配置错误<br>-C 使能压缩选项<br>-P 选择端口<br>-r 复制目录<br>示例:<br><code>scp /Users/rookie/Desktop/appdistribute.zip root@218.61.208.73:/home/test</code></p>
+</blockquote>
+<h3 id="安装-zip-unzip"><a href="#安装-zip-unzip" class="headerlink" title="安装 zip unzip"></a>安装 zip unzip</h3><p>检查是否有包含 zip（unzip） 的软件包<br><code>yum provides zip</code></p>
+<p>安装 zip、unzip</p>
+<figure class="highlight plain"><figcaption><span>yum install zip  </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yum install unzip</span><br></pre></td></tr></table></figure>
+
+<p>常用命令<br> 将当前目录下的所有文件和文件夹全部压缩成 myfile.zip 文件，-r 表示递归压缩子目录下所有文件.<br><code>zip -r myfile.zip ./*</code></p>
+<p> 把 myfile.zip 文件解压到 /home/sunny/<br> -o ：不提示的情况下覆盖文件<br> -d：将文件解压缩到指定目录下<br><code>unzip -o -d /home/sunny myfile.zip</code></p>
+<p> 删除压缩文件中 smart.txt 文件<br> <code>zip -d myfile.zip smart.txt</code></p>
+<p>向压缩文件中 myfile.zip 中添加 rpm_info.txt 文件<br> <code>zip -m myfile.zip ./rpm_info.txt</code></p>
+<h3 id="wget-安装与配置"><a href="#wget-安装与配置" class="headerlink" title="wget 安装与配置"></a>wget 安装与配置</h3><p> 安装<br> <code>yum -y install wget</code></p>
+<h3 id="centOS-分区"><a href="#centOS-分区" class="headerlink" title="centOS 分区"></a>centOS 分区</h3><p> <a href="http://support.hwclouds.com/usermanual-ecs/zh-cn_topic_0048217143.html" target="_blank" rel="noopener">华为云参照</a></p>
+<h3 id="淘宝资料"><a href="#淘宝资料" class="headerlink" title="淘宝资料"></a>淘宝资料</h3><p><a href="http://116.62.27.51/bc-atlassian-jira-software-7.3.1.zip" target="_blank" rel="noopener">http://116.62.27.51/bc-atlassian-jira-software-7.3.1.zip</a><br><a href="http://116.62.27.51/bc-atlassian-confluence-6.2.0.zip" target="_blank" rel="noopener">http://116.62.27.51/bc-atlassian-confluence-6.2.0.zip</a><br><a href="http://116.62.27.51/jdk-8u91-linux-x64.tar.gz" target="_blank" rel="noopener">http://116.62.27.51/jdk-8u91-linux-x64.tar.gz</a><br><a href="http://116.62.27.51/xx/jira安装指南v1.0.pdf" target="_blank" rel="noopener">http://116.62.27.51/xx/jira安装指南v1.0.pdf</a><br><a href="http://116.62.27.51/xx/confluence安装指南v1.1.pdf" target="_blank" rel="noopener">http://116.62.27.51/xx/confluence安装指南v1.1.pdf</a><br>对方消息中包含的链接安全性未知，请谨慎访问。<br><a href="http://116.62.27.51/AdminJIRAServer073-130117-0317-654.pdf" target="_blank" rel="noopener">http://116.62.27.51/AdminJIRAServer073-130117-0317-654.pdf</a></p>
+<h3 id="jira"><a href="#jira" class="headerlink" title="jira"></a>jira</h3><p>superadmin superadmin</p>
+<p>service jira stop关闭</p>
+<p>service jira start启动</p>
+<p>service confluence stop</p>
+<p>service confluence start</p>
+<h3 id="安装-sbDoc"><a href="#安装-sbDoc" class="headerlink" title="安装 sbDoc"></a>安装 sbDoc</h3><ol>
+<li>安装Development Tools<br><code># yum group install &quot;Development Tools&quot;</code></li>
+</ol>
+<p>1.1 验证是否成功</p>
+<p><code>[kael@localhost Download]$ whereis gcc</code><br><code>gcc: /usr/bin/gcc /usr/lib/gcc /usr/libexec/gcc /usr/share/man/man1/gcc.1.gz
+[kael@localhost Download]$ gcc --version
+gcc (GCC) 4.8.5 20150623 (Red Hat 4.8.5-4)
+Copyright (C) 2015 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</code></p>
+<ol start="2">
+<li>安装 nodejs<br><code>wget https://nodejs.org/dist/v6.11.0/node-v6.11.0.tar.gz</code></li>
+<li>1 解压<br><code>tar -xvf node-v6.11.0.tar.gz</code></li>
+<li>2 进入 node目录<br><code>cd node-v6.11.0</code></li>
+<li>3 执行脚本<br><code>./configure</code></li>
+<li>4 编译代码<br><code>make</code></li>
+<li>5 编译完成之后，安装到本地<br><code>make install</code></li>
+<li>6 安装完成，接下来验证一下<br><code>[kael@localhost node-v6.9.1]$ node --version
+v6.9.1</code><br>安装完成</li>
+</ol>
+<p>查看正在运行<br><code>ps -ef | grep mongo</code></p>
+<h3 id="CentOS-中使用-yum-安装-mongodb"><a href="#CentOS-中使用-yum-安装-mongodb" class="headerlink" title="CentOS 中使用 yum 安装 mongodb"></a><a href="http://yijiebuyi.com/blog/9daac70a111e4c3298a4cb69b5dc6214.html" target="_blank" rel="noopener">CentOS 中使用 yum 安装 mongodb</a></h3>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag"># 服务器</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/03/reactnativeaddios/" rel="next" title="iOS 项目添加 React Native">
+                <i class="fa fa-chevron-left"></i> iOS 项目添加 React Native
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/13/sellmingling/" rel="prev" title="Shell常用命令">
+                Shell常用命令 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Rookie" />
+            
+              <p class="site-author-name" itemprop="name">Rookie</p>
+              <p class="site-description motion-element" itemprop="description">Sometimes, the correct path is the tortured one.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/rookie-liu" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:Rookie_liu@126.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/rookie_liu" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/5973718613" target="_blank" title="weibo">
+                      
+                        <i class="fa fa-fw fa-globe"></i>weibo</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://onevcat.com/#blog" title="OneV's Den" target="_blank">OneV's Den</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.zybuluo.com/Rookie/note/826624" title="我的简历" target="_blank">我的简历</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://rookie.live/Love/index.html" title="My Love" target="_blank">My Love</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#随机密码生成"><span class="nav-number">1.</span> <span class="nav-text">随机密码生成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ssh免密码登陆"><span class="nav-number">2.</span> <span class="nav-text">SSH免密码登陆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加用户和用户组"><span class="nav-number">3.</span> <span class="nav-text">添加用户和用户组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境搭建以下操作均在www用户下进行"><span class="nav-number">4.</span> <span class="nav-text">环境搭建（以下操作均在www用户下进行）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ngix"><span class="nav-number">5.</span> <span class="nav-text">ngix</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ssh登录服务器"><span class="nav-number">6.</span> <span class="nav-text">ssh登录服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#docker"><span class="nav-number">7.</span> <span class="nav-text">docker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux-命令"><span class="nav-number">8.</span> <span class="nav-text">Linux 命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-zip-unzip"><span class="nav-number">9.</span> <span class="nav-text">安装 zip unzip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wget-安装与配置"><span class="nav-number">10.</span> <span class="nav-text">wget 安装与配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#centOS-分区"><span class="nav-number">11.</span> <span class="nav-text">centOS 分区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#淘宝资料"><span class="nav-number">12.</span> <span class="nav-text">淘宝资料</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jira"><span class="nav-number">13.</span> <span class="nav-text">jira</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-sbDoc"><span class="nav-number">14.</span> <span class="nav-text">安装 sbDoc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CentOS-中使用-yum-安装-mongodb"><span class="nav-number">15.</span> <span class="nav-text">CentOS 中使用 yum 安装 mongodb</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rookie</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://rookie-liu.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://www.rookie.live/2017/05/12/servicepro/';
+          this.page.identifier = '2017/05/12/servicepro/';
+          this.page.title = '服务器维护指南';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://rookie-liu.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

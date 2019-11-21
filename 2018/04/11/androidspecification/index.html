@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="开发规范," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Rookie`Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="规范项目中规范是必须存在的. 保持可读性,易于维护,利人利己.为了有利于项目维护、增强代码可读性、提升 Code Review 效率以及规范团队安卓开发">
+<meta name="keywords" content="开发规范">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android开发规范">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.rookie.live&#x2F;2018&#x2F;04&#x2F;11&#x2F;androidspecification&#x2F;index.html">
+<meta property="og:site_name" content="Rookie&#96;Blog">
+<meta property="og:description" content="规范项目中规范是必须存在的. 保持可读性,易于维护,利人利己.为了有利于项目维护、增强代码可读性、提升 Code Review 效率以及规范团队安卓开发">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;Rookie&#x2F;xygktyngq93t3agkhklh2kr7&#x2F;image_1cap6t35m1g0l1cr9fmj8gvb99.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;Rookie&#x2F;r9qhxk1lv97w66sglod40ebm&#x2F;image_1cap9064j1vcmp1m67o19h11dbqp.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;Rookie&#x2F;i14tk2o5bwwsxxfvkgfc9u2v&#x2F;image_1capa1vkih2vt5h1oqbj2jl03m.png">
+<meta property="og:updated_time" content="2018-04-11T03:28:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;Rookie&#x2F;xygktyngq93t3agkhklh2kr7&#x2F;image_1cap6t35m1g0l1cr9fmj8gvb99.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.rookie.live/2018/04/11/androidspecification/"/>
+
+
+
+
+
+  <title>Android开发规范 | Rookie`Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Rookie`Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Always believe that something wonderful is about to happen</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            Commonweal 404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.rookie.live/2018/04/11/androidspecification/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rookie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rookie`Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Android开发规范</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-11T14:20:48+08:00">
+                2018-04-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/11/androidspecification/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/04/11/androidspecification/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h2><p>项目中规范是必须存在的. 保持可读性,易于维护,利人利己.为了有利于项目维护、增强代码可读性、提升 Code Review 效率以及规范团队安卓开发</p>
+<a id="more"></a>
+
+<h2 id="书写规范"><a href="#书写规范" class="headerlink" title="书写规范"></a>书写规范</h2><h3 id="编码方式统一用UTF-8-Android-Studio默认已是UTF-8，只要不去改动它就可以了。"><a href="#编码方式统一用UTF-8-Android-Studio默认已是UTF-8，只要不去改动它就可以了。" class="headerlink" title="编码方式统一用UTF-8. Android Studio默认已是UTF-8，只要不去改动它就可以了。"></a>编码方式统一用UTF-8. Android Studio默认已是UTF-8，只要不去改动它就可以了。</h3><p> <img src="http://static.zybuluo.com/Rookie/xygktyngq93t3agkhklh2kr7/image_1cap6t35m1g0l1cr9fmj8gvb99.png" alt="image_1cap6t35m1g0l1cr9fmj8gvb99.png-49.9kB"></p>
+<h3 id="花括号不要单独一行，和它前面的代码同一行。而且，花括号与前面的代码之间用一个空格隔开。"><a href="#花括号不要单独一行，和它前面的代码同一行。而且，花括号与前面的代码之间用一个空格隔开。" class="headerlink" title="花括号不要单独一行，和它前面的代码同一行。而且，花括号与前面的代码之间用一个空格隔开。"></a>花括号不要单独一行，和它前面的代码同一行。而且，花括号与前面的代码之间用一个空格隔开。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public void method() &#123; // Good </span><br><span class="line">      ...</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">public void method()</span><br><span class="line">&#123; // Bad</span><br><span class="line">    ...</span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line">public void method()&#123; // Bad</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="空格使用"><a href="#空格使用" class="headerlink" title="空格使用"></a>空格使用</h3><ul>
+<li><p>if、else、for、switch、while等逻辑关键字与后面的语句留一个空格隔开。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// Good</span><br><span class="line">if (booleanVariable) &#123;</span><br><span class="line">    // TODO while booleanVariable is true</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    // TODO else</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Bad</span><br><span class="line">if(booleanVariable) &#123;</span><br><span class="line">    // TODO while booleanVariable is true</span><br><span class="line">&#125;else &#123;</span><br><span class="line">    // TODO else</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>运算符两边各用一个空格隔开。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int result = a + b; //Good, = 和 + 两边各用一个空格隔开</span><br><span class="line">int result=a+b; //Bad,=和+两边没用空格隔开</span><br></pre></td></tr></table></figure></li>
+<li><p>方法的每个参数之间用一个空格隔开。</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public void method(String param1, String param2); // Good，param1后面的逗号与String之间隔了一个空格</span><br><span class="line">method(param1, param2); // Good，方法调用时，param1后面的逗号与param2之间隔了一个空格</span><br><span class="line">method(param1,param2); // Bad，没有用一个空格隔开</span><br></pre></td></tr></table></figure>
+
+<h3 id="空行的使用"><a href="#空行的使用" class="headerlink" title="空行的使用"></a>空行的使用</h3><p>将逻辑相关的代码段用空行隔开，以提高可读性。空行也只空一行，不要空多行。在以下情况需用一个空行：</p>
+<ul>
+<li>两个方法之间</li>
+<li>方法内的两个逻辑段之间</li>
+<li>方法内的局部变量和方法的第一条逻辑语句之间</li>
+<li>常量和变量之间</li>
+</ul>
+<h3 id="当一个表达式无法容纳在一行内时，可换行显示，另起的新行用8个空格缩进。"><a href="#当一个表达式无法容纳在一行内时，可换行显示，另起的新行用8个空格缩进。" class="headerlink" title="当一个表达式无法容纳在一行内时，可换行显示，另起的新行用8个空格缩进。"></a>当一个表达式无法容纳在一行内时，可换行显示，另起的新行用8个空格缩进。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">someMethod(longExpression1, longExpression2, longExpression3,  </span><br><span class="line">        longExpression4, longExpression5);</span><br></pre></td></tr></table></figure>
+
+<h3 id="一行声明一个变量，不要一行声明多个变量，这样有利于写注释。"><a href="#一行声明一个变量，不要一行声明多个变量，这样有利于写注释。" class="headerlink" title="一行声明一个变量，不要一行声明多个变量，这样有利于写注释。"></a>一行声明一个变量，不要一行声明多个变量，这样有利于写注释。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">private String param1; // 参数1</span><br><span class="line">private String param2; // 参数2</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用快捷键进行代码自动格式化。"><a href="#使用快捷键进行代码自动格式化。" class="headerlink" title="使用快捷键进行代码自动格式化。"></a>使用快捷键进行代码自动格式化。</h3><p>Windows：CTRL+ALT+L<br>Mac：OPTION+COMMAND+L (ALT+COMMAND+L)</p>
+<h3 id="范围型的常量用枚举类定义，而不要直接用整型或字符，这样可以减少范围值的有效性检查。"><a href="#范围型的常量用枚举类定义，而不要直接用整型或字符，这样可以减少范围值的有效性检查。" class="headerlink" title="范围型的常量用枚举类定义，而不要直接用整型或字符，这样可以减少范围值的有效性检查。"></a>范围型的常量用枚举类定义，而不要直接用整型或字符，这样可以减少范围值的有效性检查。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">// 用枚举类定义，Good</span><br><span class="line">public enum CouponType &#123;</span><br><span class="line">    // 现金券</span><br><span class="line">    @SerializedName(&quot;1&quot;)</span><br><span class="line">    CASH,</span><br><span class="line">    </span><br><span class="line">    // 抵用券</span><br><span class="line">    @SerializedName(&quot;2&quot;)</span><br><span class="line">    DEBIT,</span><br><span class="line">    </span><br><span class="line">    // 折扣券</span><br><span class="line">    @SerializedName(&quot;3&quot;)</span><br><span class="line">    DISCOUNT</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 用整型定义，Bad</span><br><span class="line">public static final int TYPE_CASH = 1; // 现金券</span><br><span class="line">public static final int TYPE_DEBIT = 2; // 抵扣券</span><br><span class="line">public static final int TYPE_DISCOUNT = 3; // 折扣券</span><br></pre></td></tr></table></figure>
+
+<h3 id="字符串和颜色设置"><a href="#字符串和颜色设置" class="headerlink" title="字符串和颜色设置"></a>字符串和颜色设置</h3><ul>
+<li>文字大小的单位统一用sp，元素大小的单位统一用dp。</li>
+<li>应用中的字符串统一在strings.xml中定义，然后在代码和布局文件中引用。</li>
+<li>颜色值统一在colors.xml中定义，然后在代码和布局文件中引用。另外，不要在代码和布局文件中引用系统的颜色，除了透明。</li>
+</ul>
+<h2 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h2><h3 id="包命名"><a href="#包命名" class="headerlink" title="包命名"></a>包命名</h3><p>域名反写+项目名称+模块名称，全部单词用小写字母。<br>例如，我的KAndroid项目的Model模块包名如下：<br><code>me.keeganlee.kandroid.model</code></p>
+<h3 id="类和接口命名"><a href="#类和接口命名" class="headerlink" title="类和接口命名"></a>类和接口命名</h3><p>使用大驼峰规则，用名词或名词词组命名，每个单词的首字母大写。<br>以下为几种常用类的命名：</p>
+<ul>
+<li>activity类，命名以Activity为后缀，如：LoginActivity</li>
+<li>fragment类，命名以Fragment为后缀，如：ShareDialogFragment</li>
+<li>service类，命名以Service为后缀，如：DownloadService</li>
+<li>adapter类，命名以Adapter为后缀，如：CouponListAdapter</li>
+<li>工具类，命名以Util为后缀，如：EncryptUtil</li>
+<li>模型类，命名以BO为后缀，如：CouponBO</li>
+<li>接口实现类，命名以Impl为后缀，如：ApiImpl</li>
+</ul>
+<h3 id="方法命名"><a href="#方法命名" class="headerlink" title="方法命名"></a>方法命名</h3><p>使用小驼峰规则，用动词命名，第一个单词的首字母小写，其他单词的首字母大写。<br>以下为几种常用方法的命名：</p>
+<ul>
+<li>初始化方法，命名以init开头，例：initView</li>
+<li>按钮点击方法，命名以to开头，例：toLogin</li>
+<li>设置方法，命名以set开头，例：setData</li>
+<li>具有返回值的获取方法，命名以get开头，例：getData</li>
+<li>通过异步加载数据的方法，命名以load开头，例：loadData</li>
+<li>布尔型的判断方法，命名以is或has，或具有逻辑意义的单词如equals，例：isEmpty</li>
+</ul>
+<p>|-|-|-|-|<br>| ——–   | —–  |<br>|控件|    缩写|    控件|    缩写|<br>|TextView|    txt    |EditText|    edt<br>|Button|    btn|    ImageButton    |ibtn<br>|ImageView|    img|    ListView|    list<br>|RadioGroup    |group|    RadioButton|    rbtn<br>|ProgressBar|    progress|    SeekBar|    seek<br>|CheckBox|    chk|    Spinner|    spinner<br>|TableLayout|    table|    TableRow|    row<br>|LinearLayout|    llayout|    RelativeLayout|    rlayout<br>|ScrollView    |scroll    |SearchView    |search<br>|TabHost|    host|    TabWidget|    widget</p>
+<h3 id="常量命名"><a href="#常量命名" class="headerlink" title="常量命名"></a>常量命名</h3><p>全部为大写单词，单词之间用下划线分开。<br><code>public final static int PAGE_SIZE = 20;</code></p>
+<h3 id="变量命名"><a href="#变量命名" class="headerlink" title="变量命名"></a>变量命名</h3><p>{范围描述+}意义描述+类型描述的组合，用驼峰式，首字母小写。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">private TextView headerTitleTxt; // 标题栏的标题</span><br><span class="line">private Button loginBtn; // 登录按钮</span><br><span class="line">private CouponBO couponBO; // 券实例</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="控件id命名"><a href="#控件id命名" class="headerlink" title="控件id命名"></a>控件id命名</h3><p>控件缩写<em>{范围</em>}意义，范围可选，只在有明确定义的范围内才需要加上。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 这是标题栏的标题 --&gt;</span><br><span class="line">&lt;TextView</span><br><span class="line">    android:id=&quot;@+id/txt_header_title&quot;</span><br><span class="line">    ... /&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 这是登录按钮 --&gt;</span><br><span class="line">&lt;Button</span><br><span class="line">    android:id=&quot;@+id/btn_login&quot;</span><br><span class="line">    ... /&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="layout命名"><a href="#layout命名" class="headerlink" title="layout命名"></a>layout命名</h3><p>组件类型<em>{范围</em>}功能，范围可选，只在有明确定义的范围内才需要加上。<br>以下为几种常用的组件类型命名：</p>
+<ul>
+<li>activity_{范围_}功能，为Activity的命名格式</li>
+<li>fragment_{范围_}功能，为Fragment的命名格式</li>
+<li>dialog_{范围_}功能，为Dialog的命名格式</li>
+<li>item_list_{范围_}功能，为ListView的item命名格式</li>
+<li>item_grid_{范围_}功能，为GridView的item命名格式</li>
+<li>header_list_{范围_}功能，为ListView的HeaderView命名格式</li>
+<li>footer_list_{范围_}功能，为ListView的FooterView命名格式</li>
+</ul>
+<h3 id="strings的命名"><a href="#strings的命名" class="headerlink" title="strings的命名"></a>strings的命名</h3><p>类型<em>{范围</em>}功能，范围可选。<br>以下为几种常用的命名：</p>
+<ul>
+<li>页面标题，命名格式为：title_页面</li>
+<li>按钮文字，命名格式为：btn_按钮事件</li>
+<li>标签文字，命名格式为：label_标签文字</li>
+<li>选项卡文字，命名格式为：tab_选项卡文字</li>
+<li>消息框文字，命名格式为：toast_消息</li>
+<li>编辑框的提示文字，命名格式为：hint_提示信息</li>
+<li>图片的描述文字，命名格式为：desc_图片文字</li>
+<li>对话框的文字，命名格式为：dialog_文字</li>
+<li>menu的item文字，命名格式为：action_文字</li>
+</ul>
+<h3 id="colors的命名"><a href="#colors的命名" class="headerlink" title="colors的命名"></a>colors的命名</h3><p>前缀{_控件}{_范围}{_后缀}，控件、范围、后缀可选，但控件和范围至少要有一个。</p>
+<ul>
+<li>背景颜色，添加bg前缀</li>
+<li>文本颜色，添加text前缀</li>
+<li>分割线颜色，添加div前缀</li>
+<li>区分状态时，默认状态的颜色，添加normal后缀</li>
+<li>区分状态时，按下时的颜色，添加pressed后缀</li>
+<li>区分状态时，选中时的颜色，添加selected后缀</li>
+<li>区分状态时，不可用时的颜色，添加disable后缀</li>
+</ul>
+<h3 id="drawable的命名"><a href="#drawable的命名" class="headerlink" title="drawable的命名"></a>drawable的命名</h3><p>前缀{_控件}{_范围}{_后缀}，控件、范围、后缀可选，但控件和范围至少要有一个。</p>
+<ul>
+<li>图标类，添加ic前缀</li>
+<li>背景类，添加bg前缀</li>
+<li>分隔类，添加div前缀</li>
+<li>默认类，添加def前缀</li>
+<li>区分状态时，默认状态，添加normal后缀</li>
+<li>区分状态时，按下时的状态，添加pressed后缀</li>
+<li>区分状态时，选中时的状态，添加selected后缀</li>
+<li>区分状态时，不可用时的状态，添加disable后缀</li>
+<li>多种状态的，添加selector后缀（一般为ListView的selector或按钮的selector）</li>
+</ul>
+<h3 id="动画文件命名"><a href="#动画文件命名" class="headerlink" title="动画文件命名"></a>动画文件命名</h3><p>动画类型_动画方向。</p>
+<ul>
+<li>fade_in，淡入</li>
+<li>fade_out，淡出</li>
+<li>push_down_in，从下方推入</li>
+<li>push_down_out，从下方推出</li>
+<li>slide_in_from_top，从头部滑动进入</li>
+<li>zoom_enter，变形进入</li>
+<li>shrink_to_middle，中间缩小</li>
+</ul>
+<h2 id="注释规范"><a href="#注释规范" class="headerlink" title="注释规范"></a>注释规范</h2><h3 id="文件头注释"><a href="#文件头注释" class="headerlink" title="文件头注释"></a>文件头注释</h3><p>文件顶部统一添加版权声明，声明的格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Created by rookie Inc. on 2018/4/11. All rights reserved.</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://static.zybuluo.com/Rookie/r9qhxk1lv97w66sglod40ebm/image_1cap9064j1vcmp1m67o19h11dbqp.png" alt="image_1cap9064j1vcmp1m67o19h11dbqp.png-53.2kB"></p>
+<h3 id="类和接口注释"><a href="#类和接口注释" class="headerlink" title="类和接口注释"></a>类和接口注释</h3><p>类和接口统一添加javadoc注释，格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 类或接口的描述信息</span><br><span class="line"> *</span><br><span class="line"> * @author $&#123;USER&#125;</span><br><span class="line"> * @date $&#123;DATE&#125;</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
+<h3 id="自定义注释"><a href="#自定义注释" class="headerlink" title="自定义注释"></a>自定义注释</h3><p>添加自定义注释</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @description $d$</span><br><span class="line"> * @date $data$</span><br><span class="line"> * @author rookie</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="http://static.zybuluo.com/Rookie/i14tk2o5bwwsxxfvkgfc9u2v/image_1capa1vkih2vt5h1oqbj2jl03m.png" alt="image_1capa1vkih2vt5h1oqbj2jl03m.png-113.8kB"></p>
+<h3 id="类和接口注释-1"><a href="#类和接口注释-1" class="headerlink" title="类和接口注释"></a>类和接口注释</h3><p>类和接口统一添加javadoc注释，格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 类或接口的描述信息</span><br><span class="line"> *</span><br><span class="line"> * @author $&#123;USER&#125;</span><br><span class="line"> * @date $&#123;DATE&#125;</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="方法注释"><a href="#方法注释" class="headerlink" title="方法注释"></a>方法注释</h3><p>下面几种方法，都必须添加javadoc注释，说明该方法的用途和参数说明，以及返回值的说明。</p>
+<ul>
+<li>接口中定义的所有方法</li>
+<li>抽象类中自定义的抽象方法</li>
+<li>抽象父类的自定义公用方法</li>
+<li>工具类的公用方法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 登录</span><br><span class="line"> *</span><br><span class="line"> * @param loginName 登录名</span><br><span class="line"> * @param password  密码</span><br><span class="line"> * @param listener  回调监听器</span><br><span class="line"> */</span><br><span class="line">public void login(String loginName, String password, ActionCallbackListener&lt;Void&gt; listener);</span><br></pre></td></tr></table></figure>
+
+<h3 id="变量和常量注释"><a href="#变量和常量注释" class="headerlink" title="变量和常量注释"></a>变量和常量注释</h3><p>下面几种情况下的常量和变量，都要添加注释说明，优先采用右侧//来注释，若注释说明太长则在上方添加注释。</p>
+<ul>
+<li>接口中定义的所有常量</li>
+<li>公有类的公有常量</li>
+<li>枚举类定义的所有枚举常量</li>
+<li>实体类的所有属性变量<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public static final int TYPE_CASH = 1; // 现金券</span><br><span class="line">public static final int TYPE_DEBIT = 2; // 抵扣券</span><br><span class="line">public static final int TYPE_DISCOUNT = 3; // 折扣券</span><br><span class="line"></span><br><span class="line">private int id;                // 券id</span><br><span class="line">private String name;           // 券名称</span><br><span class="line">private String introduce;      // 券简介</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接:"></a>参考链接:</h2><p><a href="https://keeganlee.me/post/android/20150709" target="_blank" rel="noopener">ANDROID技术积累:开发规范</a></p>
+<p><a href="https://github.com/Blankj/AndroidStandardDevelop" target="_blank" rel="noopener">AndroidStandardDevelop</a></p>
+<p><a href="http://www.ayqy.net/blog/android包命名规范/" target="_blank" rel="noopener">Android 包命名规范</a></p>
+<p><a href="https://github.com/futurice/android-best-practices/blob/master/translations/Chinese/README.cn.md" target="_blank" rel="noopener">Android 开发最佳实践</a></p>
+<p><a href="https://www.jianshu.com/p/0a984f999592" target="_blank" rel="noopener">Android 编码规范</a></p>
+<p><a href="https://github.com/alibaba/p3c/blob/master/阿里巴巴Java开发手册（纪念版）.pdf" target="_blank" rel="noopener">阿里巴巴 Java 开发手册</a></p>
+<p><a href="http://www.hawstein.com/posts/google-java-style.html" target="_blank" rel="noopener">Google Java 编程风格指南</a></p>
+<h3 id="附件"><a href="#附件" class="headerlink" title="附件"></a>附件</h3><p><a href="https://pan.baidu.com/s/1JndL9Hy9brdV_JvHmDIEjA" target="_blank" rel="noopener">阿里巴巴Android开发手册</a><br><a href="https://pan.baidu.com/s/1ixKCWTdvxj2mnq1ACqgSZA" target="_blank" rel="noopener">阿里巴巴java开发手册</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/" rel="tag"># 开发规范</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/23/Glideuse/" rel="next" title="Google推荐——Glide使用详解">
+                <i class="fa fa-chevron-left"></i> Google推荐——Glide使用详解
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/13/hexoaddDisqus/" rel="prev" title="为 Hexo 博客加入 Disqus 评论">
+                为 Hexo 博客加入 Disqus 评论 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Rookie" />
+            
+              <p class="site-author-name" itemprop="name">Rookie</p>
+              <p class="site-description motion-element" itemprop="description">Sometimes, the correct path is the tortured one.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/rookie-liu" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:Rookie_liu@126.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/rookie_liu" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/5973718613" target="_blank" title="weibo">
+                      
+                        <i class="fa fa-fw fa-globe"></i>weibo</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://onevcat.com/#blog" title="OneV's Den" target="_blank">OneV's Den</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.zybuluo.com/Rookie/note/826624" title="我的简历" target="_blank">我的简历</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://rookie.live/Love/index.html" title="My Love" target="_blank">My Love</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#规范"><span class="nav-number">1.</span> <span class="nav-text">规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#书写规范"><span class="nav-number">2.</span> <span class="nav-text">书写规范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#编码方式统一用UTF-8-Android-Studio默认已是UTF-8，只要不去改动它就可以了。"><span class="nav-number">2.1.</span> <span class="nav-text">编码方式统一用UTF-8. Android Studio默认已是UTF-8，只要不去改动它就可以了。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#花括号不要单独一行，和它前面的代码同一行。而且，花括号与前面的代码之间用一个空格隔开。"><span class="nav-number">2.2.</span> <span class="nav-text">花括号不要单独一行，和它前面的代码同一行。而且，花括号与前面的代码之间用一个空格隔开。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#空格使用"><span class="nav-number">2.3.</span> <span class="nav-text">空格使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#空行的使用"><span class="nav-number">2.4.</span> <span class="nav-text">空行的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#当一个表达式无法容纳在一行内时，可换行显示，另起的新行用8个空格缩进。"><span class="nav-number">2.5.</span> <span class="nav-text">当一个表达式无法容纳在一行内时，可换行显示，另起的新行用8个空格缩进。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一行声明一个变量，不要一行声明多个变量，这样有利于写注释。"><span class="nav-number">2.6.</span> <span class="nav-text">一行声明一个变量，不要一行声明多个变量，这样有利于写注释。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用快捷键进行代码自动格式化。"><span class="nav-number">2.7.</span> <span class="nav-text">使用快捷键进行代码自动格式化。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#范围型的常量用枚举类定义，而不要直接用整型或字符，这样可以减少范围值的有效性检查。"><span class="nav-number">2.8.</span> <span class="nav-text">范围型的常量用枚举类定义，而不要直接用整型或字符，这样可以减少范围值的有效性检查。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串和颜色设置"><span class="nav-number">2.9.</span> <span class="nav-text">字符串和颜色设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命名规范"><span class="nav-number">3.</span> <span class="nav-text">命名规范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#包命名"><span class="nav-number">3.1.</span> <span class="nav-text">包命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类和接口命名"><span class="nav-number">3.2.</span> <span class="nav-text">类和接口命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法命名"><span class="nav-number">3.3.</span> <span class="nav-text">方法命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常量命名"><span class="nav-number">3.4.</span> <span class="nav-text">常量命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量命名"><span class="nav-number">3.5.</span> <span class="nav-text">变量命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控件id命名"><span class="nav-number">3.6.</span> <span class="nav-text">控件id命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#layout命名"><span class="nav-number">3.7.</span> <span class="nav-text">layout命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#strings的命名"><span class="nav-number">3.8.</span> <span class="nav-text">strings的命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#colors的命名"><span class="nav-number">3.9.</span> <span class="nav-text">colors的命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#drawable的命名"><span class="nav-number">3.10.</span> <span class="nav-text">drawable的命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动画文件命名"><span class="nav-number">3.11.</span> <span class="nav-text">动画文件命名</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注释规范"><span class="nav-number">4.</span> <span class="nav-text">注释规范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件头注释"><span class="nav-number">4.1.</span> <span class="nav-text">文件头注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类和接口注释"><span class="nav-number">4.2.</span> <span class="nav-text">类和接口注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义注释"><span class="nav-number">4.3.</span> <span class="nav-text">自定义注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类和接口注释-1"><span class="nav-number">4.4.</span> <span class="nav-text">类和接口注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法注释"><span class="nav-number">4.5.</span> <span class="nav-text">方法注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量和常量注释"><span class="nav-number">4.6.</span> <span class="nav-text">变量和常量注释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">5.</span> <span class="nav-text">参考链接:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#附件"><span class="nav-number">5.1.</span> <span class="nav-text">附件</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rookie</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://rookie-liu.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://www.rookie.live/2018/04/11/androidspecification/';
+          this.page.identifier = '2018/04/11/androidspecification/';
+          this.page.title = 'Android开发规范';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://rookie-liu.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

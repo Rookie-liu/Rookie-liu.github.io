@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="国际化," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Rookie`Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="keywords" content="国际化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS 国际化">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.rookie.live&#x2F;2015&#x2F;05&#x2F;25&#x2F;internationalization&#x2F;index.html">
+<meta property="og:site_name" content="Rookie&#96;Blog">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlog2.png?imageView2&#x2F;1&#x2F;w&#x2F;600&#x2F;h&#x2F;200">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlog4.png?imageView2&#x2F;1&#x2F;w&#x2F;600&#x2F;h&#x2F;400">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlog5.png?imageView2&#x2F;1&#x2F;w&#x2F;600&#x2F;h&#x2F;400">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlog6.png?imageView2&#x2F;1&#x2F;w&#x2F;600&#x2F;h&#x2F;400">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlog3.png?imageView2&#x2F;1&#x2F;w&#x2F;600&#x2F;h&#x2F;400">
+<meta property="og:updated_time" content="2015-09-30T10:21:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlog2.png?imageView2&#x2F;1&#x2F;w&#x2F;600&#x2F;h&#x2F;200">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.rookie.live/2015/05/25/internationalization/"/>
+
+
+
+
+
+  <title>iOS 国际化 | Rookie`Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Rookie`Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Always believe that something wonderful is about to happen</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            Commonweal 404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.rookie.live/2015/05/25/internationalization/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rookie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rookie`Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS 国际化</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-05-25T12:20:47+08:00">
+                2015-05-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/05/25/internationalization/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2015/05/25/internationalization/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlog2.png?imageView2/1/w/600/h/200" />
+<a id="more"></a>
+
+<h2 id="国际化-vs-本地化"><a href="#国际化-vs-本地化" class="headerlink" title="国际化 vs 本地化"></a>国际化 vs 本地化</h2><p>（Internationalization vs Localization）</p>
+<p>简单说，国际化是一个应用程序国际兼容性设计的过程，比如：</p>
+<ol>
+<li>以用户母语处理文本输入和输出；</li>
+<li>处理不同的日期、时间以及数字格式；</li>
+<li>利用适当的历法和时区处理数据；<br>国际化是一项你和开发者通过利用系统提供的API来实现的活动，并在代码上做一些补充和修改，从而让应用的中文版、阿拉伯语版本和英文版一样好。</li>
+</ol>
+<p>相比之下，本地化仅仅是把应用的用户界面和资源翻译成不同的语言，这是你可以也应该交给别人做的工作，除非你能精通app应该支持的每种语言。<br><code>使用本地国际化还有一个好处就是在你的程序中许多字符串命名都可以放在Localizable.strings中</code><br><code>在字符串命名的时候只需要调用一个 key 就可以进行赋值,这样可以方便集中管理字符串!</code></p>
+<p>多语言在应用程序中一般有两种做法：</p>
+<ul>
+<li>程序中提供给用户自己选择的机会；</li>
+<li>根据当前用户当前移动设备的语言自动将我们的app切换对应语言。</li>
+</ul>
+<p>第一种做法比较简单完全靠自己的发挥了，这里主要讲第二种做法，主要分一下几点：</p>
+<ol>
+<li>本地化应用程序名称</li>
+<li>本地化字符串</li>
+<li>本地化图片</li>
+<li>本地化其他文件</li>
+</ol>
+<h2 id="本地化字符串"><a href="#本地化字符串" class="headerlink" title="本地化字符串"></a>本地化字符串</h2><ol>
+<li>创建国际化语言文件：文件名必须为：Localizable.strings<br><code>这里如果不使用这个名字来命名,如果你使用的是自定义名字的.strings，比如MyApp.strings，</code><br><code>那么你在程序中可以这样获取字符串：NSLocalizedStringFromTable (@&quot;mykey&quot;,@&quot;MyApp&quot;, nil)</code><br><code>这样即可获取到&quot;myvalue&quot;这个字符串，可以是任何语言。</code><img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlog4.png?imageView2/1/w/600/h/400" /></li>
+<li>选中Localizable.strings文件，在Utilites中，点击Localizable选项<img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlog5.png?imageView2/1/w/600/h/400" /></li>
+<li>创建English语言包。<br>创建后，你的Localizable.strings文件下将挂在英文的语言支持文件。<img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlog6.png?imageView2/1/w/600/h/400" /></li>
+<li>根据需要添加其他多国语言支持。<img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlog3.png?imageView2/1/w/600/h/400" />
+
+</li>
+</ol>
+<p><strong><em>添加语言支持。</em></strong><br>我们以我的文件为例：<br>在Localizable.strings(Chinese(Simplified))中，加入如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;play&quot;=&quot;播放&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>在Localizable.strings(English)中，加入如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;play&quot;=&quot;play&quot;;</span><br></pre></td></tr></table></figure>
+
+<p><strong><em>使用语言支持</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[self.textButton setTitle:NSLocalizedString(@&quot;play&quot;,@&quot;&quot;) forState:UIControlStateNormal];</span><br></pre></td></tr></table></figure>
+
+<p><strong><em>获得当前设备的语言</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 取得用户默认信息</span><br><span class="line">    NSUserDefaults *defaults = [ NSUserDefaults standardUserDefaults ];</span><br><span class="line">// 取得 iPhone 支持的所有语言设置</span><br><span class="line">NSArray *languages = [defaults objectForKey : @&quot;AppleLanguages&quot; ];</span><br><span class="line">NSLog (@&quot;%@&quot;, languages);</span><br><span class="line">    </span><br><span class="line">// 获得当前iPhone使用的语言</span><br><span class="line">NSString* currentLanguage = [languages objectAtIndex:0];</span><br><span class="line">NSLog(@&quot;当前使用的语言：%@&quot;,currentLanguage);</span><br></pre></td></tr></table></figure>
+
+<h2 id="本地化应用程序名称"><a href="#本地化应用程序名称" class="headerlink" title="本地化应用程序名称"></a>本地化应用程序名称</h2><ol>
+<li>点击“new file”然后在弹出窗口左侧选择IOS的resource项，在右侧就可以看到“String File”的图标。创建这个文件，命名为“InfoPlist”（一定是这个文件名） 就生成一个InfoPlist.strings文件；</li>
+<li>选中InfoPlist.strings 点击 XCode-&gt; View-&gt; Utilities -&gt; File Inspector,在Localization中点“+”，添加chinese （zh－Hans）类型的为简体中文，english 应该会自动添加上。然后在InfoPlish.strings 左边会多出一个三角形，点击展开后可以看到InfoPlish.strings(english)和InfoPlish.strings(chinese)两个版本的文件；</li>
+<li>在InfoPlish.strings(english)文件中加入： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">其中“Program”为英文应用程序名称，同理在InfoPlish.strings(chinese)文件中加入：</span><br><span class="line">    ```CFBundleDisplayName =&quot;应用程序&quot;;</span><br></pre></td></tr></table></figure>
+<code>其中“应用程序”为中文名称，注意：CFBundleDisplayName加不加双引号都行</code></li>
+<li>编辑Info.plist，添加一个新的属性Application has localized display name, 设置其类型为boolean，并将其value设置为YES即可</li>
+</ol>
+<h2 id="本地化图片"><a href="#本地化图片" class="headerlink" title="本地化图片"></a>本地化图片</h2><p>这里又分两种方法，第一种和本地化字符串方法类似，把中英文图片的名字分别存到中英文对应的strings文件，然后通过NSLocalizedString)来获取图片名称，如：</p>
+<p>Localizable.strings(english)文件中加入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;BtnCancel&quot;=&quot;BtnCancelEn.png&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>Localizable.strings(chinese)文件中加入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;BtnCancel&quot;=&quot;BtnCancelCn.png&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>然后在代码中使用NSLocalizedString)来获取图片名称：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CCSprite *btnCancel = [CCSprite spriteWithSpriteFrameName:NSLocalizedString(@&quot;BtnCancel&quot;, nil)];  </span><br><span class="line">btnCancel.position=ccp(s.width/2,s.height/2-40);  </span><br><span class="line">[self addChild:btnCancel z:2 tag:104];</span><br></pre></td></tr></table></figure>
+
+<p>第二种就比较正规化了：点中你要本地化的图片，如<code>icon.png</code>，然后XCode-&gt; View-&gt; Utilities -&gt; File Inspector，在<code>Localization</code>中点“+”添加chinese （zh－Hans）；在图片左边就会出现一个倒三角，点开就会出现（english）和（chinese）的2张图，并且在项目文件夹中会出现en.lproj文件和zh-Hans.lproj文件；en.lproj文件存放的是英文版图片，zh-Hans.lproj存放的是中文版图片，中英文图片名字一样，<code>我们在文件夹中直接替换图片就可以了</code>，最后使用时直接使用正常名字就行了，如：“icon.png”。</p>
+<h2 id="本地化其他文件"><a href="#本地化其他文件" class="headerlink" title="本地化其他文件"></a>本地化其他文件</h2><p>本地化其他文件和本地化图片第二种方法类似，先在Localization中添加语言，然后把对应版本拷贝到en.lproj和zh-Hans.lproj文件夹中，最后引用就行了。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%9B%BD%E9%99%85%E5%8C%96/" rel="tag"># 国际化</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/05/22/performAND-dispatch/" rel="next" title="iOS 中的多线程">
+                <i class="fa fa-chevron-left"></i> iOS 中的多线程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/05/27/PureLayout/" rel="prev" title="使用PureLayout进行自动布局">
+                使用PureLayout进行自动布局 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Rookie" />
+            
+              <p class="site-author-name" itemprop="name">Rookie</p>
+              <p class="site-description motion-element" itemprop="description">Sometimes, the correct path is the tortured one.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/rookie-liu" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:Rookie_liu@126.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/rookie_liu" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/5973718613" target="_blank" title="weibo">
+                      
+                        <i class="fa fa-fw fa-globe"></i>weibo</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://onevcat.com/#blog" title="OneV's Den" target="_blank">OneV's Den</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.zybuluo.com/Rookie/note/826624" title="我的简历" target="_blank">我的简历</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://rookie.live/Love/index.html" title="My Love" target="_blank">My Love</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#国际化-vs-本地化"><span class="nav-number">1.</span> <span class="nav-text">国际化 vs 本地化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地化字符串"><span class="nav-number">2.</span> <span class="nav-text">本地化字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地化应用程序名称"><span class="nav-number">3.</span> <span class="nav-text">本地化应用程序名称</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地化图片"><span class="nav-number">4.</span> <span class="nav-text">本地化图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地化其他文件"><span class="nav-number">5.</span> <span class="nav-text">本地化其他文件</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rookie</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://rookie-liu.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://www.rookie.live/2015/05/25/internationalization/';
+          this.page.identifier = '2015/05/25/internationalization/';
+          this.page.title = 'iOS 国际化';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://rookie-liu.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

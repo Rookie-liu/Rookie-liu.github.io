@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="ios 调试," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Rookie`Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="keywords" content="ios 调试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS 开发者旅途中的指南针 - LLDB 调试技术">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.rookie.live&#x2F;2015&#x2F;08&#x2F;16&#x2F;LLDB&#x2F;index.html">
+<meta property="og:site_name" content="Rookie&#96;Blog">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlogFE81B772-9957-42C6-BA15-AE7630D0DCF0.png?imageView2&#x2F;1&#x2F;w&#x2F;600&#x2F;h&#x2F;200">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.swiftcafe.io&#x2F;images&#x2F;lldb&#x2F;lldb_1.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.swiftcafe.io&#x2F;images&#x2F;lldb&#x2F;lldb_2.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.swiftcafe.io&#x2F;images&#x2F;lldb&#x2F;lldb_3.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.swiftcafe.io&#x2F;images&#x2F;lldb&#x2F;lldb_4.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.swiftcafe.io&#x2F;images&#x2F;lldb&#x2F;lldb_3.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.swiftcafe.io&#x2F;images&#x2F;lldb&#x2F;lldb_5.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.swiftcafe.io&#x2F;images&#x2F;lldb&#x2F;lldb_1.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.swiftcafe.io&#x2F;images&#x2F;lldb&#x2F;lldb_6.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.swiftcafe.io&#x2F;images&#x2F;lldb&#x2F;lldb_7.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.swiftcafe.io&#x2F;images&#x2F;lldb&#x2F;lldb_8.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.swiftcafe.io&#x2F;images&#x2F;lldb&#x2F;lldb_9.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.swiftcafe.io&#x2F;images&#x2F;lldb&#x2F;lldb_10.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.swiftcafe.io&#x2F;images&#x2F;lldb&#x2F;lldb_12.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.swiftcafe.io&#x2F;images&#x2F;lldb&#x2F;lldb_9.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.swiftcafe.io&#x2F;images&#x2F;lldb&#x2F;lldb_13.png">
+<meta property="og:updated_time" content="2015-09-30T10:21:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlogFE81B772-9957-42C6-BA15-AE7630D0DCF0.png?imageView2&#x2F;1&#x2F;w&#x2F;600&#x2F;h&#x2F;200">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.rookie.live/2015/08/16/LLDB/"/>
+
+
+
+
+
+  <title>iOS 开发者旅途中的指南针 - LLDB 调试技术 | Rookie`Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Rookie`Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Always believe that something wonderful is about to happen</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            Commonweal 404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.rookie.live/2015/08/16/LLDB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rookie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rookie`Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS 开发者旅途中的指南针 - LLDB 调试技术</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-08-16T12:00:19+08:00">
+                2015-08-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/08/16/LLDB/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2015/08/16/LLDB/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlogFE81B772-9957-42C6-BA15-AE7630D0DCF0.png?imageView2/1/w/600/h/200" />
+<a id="more"></a>
+
+<p>文章转载于:<a href="http://www.jianshu.com/p/75a2b63106ff" target="_blank" rel="noopener">iOS 开发者旅途中的指南针 - LLDB 调试技术</a></p>
+<p>今天给大家介绍的内容，无关乎任何功能性开发技术，但又对开发的效率影响至深，这就是调试技术。</p>
+<p>何为调试呢，比如我们用 <code>print</code> 函数在指定位置进行输出，来定位某些节点的变量内的取值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let result = parseJSON(&quot;[1,2,3]&quot;);</span><br><span class="line">print(result);</span><br><span class="line"></span><br><span class="line">result = parseJSON(&quot;error&quot;);</span><br><span class="line">print(result);4</span><br></pre></td></tr></table></figure>
+
+<p>相信我们大家看到类似这样的代码都不会陌生，估计为开发者朋友都会或多或少的用这样的方式对程序进行调试。</p>
+<p>这种方式有它的方便之处，就是我们不需要太多思考，需要跟踪某些地方的时候，直接输出就可以得到调试信息了。但这样做也有它的弊端，就是我们每次这样调试，都要反复的编译，运行，然后写进新的 print 语句，再继续编译，运行。反复的编译，运行会比较消耗时间。并且我们再调试完之后，很容易会忘记将调试语句删除，导致很多输出语句遗留再代码中，随着项目的长期进展后，这样会对项目后期的调试造成很多干扰。</p>
+<p>而且，当我们想再次调试这段区域的时候，我们不得不再次写上这些输出语句。而有时对于稍微复杂一些的调试场景，print 输出这样的方式，往往还不能太好的应对。</p>
+<p>那么有什么办法能解决这些麻烦呢，那就是<strong><em>调试技术</em></strong>，调试器几乎在大多数现代的开发环境中都会有，所以，iOS 开发也不例外，Xcode 环境为我们提供的对应调试工具就是 LLDB。</p>
+<p>###初识 LLDB</p>
+<p>LLDB 就是 XCode 为我们提供的调试工具。那么说了这么多，到底什么是调试工具呢？ 也许说调试器你可能会感到比较陌生，但说到断点，相信你就会听着比较耳熟了。我们还以刚才我们提到的代码为例：<br><img src="http://www.swiftcafe.io/images/lldb/lldb_1.png" /></p>
+<p>我们在第 23 行左边点击了一下，就创建了一个断点，这时我们再运行这个应用的时候，程序运行到这里就会被断点拦截：</p>
+<img src="http://www.swiftcafe.io/images/lldb/lldb_2.png" />
+并且在 Xcode 的命令行区域，显示了 (lldb) 提示符。
+
+<p>###基本调试操作<br>我们回到最初的问题，如果不使用 print 输出，我们怎么能得到 result 的值呢，这就是我们要讨论的断点调试机制了，我们先看一下 XCode 底部调试区域的几个按钮：</p>
+<img src="http://www.swiftcafe.io/images/lldb/lldb_3.png" />
+
+<p>*第一个按钮是继续的意思，会让程序从断点处恢复，继续往下运行，我们点了这个按钮后，应用就会恢复正常运行状态。</p>
+<p>*第二个按钮是(Step Over),单步执行的意思，每点这个按钮一次，程序就会从我们断点开始的地方，向下执行一步。</p>
+<p>*第三个按钮是 (Step In)，进入执行的意思，简单来说就是如果我们当前的断点在一个函数调用上，把么断点会继续进入这个函数的内部进行调试。</p>
+<p>*第四个按钮是(Step Out),跳出的意思, 就是如果我们当前再一个函数中，它会跳出当前的函数，回到函数的调用处。</p>
+<p>恩。。你说了这么多,完全听不懂啊</p>
+<p>没关系，我们一一道来，还是回到我们最初的需求，我们的断点现在停在给 result 变量赋值的这条语句中，断点所在位置的语句是还没有被执行的，所以我们需要点一下 Step Over 按钮(也就是我们刚才列出的四个按钮的第二个)，让程序执行一行代码。</p>
+<p>执行完这行代码后，我们的 <code>result</code> 变量就被赋值完成了。那么问题来了，我们怎么得到 <code>result</code> 变量中得内容呢？</p>
+<p>还记得我们的 LLDB 命令行么，我们使用一个叫做 po 的命令，就可以取到这个变量</p>
+<img src="http://www.swiftcafe.io/images/lldb/lldb_4.png" />
+
+<p>现在，我们使用 <code>LLDB</code> 命令达到了和 <code>print</code> 语句同样的效果，得到了<code>result</code> 变量的取值。那么问题又来了，这样做有什么好处呢，怎么感觉比直接使用 <code>print</code> 输出更麻烦了呢？</p>
+<p>###LLDB 探索之旅<br><code>LLDB</code> 为我们提供了很多方便使用的命令，我们再 <code>LLDB</code> 命令行中，输入 <code>help</code> 命令即可看到这些命令的帮助信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Debugger commands:</span><br><span class="line"></span><br><span class="line">  apropos           -- Find a list of debugger commands related to a particular</span><br><span class="line">                       word/subject.</span><br><span class="line">  breakpoint        -- A set of commands for operating on breakpoints. Also see</span><br><span class="line">                       _regexp-break.</span><br><span class="line">  command           -- A set of commands for managing or customizing the</span><br><span class="line">                       debugger commands.</span><br><span class="line">  disassemble       -- Disassemble bytes in the current function, or elsewhere</span><br><span class="line">                       in the executable program as specified by the user.</span><br><span class="line">  expression        -- Evaluate an expression (ObjC++ or Swift) in the current</span><br><span class="line">                       program context, using user defined variables and</span><br><span class="line">                       variables currently in scope.</span><br><span class="line">  frame             -- A set of commands for operating on the current thread&apos;s</span><br><span class="line">                       frames.</span><br><span class="line">  ...............</span><br></pre></td></tr></table></figure>
+<p>这里我们看到了<code>LLDB</code> 命令的列表，要想获得某个命令更详细的帮助，我们开可以输入 <code>help</code> 命令名, 比如我们输入 <code>help expression</code>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">help expression</span><br><span class="line">     Evaluate an expression (ObjC++ or Swift) in the current program context,</span><br><span class="line">     using user defined variables and variables currently in scope.  This</span><br><span class="line">     command takes &apos;raw&apos; input (no need to quote stuff).</span><br><span class="line"></span><br><span class="line">Syntax: expression &lt;cmd-options&gt; -- &lt;expr&gt;</span><br><span class="line"></span><br><span class="line">Command Options Usage:</span><br><span class="line">  expression [-AFLORTg] [-f &lt;format&gt;] [-G &lt;gdb-format&gt;] [-l &lt;language&gt;] [-a &lt;boolean&gt;] [-i &lt;boolean&gt;] [-t &lt;unsigned-integer&gt;] [-u &lt;boolean&gt;] [-v[&lt;description-verbosity&gt;]] [-d &lt;none&gt;] [-S &lt;boolean&gt;] [-D &lt;count&gt;] [-P &lt;count&gt;] [-Y[&lt;count&gt;]] [-V &lt;boolean&gt;] -- &lt;expr&gt;</span><br><span class="line">  expression [-AFLORTg] [-l &lt;language&gt;] [-a &lt;boolean&gt;] [-i &lt;boolean&gt;] [-t &lt;unsigned-integer&gt;] [-u &lt;boolean&gt;] [-d &lt;none&gt;] [-S &lt;boolean&gt;] [-D &lt;count&gt;] [-P &lt;count&gt;] [-Y[&lt;count&gt;]] [-V &lt;boolean&gt;] -- &lt;expr&gt;</span><br></pre></td></tr></table></figure>
+
+<p>就得到了关于 <code>expression</code> 命令的介绍。</p>
+<p>基本情况就说这么多，那么咱们就来实践一下，体验一下 <code>LLDB</code> 的强大之处。</p>
+<p>我们来看一个更强大的命令 <code>expression</code>, 我们来看一下它的描述：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Evaluate an expression (ObjC++ or Swift) in the current program context,</span><br><span class="line">using user defined variables and variables currently in scope. This</span><br><span class="line">command takes &apos;raw&apos; input (no need to quote stuff).</span><br></pre></td></tr></table></figure>
+
+<p>翻译一下哈，意思就是在当前程序环境中，执行任何的表达式，并且可以定义和操作已存在的变量。</p>
+<p>怎么样，让我说的更具体吧，有了 <code>LLDB</code>我们不但可以在断点处输出某个变量的值，我们还可以修改甚至重新定义某些变量的值。</p>
+<p>咱们开始吧，将我们刚才的程序做一下修改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var result = parseJSON(&quot;[1,2,3]&quot;);</span><br><span class="line"></span><br><span class="line">if result?.count == 0 &#123;</span><br><span class="line"></span><br><span class="line">    print(&quot;No Data&quot;);</span><br><span class="line"></span><br><span class="line">&#125;else&#123;</span><br><span class="line"></span><br><span class="line">    print(result);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们这里对 <code>result</code> 变量进行了判断，并进行了分别的输出。下面我们以让将断点设置到第一个语句上，然后运行程序。再断点处我们用 <code>po</code>命令来打印出 <code>result</code> 的值。</p>
+<p>这时候，<code>result</code> 中的值，应该是解析后的 <code>JSON</code> 数组。所以我们恢复程序执行后，接下来的<code>if</code> 判断会走第二个分支，输出 <code>result</code> 中的内容。</p>
+<p>那么如果我们在刚才断点时候，运行这个命令呢</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">e result = []</span><br></pre></td></tr></table></figure>
+<p>这里我们将 <code>result</code>的值修改为一个空数组，然后我们继续程序，接着你会发现，下面的 <code>if</code> 判断走了第一个分支，也就是说我们在断点处对变量进行的修改，是对全局程序生效的。</p>
+<p><strong><em>怎么样这个能力是我们之前的调试方法不能达到的吧~</em></strong></p>
+<p><code>我们上面的 e 命令是 expression 命令的缩写，详情可以参考 LLDB help 命令的帮助。</code></p>
+<p>###控制流快捷命令<br>我们继续探索，还记得前面我们提到的几个控制流按钮吗，也就是这张图片</p>
+<img src="http://www.swiftcafe.io/images/lldb/lldb_3.png" />
+
+<p>在 LLDB 命令行中，对于每个流程控制按钮都有相应的命令。</p>
+<p>*<code>n</code> 命令，代表 Step Over 操作。</p>
+<p>*<code>s</code> 命令，代表 Step Into 操作。</p>
+<p>*<code>finish</code> 命令，代表 Step Out 操作。</p>
+<p>*<code>c</code> 命令，代表恢复程序执行操作。</p>
+<p><strong><em>我们还是以这个程序为例，这次我们使用控制流命令来进行操作</em></strong><br><img src="http://www.swiftcafe.io/images/lldb/lldb_5.png" /></p>
+<p>我们运行这个程序，然后在断点检测到时，按照下面的顺序输入 LLDB 命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s</span><br><span class="line">n</span><br><span class="line">n</span><br><span class="line">c</span><br></pre></td></tr></table></figure>
+<p>我们第一个输入的<code>s</code> 命令，会步入 <code>parseJSON</code> 函数的调用，然后断点就会进入<code>parseJSON</code>函数中。</p>
+<p>随后，我们又输入了<code>n</code> 命令，由于 <code>parseJSON</code> 中只有一个 return 语句，那么控制流就会跳出 <code>parseJSON</code> 函数体，重新回到开始处。</p>
+<p>紧接着我们再次输入<code>n</code>命令，这时候程序就会将<code>parseJSON</code>的结果赋值给<code>result</code>。</p>
+<p>最后我们按下 <code>c</code> 命令，来恢复程序的执行。随后的<code>if</code>判断中就会按照相应的条件输出内容了。<br>怎么样，这样操作起来就比较方便了，我们不必用鼠标点来点去了，完全用键盘敲命令就可以完成控制流的操作了。</p>
+<p>###断点创建命令</p>
+<p>我们除了通过用鼠标在代码行的左边点击的方式创建断点以外，我们还可以使用 <code>LLDB</code> 来创建断点，比如要创建一个我们之前这样的断点：</p>
+<img src="http://www.swiftcafe.io/images/lldb/lldb_1.png" />
+
+<p>我们可以输入这样一条命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(lldb) breakpoint set -f ViewController.swift -l 28</span><br><span class="line">Breakpoint 2: where = Example`Example.ViewController.viewDidLoad (Example.ViewController)() -&gt; () + 478 at ViewController.swift:29, address= 0x000000010f74f61e</span><br></pre></td></tr></table></figure>
+<p>输入命令后，紧接着会有一行输出，告诉我们断点创建成功，并且显示了创建的新断点的位置等基本信息。</p>
+<p>这个命令也有简写形式：<code>b ViewController.swift:28</code></p>
+<p>我们还可以将断点直接设置到函数上，假设我们有这样一个函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">func add(a:Int, b:Int) -&gt; Int &#123;</span><br><span class="line"></span><br><span class="line">    return a + b;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们还可以这样设置断点：<code>b add</code></p>
+<p>这样就将断点设置再了 <code>add</code> 函数调用的开始位置。</p>
+<p>我们开可以设置符号断点,比如这样：<code>b -[NSArray objectAtIndex:]</code></p>
+<p>这个断点会将所有对于 <code>NSArray</code> 的 <code>objectAtIndex</code> 方法的调用设置为断点。这里包括我们开发者对它的调用，以及系统框架内部对它的调用。符号断点对于调试是一个很好用的工具，它能够跟踪那些我们引用的系统库中的代码出现的问题。</p>
+<p>我们还可以对已经创建的断点设置激发条件：<br><img src="http://www.swiftcafe.io/images/lldb/lldb_6.png" /></p>
+<p>我们上面设置的条件表示，只有在 <code>result</code> 的 <code>count</code> 属性等于 0 的时候，断点才会被激发。</p>
+<p>是不是觉得 <code>LLDB</code> 有点意思了呢。</p>
+<p>###开始探险</p>
+<p>那么现在我们就来用 <code>LLDB</code> 完成一些更加有意思的事情吧。</p>
+<p>我们首先创建一个示例项目:</p>
+<img src="http://www.swiftcafe.io/images/lldb/lldb_7.png" />
+
+<p>项目类型选择 <strong><strong>Single View Application</strong></strong></p>
+<p>然后点击 <strong><strong>Next</strong></strong>, 项目信息中的 <strong><strong>Language</strong></strong> 选择 <strong><strong>Swift</strong></strong>:</p>
+<img src="http://www.swiftcafe.io/images/lldb/lldb_8.png" />
+
+<p>点击 <strong><em>Next</em></strong> 然后出现项目存储位置的选择，选择一个你自己的存储位置。接下来我们在<strong>_ Main.storyboard_</strong> 中拖放一个 Button 放到右上角：</p>
+<img src="http://www.swiftcafe.io/images/lldb/lldb_9.png" />
+
+<p>随后，我们按住 <code>Option</code> 键，然后点击 <code>ViewController.swift</code> 文件，可以在设计界面旁边打开辅助界面。打开后，我们按住 <code>Control</code> 键，然后将我们刚刚创建的按钮拖动到代码视图中：</p>
+<img src="http://www.swiftcafe.io/images/lldb/lldb_10.png" />
+
+<p>然后松开鼠标按键，我们就会看到一个弹出菜单：</p>
+<img src="http://www.swiftcafe.io/images/lldb/lldb_12.png" />
+
+<p>我们将 <code>Connection</code> 的类型选择为 <code>Action</code>， <code>Name</code> 输入为<code>buttonClicked</code>，其他不用更改，然后点击`按钮。这样就完成了按钮事件的创建。</p>
+<p>接下来，我们运行应用，就可以看到这样的界面了：</p>
+<img src="http://www.swiftcafe.io/images/lldb/lldb_9.png" />
+
+<p>一切就绪，现在就可以展开我们的 LLDB 大法啦~</p>
+<p>其实我们还可以不通过断点的方式来打开 LLDB 命令行，在我们先将程序运行起来，然后我们看一下调试区域的按钮：</p>
+<img src="http://www.swiftcafe.io/images/lldb/lldb_13.png" />
+
+<p>注意下，蓝色的断点开关按钮右边还有一个暂停按钮，我们只需要点这个暂停按钮，就可以进入 LLDB 命令行调试状态。因为 LLDB 在 Xcode 运行中是一直驻留在后台的，所以我们其实是可以在任何时间都可以启动 LLDB 命令行的。</p>
+<p>打开 <code>LLDB</code> 命令行后，我们可以输入这个命令，打印出当前的视图层级（又学一招~）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(lldb) po [[[UIApplication sharedApplication] keyWindow] recursiveDescription]</span><br><span class="line">&lt;UIWindow: 0x7ffcd2f0f1e0; frame = (0 0; 375 667); gestureRecognizers = &lt;NSArray: 0x7ffcd2f10170&gt;; layer = &lt;UIWindowLayer: 0x7ffcd2f0ea80&gt;&gt;</span><br><span class="line">   | &lt;UIView: 0x7ffcd2c6dc10; frame = (0 0; 375 667); autoresize = W+H; layer = &lt;CALayer: 0x7ffcd2c17f10&gt;&gt;</span><br><span class="line">   |    | &lt;UIButton: 0x7ffcd2c6dfc0; frame = (20 62; 78 30); opaque = NO; autoresize = RM+BM; layer = &lt;CALayer: 0x7ffcd2c6bc10&gt;&gt;</span><br><span class="line">   |    |    | &lt;UIButtonLabel: 0x7ffcd2f15af0; frame = (16 6; 46 18); text = &apos;Button&apos;; opaque = NO; userInteractionEnabled = NO; layer = &lt;_UILabelLayer: 0x7ffcd2f16120&gt;&gt;</span><br><span class="line">   |    | &lt;_UILayoutGuide: 0x7ffcd2c6fae0; frame = (0 0; 0 20); hidden = YES; layer = &lt;CALayer: 0x7ffcd2c6faa0&gt;&gt;</span><br><span class="line">   |    | &lt;_UILayoutGuide: 0x7ffcd2c70740; frame = (0 667; 0 0); hidden = YES; layer = &lt;CALayer: 0x7ffcd2c6d3d0&gt;&gt;</span><br></pre></td></tr></table></figure>
+<p>大家仔细看一下，每个视图的标识中，都有一个 16进制的字符串，代表这个视图的 <code>ID</code>，比如这个：</p>
+<p><code>UIView: 0x7ffcd2c6dc10</code></p>
+<p>这个 ID 的作用非常的强大，得到了这个 ID， 我们就可以通过这个命令来得到这个视图的引用了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(lldb) e id $view = (id) 0x7fbd71432590</span><br></pre></td></tr></table></figure>
+
+<p>简单解释下，通过 <code>expressio</code>n命令(这里用缩写形式 e)，我们用 <code>View</code> 的 <code>ID</code> 值取得了这个 <code>View</code> 引用，并将它保存到 <code>$view</code> 变量中。</p>
+<p>我们得到了引用之后，就可以对这个视图进行很多的操作了，比如我们可以在运行时改变这个视图的背景色：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(lldb) e (void) [$view setBackgroundColor:[UIColor redColor]]</span><br></pre></td></tr></table></figure>
+
+<p>当然，我们运行完这条命令，界面上不会马上反应出来，我们还需要调用这个命令刷新一下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(lldb) e (void)[CATransaction flush]</span><br></pre></td></tr></table></figure>
+
+<p>这样，我们在看一下我们运行的程序，主界面的背景色变成红色了吧。</p>
+<p>我们甚至还可以用它来找到某些控件上添加的事件，我们找到我们自己添加的 UIBUtton 的 ID：</p>
+<p><code>UIButton: 0x7ffcd2c6dfc0</code></p>
+<p>然后运行下面的命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(lldb) e id $button = (id) 0x7ffcd2c6dfc0</span><br><span class="line"></span><br><span class="line">(lldb) po [$button  allTargets]</span><br><span class="line">&#123;(</span><br><span class="line">    &lt;lldb.ViewController: 0x7feff2d67330&gt;</span><br><span class="line">)&#125;</span><br></pre></td></tr></table></figure>
+<p>我们得到 UIButton 的引用后，然后又输出了他的 <code>allTargets</code> 属性，得到了这个<code>UIButton</code> 所对应的事件<code>target</code> 对象的地址，接下来我们再用刚刚得到的这个<code>target</code> 地址获取它的 <code>action</code> 属性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(lldb) po [$button actionsForTarget:(id)0x7feff2d67330 forControlEvent:0]</span><br><span class="line">&lt;__NSArrayM 0x7feff2c22350&gt;(</span><br><span class="line">buttonClicked:</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>我们这样就得到了，这个按钮所对应的方法名了。那么接下来，我们可以在这个方法上设置断点，或者用 LLDB 的运行时能力替换这个方法的实现等等。总之，对于我们调试应用来说，LLDB 是一个非常强大而高效的工具。这里只介绍了它的冰山一角，关于更多的内容，大家可以使用 help 命令，进行深入的研究。相信大家发挥聪明才智，能够发现更多它的强大之处。</p>
+<p>###一点点延展，关于 Chisel</p>
+<p>最后，再给大家延展一下。LLDB 本身的命令系统非常健壮，并且它还支持 Python 的脚本扩展，这样它又有了很不错的扩展性，我们可以根据自己的需要来扩展自己的脚本。</p>
+<p><a href="https://github.com/facebook/chisel" target="_blank" rel="noopener">Chisel</a> 正是 LLDB 扩展的一个典型例子，这是由 Facebook 团队开发的一个开源的 LLDB 的 Python 扩展集合，它再 LLDB 命令的基础上，又为我们提供了更加方便的操作接口。</p>
+<p>比如我们要打印当前的视图层级，如果用 LLDB 原生的命令，我们需要这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(lldb) po [[[UIApplication sharedApplication] keyWindow] recursiveDescription]</span><br></pre></td></tr></table></figure>
+
+<p><strong><strong>而 Chisel 为我们提供了更简洁的接口：</strong></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(lldb) pviews</span><br></pre></td></tr></table></figure>
+
+<p>同样的，这条用于刷新显示的命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(lldb) e (void)[CATransaction flush]</span><br></pre></td></tr></table></figure>
+
+<p>Chisel 也为我们提供了简便的接口：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(lldb) caflush</span><br></pre></td></tr></table></figure>
+
+<p>这里只给大家做一个简单的介绍，关于 Chisel 的更多内容，大家可以参看它的主页：<a href="https://github.com/facebook/chisel" target="_blank" rel="noopener">https://github.com/facebook/chisel</a></p>
+<p>LLDB 自身完善的命令行系统，以及它的扩展能力，都成为提升我们开发效率的利器。正确的使用好调试工具，一定会帮助我们快速的解决更多的问题。</p>
+<p>现在，通过 help 命令，来开始对 LLDB 命令行的探索吧，相信你能在这里发现更多的宝藏。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ios-%E8%B0%83%E8%AF%95/" rel="tag"># ios 调试</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/07/16/thirdToos/" rel="next" title="公司用中会用到的iOS开源库和第三方组件(不断更新...)">
+                <i class="fa fa-chevron-left"></i> 公司用中会用到的iOS开源库和第三方组件(不断更新...)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/09/29/SortingAlgorithm/" rel="prev" title="超声波传输技术">
+                超声波传输技术 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Rookie" />
+            
+              <p class="site-author-name" itemprop="name">Rookie</p>
+              <p class="site-description motion-element" itemprop="description">Sometimes, the correct path is the tortured one.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/rookie-liu" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:Rookie_liu@126.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/rookie_liu" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/5973718613" target="_blank" title="weibo">
+                      
+                        <i class="fa fa-fw fa-globe"></i>weibo</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://onevcat.com/#blog" title="OneV's Den" target="_blank">OneV's Den</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.zybuluo.com/Rookie/note/826624" title="我的简历" target="_blank">我的简历</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://rookie.live/Love/index.html" title="My Love" target="_blank">My Love</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rookie</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://rookie-liu.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://www.rookie.live/2015/08/16/LLDB/';
+          this.page.identifier = '2015/08/16/LLDB/';
+          this.page.title = 'iOS 开发者旅途中的指南针 - LLDB 调试技术';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://rookie-liu.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

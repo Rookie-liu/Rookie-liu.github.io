@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Rookie`Blog</title>
+  
+  <subtitle>Always believe that something wonderful is about to happen</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://www.rookie.live/"/>
+  <updated>2018-10-25T08:47:19.000Z</updated>
+  <id>http://www.rookie.live/</id>
+  
+  <author>
+    <name>Rookie</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>隐私权政策</title>
+    <link href="http://www.rookie.live/2018/10/25/privacyagreement/"/>
+    <id>http://www.rookie.live/2018/10/25/privacyagreement/</id>
+    <published>2018-10-25T08:45:14.000Z</published>
+    <updated>2018-10-25T08:47:19.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;隐私权政策&quot;&gt;&lt;a href=&quot;#隐私权政策&quot; class=&quot;headerlink&quot; title=&quot;隐私权政策&quot;&gt;&lt;/a&gt;隐私权政策&lt;/h2&gt;&lt;p&gt;2019年10月8日&lt;/p&gt;
+&lt;p&gt;青岛小茗科技有限公司（以下简称“我们”）深知个人信息对您的重要性，并会尽全力保护您的个人信息安全可靠。我们致力于维持您对我们的信任，恪守以下原则，保护您的个人信息：权责一致原则、目的明确原则、选择同意原则、最少够用原则、确保安全原则、主体参与原则、公开透明原则等。同时，我们承诺，我们将按业界成熟的安全标准，采取相应的安全保护措施来保护您的个人信息。&lt;/p&gt;
+&lt;p&gt;请在使用我们的产品（或服务）前，仔细阅读并了解本《隐私权政策》。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Apple" scheme="http://www.rookie.live/categories/Apple/"/>
+    
+    
+      <category term="Apple" scheme="http://www.rookie.live/tags/Apple/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>gradle各种版本下载</title>
+    <link href="http://www.rookie.live/2018/05/11/gradleDown/"/>
+    <id>http://www.rookie.live/2018/05/11/gradleDown/</id>
+    <published>2018-05-11T06:20:48.000Z</published>
+    <updated>2018-04-10T02:56:37.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;来气&quot;&gt;&lt;a href=&quot;#来气&quot; class=&quot;headerlink&quot; title=&quot;来气&quot;&gt;&lt;/a&gt;来气&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;经常缺少gradle包. 今天网络极佳,各种all版本都down下来. 自取自用, csdn 下载一个还需要积分, 要不要脸了还.&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://www.rookie.live/categories/Android/"/>
+    
+    
+      <category term="gradle下载" scheme="http://www.rookie.live/tags/gradle%E4%B8%8B%E8%BD%BD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android DataBinding使用详解</title>
+    <link href="http://www.rookie.live/2018/04/13/DataBindingan/"/>
+    <id>http://www.rookie.live/2018/04/13/DataBindingan/</id>
+    <published>2018-04-13T06:20:48.000Z</published>
+    <updated>2018-04-13T08:43:51.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;DataBinding是一个实现数据和UI绑定的框架，同时也是实现MVVM模式所依赖的工具。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://developer.android.com/topic/libraries/data-binding/index.html#data_binding_layout_files&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;官方文档&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://www.rookie.live/categories/Android/"/>
+    
+    
+      <category term="BinDing" scheme="http://www.rookie.live/tags/BinDing/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>为 Hexo 博客加入 Disqus 评论</title>
+    <link href="http://www.rookie.live/2018/04/13/hexoaddDisqus/"/>
+    <id>http://www.rookie.live/2018/04/13/hexoaddDisqus/</id>
+    <published>2018-04-13T06:20:48.000Z</published>
+    <updated>2018-04-09T14:47:08.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;http://wangkunlin.date/2017/03/23/hexo-use-disqus-comment/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;转自为 Hexo 博客加入 Disqus 评论&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;由于多说将于近期关闭服务，所以不得不切换其他的评论服务，重要通知: 多说即将关闭&lt;br&gt;链接内主要是说 “多说将于2017年6月1日正式关停服务” Google 搜了一下，好像用 Disqus 的也不少，考查了一下集成难度，感觉很容易集成，于是决定使用 Disqus&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="Hexo使用指南" scheme="http://www.rookie.live/categories/Hexo%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/"/>
+    
+    
+      <category term="Disqus 评论" scheme="http://www.rookie.live/tags/Disqus-%E8%AF%84%E8%AE%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android开发规范</title>
+    <link href="http://www.rookie.live/2018/04/11/androidspecification/"/>
+    <id>http://www.rookie.live/2018/04/11/androidspecification/</id>
+    <published>2018-04-11T06:20:48.000Z</published>
+    <updated>2018-04-11T03:28:54.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;规范&quot;&gt;&lt;a href=&quot;#规范&quot; class=&quot;headerlink&quot; title=&quot;规范&quot;&gt;&lt;/a&gt;规范&lt;/h2&gt;&lt;p&gt;项目中规范是必须存在的. 保持可读性,易于维护,利人利己.为了有利于项目维护、增强代码可读性、提升 Code Review 效率以及规范团队安卓开发&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://www.rookie.live/categories/Android/"/>
+    
+    
+      <category term="开发规范" scheme="http://www.rookie.live/tags/%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Google推荐——Glide使用详解</title>
+    <link href="http://www.rookie.live/2018/03/23/Glideuse/"/>
+    <id>http://www.rookie.live/2018/03/23/Glideuse/</id>
+    <published>2018-03-23T06:20:48.000Z</published>
+    <updated>2018-04-09T14:22:52.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;一、简介&quot;&gt;&lt;a href=&quot;#一、简介&quot; class=&quot;headerlink&quot; title=&quot;一、简介&quot;&gt;&lt;/a&gt;一、简介&lt;/h2&gt;&lt;p&gt;Glide，一个被google所推荐的图片加载库，作者是bumptech。这个库被广泛运用在google的开源项目中，包括2014年的google I/O大会上发布的官方app。（PS：众所周知的简介就到此为止了）&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://www.rookie.live/categories/Android/"/>
+    
+    
+      <category term="Glide使用详解" scheme="http://www.rookie.live/tags/Glide%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android基础：Fragment，看这篇就够了</title>
+    <link href="http://www.rookie.live/2018/02/15/Fragmentst/"/>
+    <id>http://www.rookie.live/2018/02/15/Fragmentst/</id>
+    <published>2018-02-15T06:20:48.000Z</published>
+    <updated>2018-04-09T13:58:58.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://xiazdong.github.io/2017/06/15/android-fragment/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;原文链接&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;基本概念&quot;&gt;&lt;a href=&quot;#基本概念&quot; class=&quot;headerlink&quot; title=&quot;基本概念&quot;&gt;&lt;/a&gt;基本概念&lt;/h3&gt;&lt;p&gt;Fragment，简称碎片，是Android 3.0（API 11）提出的，为了兼容低版本，support-v4库中也开发了一套Fragment API，最低兼容Android 1.6。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://www.rookie.live/categories/Android/"/>
+    
+    
+      <category term="Fragment" scheme="http://www.rookie.live/tags/Fragment/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android学习资源</title>
+    <link href="http://www.rookie.live/2018/01/15/Androidst/"/>
+    <id>http://www.rookie.live/2018/01/15/Androidst/</id>
+    <published>2018-01-15T06:20:48.000Z</published>
+    <updated>2018-04-09T13:51:47.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://github.com/zhujun2730/Android-Learning-Resources&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Android学习资源网站大全&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;Android学习资源网站大全&quot;&gt;&lt;a href=&quot;#Android学习资源网站大全&quot; class=&quot;headerlink&quot; title=&quot;Android学习资源网站大全&quot;&gt;&lt;/a&gt;Android学习资源网站大全&lt;/h1&gt;&lt;p&gt;整理了一些 Android 的博客链接、学习资源网站。&lt;strong&gt;站在巨人的肩膀上，会看得更远&lt;/strong&gt;。整理这一份资源也方便更多的Android开发者能享受到技术分享的力量。首先，在这里要感谢所有开源项目的作者，感谢Trinea，CodeKK，张明云，胡凯等等大大无私的技术分享，感谢所有乐于分享学习经验的人。最后，若有侵权，请联系本人，本人将及时删除侵权内容。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://www.rookie.live/categories/Android/"/>
+    
+    
+      <category term="Android学习" scheme="http://www.rookie.live/tags/Android%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android 开源项目分类汇总</title>
+    <link href="http://www.rookie.live/2018/01/15/androidhuiong/"/>
+    <id>http://www.rookie.live/2018/01/15/androidhuiong/</id>
+    <published>2018-01-15T06:20:48.000Z</published>
+    <updated>2018-04-09T13:56:41.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Android-开源项目分类汇总，更全更新可见-codekk-com&quot;&gt;&lt;a href=&quot;#Android-开源项目分类汇总，更全更新可见-codekk-com&quot; class=&quot;headerlink&quot; title=&quot;Android 开源项目分类汇总，更全更新可见 codekk.com&quot;&gt;&lt;/a&gt;Android 开源项目分类汇总，更全更新可见 &lt;a href=&quot;http://p.codekk.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;codekk.com&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Other: &lt;a href=&quot;https://github.com/Trinea/android-open-project/tree/master/English%20Version&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;English Version&lt;/a&gt;, &lt;a href=&quot;https://github.com/Trinea/android-open-project/tree/master/%E7%B9%81%E9%AB%94%E4%B8%AD%E6%96%87%E7%89%88&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;繁體版&lt;/a&gt;, &lt;a href=&quot;http://p.codekk.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Website Version&lt;/a&gt;.    &lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://www.rookie.live/categories/Android/"/>
+    
+    
+      <category term="Android项目汇总" scheme="http://www.rookie.live/tags/Android%E9%A1%B9%E7%9B%AE%E6%B1%87%E6%80%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>六度空间理论：通过六个人你就能够认识任何一个陌生人</title>
+    <link href="http://www.rookie.live/2017/12/24/liudukongjian/"/>
+    <id>http://www.rookie.live/2017/12/24/liudukongjian/</id>
+    <published>2017-12-24T06:20:48.000Z</published>
+    <updated>2018-04-09T13:47:07.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;SNS是什么意思&quot;&gt;&lt;a href=&quot;#SNS是什么意思&quot; class=&quot;headerlink&quot; title=&quot;SNS是什么意思&quot;&gt;&lt;/a&gt;SNS是什么意思&lt;/h2&gt;&lt;p&gt;SNS有两种解释：&lt;br&gt;1、SNS(Social Networking Services)即社会性网络服务，专指旨在帮助人们建立社会性网络的互联网应用服务。也应加上目前社会现有已成熟普及的信息载体，如短信SMS服务。&lt;br&gt;2、SNS（Social Network Site）即“社交网站”或“社交网”。&lt;br&gt;SNS是根据六度分割理论，创立的面向社会性网络的互联网服务，通过“熟人的熟人”来进行网络社交拓展。但现在一般所谓的SNS，其含义已经大大扩展。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="六度空间" scheme="http://www.rookie.live/categories/%E5%85%AD%E5%BA%A6%E7%A9%BA%E9%97%B4/"/>
+    
+    
+      <category term="六度空间" scheme="http://www.rookie.live/tags/%E5%85%AD%E5%BA%A6%E7%A9%BA%E9%97%B4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何理解「墨菲定律」？</title>
+    <link href="http://www.rookie.live/2017/11/04/mofei/"/>
+    <id>http://www.rookie.live/2017/11/04/mofei/</id>
+    <published>2017-11-04T06:20:48.000Z</published>
+    <updated>2018-04-09T13:45:22.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;墨菲定律（Murphy’s Law），亦称莫非定律、莫非定理、或摩菲定理，是西方世界常用的俚语。墨菲定律主要内容是：事情如果有变坏的可能，不管这种可能性有多小，它总会发生（Anything that can go wrong will go wrong）。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="墨菲定律" scheme="http://www.rookie.live/categories/%E5%A2%A8%E8%8F%B2%E5%AE%9A%E5%BE%8B/"/>
+    
+    
+      <category term="墨菲定律" scheme="http://www.rookie.live/tags/%E5%A2%A8%E8%8F%B2%E5%AE%9A%E5%BE%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>广告页面开发员原理</title>
+    <link href="http://www.rookie.live/2017/10/15/iosadvertising/"/>
+    <id>http://www.rookie.live/2017/10/15/iosadvertising/</id>
+    <published>2017-10-15T06:20:48.000Z</published>
+    <updated>2018-04-09T13:43:21.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;iOS的通知是一个神器，它会发出应用的启动，退到后台等事件通知，有了通知我们就可以做到对AppDelegate的无入侵。只有通知还是没有用的，我们还需要显示。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="iOS开发" scheme="http://www.rookie.live/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Xcode" scheme="http://www.rookie.live/tags/Xcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS架构实践干货</title>
+    <link href="http://www.rookie.live/2017/09/25/iosarchitecture/"/>
+    <id>http://www.rookie.live/2017/09/25/iosarchitecture/</id>
+    <published>2017-09-25T06:20:48.000Z</published>
+    <updated>2018-04-09T13:40:25.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://github.com/madaoCN/NonBaseClass-MVVM-ReactiveObjc&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;NonBaseClass-MVVM-ReactiveObjc&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;NonBaseClass-MVVM-ReactiveObjc&quot;&gt;&lt;a href=&quot;#NonBaseClass-MVVM-ReactiveObjc&quot; class=&quot;headerlink&quot; title=&quot;NonBaseClass-MVVM-ReactiveObjc&quot;&gt;&lt;/a&gt;NonBaseClass-MVVM-ReactiveObjc&lt;/h2&gt;
+    
+    </summary>
+    
+    
+      <category term="iOS开发" scheme="http://www.rookie.live/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Xcode" scheme="http://www.rookie.live/tags/Xcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS 中常用的宏</title>
+    <link href="http://www.rookie.live/2017/08/05/iosmacro/"/>
+    <id>http://www.rookie.live/2017/08/05/iosmacro/</id>
+    <published>2017-08-05T06:20:48.000Z</published>
+    <updated>2018-04-09T13:40:18.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;// 带方法名&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;#define NSLog(FORMAT, ...) &amp;#123;\&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];\&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[dateFormatter setDateStyle:NSDateFormatterMediumStyle];\&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[dateFormatter setTimeStyle:NSDateFormatterShortStyle];\&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[dateFormatter setDateFormat:@&amp;quot;HH:mm:ss:SSSSSS&amp;quot;]; \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;NSString *str = [dateFormatter stringFromDate:[NSDate date]];\&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;fprintf(stderr,&amp;quot;Debug----&amp;gt;&amp;gt;&amp;gt;&amp;gt; %s %s %d %s~ 打印 = %s\n&amp;quot;,[str UTF8String],[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__,__func__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);\&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+      <category term="iOS开发" scheme="http://www.rookie.live/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="宏" scheme="http://www.rookie.live/tags/%E5%AE%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iPhone手机十周年回顾</title>
+    <link href="http://www.rookie.live/2017/07/03/iphonehuigu/"/>
+    <id>http://www.rookie.live/2017/07/03/iphonehuigu/</id>
+    <published>2017-07-03T01:49:33.000Z</published>
+    <updated>2017-07-25T06:49:55.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;十年前的今天, 史蒂夫.乔布斯在2007年的 MacWorld大会上宣布了倍受期待的产品,他是iPod + phone + internet device 的结合体.这一代产品重新定义了手机. 在这十年中这部产品有哪些变化呢?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.zybuluo.com/Rookie/4qyl4do5sazoaa403sgi82s0/iphones_light.gif&quot; alt=&quot;iphones_light.gif-180.5kB&quot;&gt;&lt;br&gt;十年 iPhone 产品图&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="iOS开发" scheme="http://www.rookie.live/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="公众账号" scheme="http://www.rookie.live/tags/%E5%85%AC%E4%BC%97%E8%B4%A6%E5%8F%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>拿什么保护我们的成果</title>
+    <link href="http://www.rookie.live/2017/06/26/proourapp/"/>
+    <id>http://www.rookie.live/2017/06/26/proourapp/</id>
+    <published>2017-06-26T01:49:33.000Z</published>
+    <updated>2017-07-25T06:55:04.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;程序猿，色剂丝，地球上最苦逼的职业之一，当自己辛辛苦苦、没日没夜的赶工，如生孩子般辛苦的完成了App的制作，却在不久之后发现了很多在外观和设计理念上都足以以假乱真的App出现了，可能你的心里已经在画个圈圈诅咒那些抄袭者了，但却不知道该如何用实际行动去对付他们，真的没有办法去防止这种现象的出现，维护自己的权益吗&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="iOS开发" scheme="http://www.rookie.live/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="公众账号" scheme="http://www.rookie.live/tags/%E5%85%AC%E4%BC%97%E8%B4%A6%E5%8F%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Shell常用命令</title>
+    <link href="http://www.rookie.live/2017/06/13/sellmingling/"/>
+    <id>http://www.rookie.live/2017/06/13/sellmingling/</id>
+    <published>2017-06-13T01:49:33.000Z</published>
+    <updated>2017-07-25T01:50:30.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;查找删除&quot;&gt;&lt;a href=&quot;#查找删除&quot; class=&quot;headerlink&quot; title=&quot;查找删除&quot;&gt;&lt;/a&gt;查找删除&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;//删除文件夹下的所有 .svn 文件&lt;br&gt;find . -name “.svn” | xargs rm -Rf&lt;br&gt;//删除文件夹下的所有 .git 文件&lt;br&gt;find . -name “.git” | xargs rm -Rf&lt;br&gt;输入 touch .gitignore 在文件夹就生成了一个“.gitignore”文件。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="iOS开发" scheme="http://www.rookie.live/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="shell" scheme="http://www.rookie.live/tags/shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>服务器维护指南</title>
+    <link href="http://www.rookie.live/2017/05/12/servicepro/"/>
+    <id>http://www.rookie.live/2017/05/12/servicepro/</id>
+    <published>2017-05-12T01:49:33.000Z</published>
+    <updated>2017-07-25T07:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;随机密码生成&quot;&gt;随机密码生成&lt;/h3&gt;
+
+
+
+&lt;pre class=&quot;prettyprint hljs-dark&quot;&gt;&lt;code class=&quot;hljs cpp&quot;&gt;openssl rand -base64 &lt;span class=&quot;hljs-number&quot;&gt;32&lt;/span&gt;&lt;br&gt;date | md5sum&lt;br&gt;date +%s | sha256sum | base64 | head -c &lt;span class=&quot;hljs-number&quot;&gt;32&lt;/span&gt; ; echo&lt;br&gt;cat /dev/urandom | tr -dc _A-Z-a-z-&lt;span class=&quot;hljs-number&quot;&gt;0&lt;/span&gt;-&lt;span class=&quot;hljs-number&quot;&gt;9&lt;/span&gt;+$.?*&lt;span class=&quot;hljs-preprocessor&quot;&gt;#\/@! | head -c${&lt;span class=&quot;hljs-number&quot;&gt;1&lt;/span&gt;:-&lt;span class=&quot;hljs-number&quot;&gt;64&lt;/span&gt;};echo;&lt;/span&gt;&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+    
+      <category term="iOS开发" scheme="http://www.rookie.live/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="服务器" scheme="http://www.rookie.live/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS 项目添加 React Native</title>
+    <link href="http://www.rookie.live/2017/05/03/reactnativeaddios/"/>
+    <id>http://www.rookie.live/2017/05/03/reactnativeaddios/</id>
+    <published>2017-05-03T01:49:33.000Z</published>
+    <updated>2017-07-25T01:41:31.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;package-json-中的版本号&quot;&gt;&lt;a href=&quot;#package-json-中的版本号&quot; class=&quot;headerlink&quot; title=&quot;package.json 中的版本号&quot;&gt;&lt;/a&gt;package.json 中的版本号&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;name&amp;quot;: &amp;quot;testReactNative&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;version&amp;quot;: &amp;quot;0.0.1&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;private&amp;quot;: true,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;scripts&amp;quot;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;start&amp;quot;: &amp;quot;node node_modules/react-native/local-cli/cli.js start&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;dependencies&amp;quot;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;react&amp;quot;: &amp;quot;16.0.0-alpha.12&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;react-native&amp;quot;: &amp;quot;0.45.1&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+      <category term="iOS开发" scheme="http://www.rookie.live/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="reactnative" scheme="http://www.rookie.live/tags/reactnative/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我的作品</title>
+    <link href="http://www.rookie.live/2017/05/02/mycreation/"/>
+    <id>http://www.rookie.live/2017/05/02/mycreation/</id>
+    <published>2017-05-02T01:49:33.000Z</published>
+    <updated>2017-07-28T05:22:59.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;code&gt;有一部分软件已经下架或者需要硬件支持，如果不能下载请查看作品截图。&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&quot;小E办公&quot;&gt;&lt;a href=&quot;#小E办公&quot; class=&quot;headerlink&quot; title=&quot;小E办公&quot;&gt;&lt;/a&gt;小E办公&lt;/h3&gt;&lt;h4 id=&quot;作品链接&quot;&gt;&lt;a href=&quot;#作品链接&quot; class=&quot;headerlink&quot; title=&quot;作品链接&quot;&gt;&lt;/a&gt;作品链接&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;使用语言： OC 在线迭代中，内管OA软件&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://appsto.re/cn/XAjT-.i&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;App Store地址&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&quot;作品截图&quot;&gt;&lt;a href=&quot;#作品截图&quot; class=&quot;headerlink&quot; title=&quot;作品截图&quot;&gt;&lt;/a&gt;作品截图&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://static.zybuluo.com/Rookie/o6lrgh8fklqhxq7xuqehvpzb/image_1bm1onhtobbe1s14mj41drmtvv2d.png&quot; alt=&quot;image_1bm1onhtobbe1s14mj41drmtvv2d.png-731.1kB&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="iOS开发" scheme="http://www.rookie.live/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="作品" scheme="http://www.rookie.live/tags/%E4%BD%9C%E5%93%81/"/>
+    
+  </entry>
+  
+</feed>

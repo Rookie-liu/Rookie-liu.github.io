@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="DLNA," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Rookie`Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="keywords" content="DLNA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DLAN是什么">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.rookie.live&#x2F;2015&#x2F;10&#x2F;23&#x2F;DLNAIntroduce&#x2F;index.html">
+<meta property="og:site_name" content="Rookie&#96;Blog">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;2568189_DLNA.jpg?imageView2&#x2F;1&#x2F;w&#x2F;600&#x2F;h&#x2F;200">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;2568189_+1_thumb.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;2568189_+2_thumb.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;2568189_+3_thumb.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;2568189_8_thumb.jpg">
+<meta property="og:updated_time" content="2015-11-23T07:00:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;2568189_DLNA.jpg?imageView2&#x2F;1&#x2F;w&#x2F;600&#x2F;h&#x2F;200">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.rookie.live/2015/10/23/DLNAIntroduce/"/>
+
+
+
+
+
+  <title>DLAN是什么 | Rookie`Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Rookie`Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Always believe that something wonderful is about to happen</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            Commonweal 404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.rookie.live/2015/10/23/DLNAIntroduce/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rookie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rookie`Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">DLAN是什么</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-10-23T14:58:41+08:00">
+                2015-10-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/10/23/DLNAIntroduce/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2015/10/23/DLNAIntroduce/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <img src="http://7xisto.com1.z0.glb.clouddn.com/2568189_DLNA.jpg?imageView2/1/w/600/h/200" />
+
+<a id="more"></a>
+
+<blockquote>
+<ul>
+<li>DLNA最早由索尼、英特尔、微软等提出，全称是DIGITAL LIVING NETWORK ALLIANCE，旨在解决个人PC，消费电器，移动设备在内的无线网络和有线网络的互联互通，其实就是解决电脑和其他电子产品，比如手机、平板之间的通过无线或者有思安网络的互联互通，让我们的照片、视频、音乐能在以上设备中共享，使得数字媒体和内容服务的无限制的共享和增长成为可能</li>
+<li>DLNA并不是创造技术，而是形成一种解决的方案，一种大家可以遵守的规范。所以，其选择的各种技术和协议都是当前所应用很广泛的技术和协议。</li>
+<li>DLNA 成立于2003 年6 月24 日, 其前身是DHWG （Digital Home Working Group 数字家庭工作组），由Sony、Intel、Microsoft等发起成立、旨在解决个人PC ，消费电器，移动设备在内的无线网络和有线网络的互联互通，使得数字媒体和内容服务的无限制的共享和增长成为可能。DLNA的口号是Enjoy your music, photos and videos, anywhere anytime。</li>
+</ul>
+</blockquote>
+<h2 id="功能模块"><a href="#功能模块" class="headerlink" title="功能模块"></a>功能模块</h2><blockquote>
+<p>DMS　DMR　DMC　DMP<br>DMS：Digital Media Server 服务器<br>DMR：Digital Media Renderer 渲染器（受控端）<br>DMC：Digital Media Controller 控制器<br>DMP：Digital MediaPlayer 播放器（可理解为DMC+DMR）</p>
+</blockquote>
+<h2 id="组件构成"><a href="#组件构成" class="headerlink" title="组件构成"></a>组件构成</h2><table>
+<thead>
+<tr>
+<th>功能组建</th>
+<th>重要技术和协议</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Media</td>
+<td>Formats</td>
+</tr>
+<tr>
+<td>Media Format</td>
+<td>Required and Optional Format Profiles</td>
+</tr>
+<tr>
+<td>Device Discovery Control and Media Management</td>
+<td>Device Discovery and Control UPnP Device Architecture 1.0 Media Management and Control UPnP AV 1.0 and UPnP Printer:1</td>
+</tr>
+<tr>
+<td>Media Transport</td>
+<td>Media Transport HTTP (Mandatory) and RTP (Optional)</td>
+</tr>
+<tr>
+<td>Network Stack</td>
+<td>Networking IPv4 Suite</td>
+</tr>
+<tr>
+<td>Network Connectivity</td>
+<td>Connectivity Ethernet,802.11, and Bluetooth</td>
+</tr>
+</tbody></table>
+<h1 id="DLNA的5个功能组件"><a href="#DLNA的5个功能组件" class="headerlink" title="DLNA的5个功能组件"></a>DLNA的5个功能组件</h1><blockquote>
+<p>DLNA将其整个应用规定成5个功能组件。从下到上依次为：网络互连，网络协议，媒体传输，设备的发现控制和管理，媒体格式。</p>
+</blockquote>
+<h2 id="1-网络互连"><a href="#1-网络互连" class="headerlink" title="1. 网络互连"></a>1. 网络互连</h2><blockquote>
+<p>其规定了所接入网络的类型和协议。目前，主要包括：<br>有线网络：802.3.i/u 　<br>无线网络：802.11/a/b/g/n</p>
+</blockquote>
+<img src="http://7xisto.com1.z0.glb.clouddn.com/2568189_+1_thumb.jpg" />
+
+<h2 id="2-网络协议"><a href="#2-网络协议" class="headerlink" title="2. 网络协议"></a>2. 网络协议</h2><blockquote>
+<p>其规定了所使用的网络协议。目前，其规定必须支持IPv4。但是，考虑到地址空间等IPv4的缺点，将在不久的将来支持IPv6。当然，考虑已经存在的IPv4的诸多应用和设备。在未来的很长一段时间内同时支持IPv4和IPv6并保证IPv4和IPv6的互连的双重协议栈将会受到青睐。</p>
+</blockquote>
+<img src="http://7xisto.com1.z0.glb.clouddn.com/2568189_+2_thumb.jpg" />
+
+<h2 id="3-媒体传输"><a href="#3-媒体传输" class="headerlink" title="3. 媒体传输"></a>3. 媒体传输</h2><blockquote>
+<p>其规定了所有DLNA设备都必须支持使用HTTP协议进行媒体的传输。这将使得未来很长一段时间如何提高HTTP协议上高速安全的进行大数据量的传输成为一个课题。单纯就安全而然，TLS(安全传输层协议)也许是个不错的选择。另外，在IPv6的协议中IPSEC已经成为了一个必选项。这也在一定程度上解决了安全问题。不过好像使用软件做加解密的工作始终都不是个正确的选择。因为，在真正的应用中，很少有客户不对你的速度指手画脚。当然，同时你也可以使用RTP(实时传送协议)的其他专用的媒体流传输协议。但是，前提是你已经支持了HTTP协议下的传输。</p>
+</blockquote>
+<img src="http://7xisto.com1.z0.glb.clouddn.com/2568189_+3_thumb.jpg" />
+
+<h2 id="4-设备的发现"><a href="#4-设备的发现" class="headerlink" title="4. 设备的发现"></a>4. 设备的发现</h2><blockquote>
+<p>控制和媒体的管理。这个功能组件是最重要的一个层次。也许是由于英特尔是UPnP的发起者吧，所以，在其再次发起DLNA的时候，UPnP所有的东西当然其不会浪费了呀。是不是因为UPnP很长时间停留在协议阶段，很少有应用，IDG是个例外，英特尔才又来发起DLNA的呢，目前，其采用了UPnP Device Architecture 1.0和UPnP AV 1.0 and UPnP Printer:1。这只是UPnP论坛上一堆标准中的冰山一角了。将其UPnP的东西，好像还是蛮多的，这里就不详细讲了。总之，其通过一系列的步骤和协议来达到设备的发现和管理，同时也通过厂商定义的AV和Printer标准达到对媒体的管理。</p>
+</blockquote>
+<img src="http://7xisto.com1.z0.glb.clouddn.com/2568189_8_thumb.jpg" />
+
+<h2 id="5-媒体格式"><a href="#5-媒体格式" class="headerlink" title="5.媒体格式"></a>5.媒体格式</h2><blockquote>
+<p>这是最后的一个组件了。其规定了进行数字媒体和内容的共享和使用的时候的媒体格式。其必须支持的是：JPEG, LPCM(线性脉冲编码调制), MPEG2。其他可选的媒体格式。</p>
+</blockquote>
+<blockquote>
+<p>其他可选的媒体格式有：<br>　　Image JPEG PNG, GIF, TIFF<br>　　Audio LPCM AAC, AC-3, ATRAC 3plus, MP3, WMA9<br>　　AV MPEG2 MPEG-1, MPEG-4*, AVC, WMV9</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/DLNA/" rel="tag"># DLNA</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/09/29/SortingAlgorithm/" rel="next" title="超声波传输技术">
+                <i class="fa fa-chevron-left"></i> 超声波传输技术
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/12/16/useBlock/" rel="prev" title="block的原理介绍及使用">
+                block的原理介绍及使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Rookie" />
+            
+              <p class="site-author-name" itemprop="name">Rookie</p>
+              <p class="site-description motion-element" itemprop="description">Sometimes, the correct path is the tortured one.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/rookie-liu" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:Rookie_liu@126.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/rookie_liu" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/5973718613" target="_blank" title="weibo">
+                      
+                        <i class="fa fa-fw fa-globe"></i>weibo</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://onevcat.com/#blog" title="OneV's Den" target="_blank">OneV's Den</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.zybuluo.com/Rookie/note/826624" title="我的简历" target="_blank">我的简历</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://rookie.live/Love/index.html" title="My Love" target="_blank">My Love</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#功能模块"><span class="nav-number">1.</span> <span class="nav-text">功能模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件构成"><span class="nav-number">2.</span> <span class="nav-text">组件构成</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DLNA的5个功能组件"><span class="nav-number"></span> <span class="nav-text">DLNA的5个功能组件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-网络互连"><span class="nav-number">1.</span> <span class="nav-text">1. 网络互连</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-网络协议"><span class="nav-number">2.</span> <span class="nav-text">2. 网络协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-媒体传输"><span class="nav-number">3.</span> <span class="nav-text">3. 媒体传输</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-设备的发现"><span class="nav-number">4.</span> <span class="nav-text">4. 设备的发现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-媒体格式"><span class="nav-number">5.</span> <span class="nav-text">5.媒体格式</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rookie</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://rookie-liu.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://www.rookie.live/2015/10/23/DLNAIntroduce/';
+          this.page.identifier = '2015/10/23/DLNAIntroduce/';
+          this.page.title = 'DLAN是什么';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://rookie-liu.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="声波传输," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Rookie`Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="keywords" content="声波传输">
+<meta property="og:type" content="article">
+<meta property="og:title" content="超声波传输技术">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.rookie.live&#x2F;2015&#x2F;09&#x2F;29&#x2F;SortingAlgorithm&#x2F;index.html">
+<meta property="og:site_name" content="Rookie&#96;Blog">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;20150203003642717.png?imageView2&#x2F;1&#x2F;w&#x2F;600&#x2F;h&#x2F;200">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;tech_2.jpg?imageView2&#x2F;1&#x2F;w&#x2F;600&#x2F;h&#x2F;200">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;tech_3.jpg?imageView2&#x2F;1&#x2F;w&#x2F;600&#x2F;h&#x2F;200">
+<meta property="og:updated_time" content="2015-11-21T14:37:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;20150203003642717.png?imageView2&#x2F;1&#x2F;w&#x2F;600&#x2F;h&#x2F;200">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.rookie.live/2015/09/29/SortingAlgorithm/"/>
+
+
+
+
+
+  <title>超声波传输技术 | Rookie`Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Rookie`Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Always believe that something wonderful is about to happen</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            Commonweal 404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.rookie.live/2015/09/29/SortingAlgorithm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rookie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rookie`Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">超声波传输技术</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-09-29T17:24:52+08:00">
+                2015-09-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/09/29/SortingAlgorithm/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2015/09/29/SortingAlgorithm/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <img src="http://7xisto.com1.z0.glb.clouddn.com/20150203003642717.png?imageView2/1/w/600/h/200" />
+<a id="more"></a>
+
+
+<h2 id="手机超声波通信技术介绍："><a href="#手机超声波通信技术介绍：" class="headerlink" title="手机超声波通信技术介绍："></a>手机超声波通信技术介绍：</h2><p>手机超声波通信，指利用超声波技术在手机间传递信息，比如大家熟知的支付宝的声波支付就是典型的超声波通信技术。其原理很简单，一句话就是把一段时长的频率作为一种信号，发送方把信号编码成很多段等长的频率，通过播音设备发射出去；接收方通过录音设备录制声音，然后将等长的频率识别出来，最后还原成对应的信号。这样就做到了声波传输，比如现在我们的编码是32进制的（0-31），对应的频率我们设定为1k－4.1k，每个信号对应的时长为100ms，如果我们发射信号3，2，10，30则对应的频率为1.3k，1.2k，2k，4k，每段频率的时长为为100ms，接受端识别器的主要作用就是识别这些100ms的频率，然后还原成信号。声波传输是利用声音实现文件的快速传输的一套技术解决方案：采用跨平台的技术，实现任何能够发送声波与接收声波的智能设备之间的数据传输。</p>
+<h3 id="手机超声波通信功能介绍："><a href="#手机超声波通信功能介绍：" class="headerlink" title="手机超声波通信功能介绍："></a>手机超声波通信功能介绍：</h3><ol>
+<li>声波传输支持一对一传输，也支持一对多的传输。</li>
+<li>支持字母、数字、符号传输。</li>
+<li>在安静情况下，有效传输距离可以达到5米左右，在一般应用场景下也能达到很可观的识别距离。</li>
+<li>使用特殊的降噪算法，对噪声有很好的抑制作用，在汽车行驶过程中、公交车、食堂、大马路、办公场所等都可以达到良好的识别率。</li>
+<li>在一般应用场景下数据传输正确率达到98%以上。程序中添加了自动纠错算法，可以在一定程度上自动纠正传输中发现的错误，同时也能在一定程度上保证收到数据的正确性。</li>
+<li>支持的平台。目前该声波传输技术已经在iOS、OSX、Android、Windows、Linux、以及嵌入式平台（mips和arm指令集）上成功运行，并都有成功的商业案例。<br>7 .嵌入式特殊定制和优化。随着嵌入式智能设备的大量兴起（比如车载设备、智能摄像机、智能路由器等等），目前有大量的嵌入式应用需要集成声波传输功能，针对嵌入式平台我们专门对内存占用和运算效率作了优化，内存占用10K以内，cpu主频150M就可以顺利运行声波传输模块。</li>
+<li>可定制性强，比如对不同的频率、不同的声音、音量等等进行定制。</li>
+<li>超声波传输支持。我们可以为用户提供超声波传输版本，也即，在传输过程中听不到声音。</li>
+<li>还可以为用户提供声音的叠加功能，比如类似支付宝的咻咻功能，也可以为用户添加其他特殊的声音，比如狗叫、猫喵等等。比如发送一段信息，发出的是狗叫，对方收到的是信息。</li>
+</ol>
+<h2 id="声波传输如何工作？"><a href="#声波传输如何工作？" class="headerlink" title="声波传输如何工作？"></a>声波传输如何工作？</h2><p>声波传输技术由两部分组成：音频协议与网络协议。音频协议将待传数据编码为一系列选定频率的音调；网络协议则将数据以键值形式存入服务器，其中键为与数据唯一对应的10个字符。</p>
+<h3 id="音频协议"><a href="#音频协议" class="headerlink" title="音频协议"></a>音频协议</h3><p>音频协议的原理很简单，易于实现。建立一个含有32个字符（[0-9，a-v]）的表，并将每个字符映射到频率表。频率表是根据乐理，通过伴音的计算生成。</p>
+<p>0 = 1760hz</p>
+<p>1 = 1864hz</p>
+<p>…</p>
+<p>v = 10.5khz</p>
+<p>一个完整的声波包包含20个音（即20个字符），每87.2毫秒发一个音 。前两位为信息头，采用“hj”，用以通知接收端开始接收。中间10位为有效的信息位，是有效的传输信息，即Key值经过映射后的频率信息。最后8位为RS（Reed-Solomon）校验位，通过RS校验算法，对中间10位进行计算，生成8位的校验信息。。如下图：</p>
+<img src="http://7xisto.com1.z0.glb.clouddn.com/tech_2.jpg?imageView2/1/w/600/h/200" />
+
+<p>校验主要用来处理由于噪声干扰造成的信息接收错误。通过RS校验，可以纠正25%的错误信息。</p>
+<h3 id="发送端（编码器）"><a href="#发送端（编码器）" class="headerlink" title="发送端（编码器）"></a>发送端（编码器）</h3><p>发送端设备只需能够发送1.7khz到10.5khz的正弦声波即可。为了将发送出的声波变得更好听，可以对声音进行一些美化处理，比如在我们的例子中，采用了椭圆形窗对声波进行了音量上的优化。</p>
+<img src="http://7xisto.com1.z0.glb.clouddn.com/tech_3.jpg?imageView2/1/w/600/h/200" />
+
+<h3 id="接收端（解码器）"><a href="#接收端（解码器）" class="headerlink" title="接收端（解码器）"></a>接收端（解码器）</h3><p>接收端需要记录声音，并将其进行解码以及容错处理。其对算法的要求相对较高，降噪及容错处理对能否得到正确的解码信息是至关重要的。所以接收端需要一定的数字运算能力，对设备的硬件配置有一定的要求。对于算法的细节，我们会逐步的公开并开源。</p>
+<h3 id="超声波通信技术应用场景："><a href="#超声波通信技术应用场景：" class="headerlink" title="超声波通信技术应用场景："></a>超声波通信技术应用场景：</h3><h4 id="1-声波支付"><a href="#1-声波支付" class="headerlink" title="1.声波支付"></a>1.声波支付</h4><p>支付宝作为支付相关的应用的代表，相信声波支付功能很多人都用过，但对其原理不一定都了解。</p>
+<p>实现原理：声波支付听起来好像都是咻咻的声音，其实咻咻声并不是信息的载体，真正的信息是通过超声波传输的。比如A手机发起咻咻声（此时A也是不停的在循环发送信息），售货机B则在不停的监听。A手机在发送信息前，会先和后台服务器交互，把各种关键的交互信息上传到服务器，然后将要发送的信息加密（支付者的id信息），把加密后的信息转换成超声波，然后再叠加咻咻声，最后发送出去。B在正确收到A的信息后，解码成功后，就连接服务器，确认本次交易，确认成功后，支付生效。</p>
+<p>关键点：</p>
+<ol>
+<li>发送的是支付者的id信息，一般10个字符以内。</li>
+<li>发送信息的手机在不停的发送支付者的id。</li>
+</ol>
+<h4 id="2-传输文件"><a href="#2-传输文件" class="headerlink" title="2.传输文件"></a>2.传输文件</h4><p>chirp和茄子快传是最典型用于在手机间快速传递大量信息（不需要互联网）的应用，比如文件，视频等。茄子快传和chirp都可以传输大文件，但原理上有比较大的区别。</p>
+<p>实现原理：A手机发送文件给B手机。B是接收者，B首先建立wifi热点，然后建立sockt通道，最后把wifi用户名和密码通过声波发送出去（用户名和密码在10字符左右）。A处于监听状态，在收到声波，解码出wifi用户名和密码后，连接wifi热点，连接成功后，通过socket把文件发送给B。茄子快传和chirp的根本不同在于chirp高度依赖于互联网；而茄子快传则不需要互联网，仅需要wifi。</p>
+<p>关键点：</p>
+<ol>
+<li>发送的信息为10个字符左右的用户名和密码。</li>
+<li>接收者不停的在发送wifi用户名和密码。</li>
+<li>真正的信息传输是通过wifi传输的，声波作为握手的工具。</li>
+</ol>
+<h4 id="3-传输少量信息"><a href="#3-传输少量信息" class="headerlink" title="3.传输少量信息"></a>3.传输少量信息</h4><p>chirp是最典型的应用，比如两个应用之间直接传输少量的文本或者其他信息，原理和上面的差不多，我就不啰嗦了</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%A3%B0%E6%B3%A2%E4%BC%A0%E8%BE%93/" rel="tag"># 声波传输</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/08/16/LLDB/" rel="next" title="iOS 开发者旅途中的指南针 - LLDB 调试技术">
+                <i class="fa fa-chevron-left"></i> iOS 开发者旅途中的指南针 - LLDB 调试技术
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/10/23/DLNAIntroduce/" rel="prev" title="DLAN是什么">
+                DLAN是什么 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Rookie" />
+            
+              <p class="site-author-name" itemprop="name">Rookie</p>
+              <p class="site-description motion-element" itemprop="description">Sometimes, the correct path is the tortured one.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/rookie-liu" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:Rookie_liu@126.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/rookie_liu" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/5973718613" target="_blank" title="weibo">
+                      
+                        <i class="fa fa-fw fa-globe"></i>weibo</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://onevcat.com/#blog" title="OneV's Den" target="_blank">OneV's Den</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.zybuluo.com/Rookie/note/826624" title="我的简历" target="_blank">我的简历</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://rookie.live/Love/index.html" title="My Love" target="_blank">My Love</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#手机超声波通信技术介绍："><span class="nav-number">1.</span> <span class="nav-text">手机超声波通信技术介绍：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#手机超声波通信功能介绍："><span class="nav-number">1.1.</span> <span class="nav-text">手机超声波通信功能介绍：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#声波传输如何工作？"><span class="nav-number">2.</span> <span class="nav-text">声波传输如何工作？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#音频协议"><span class="nav-number">2.1.</span> <span class="nav-text">音频协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发送端（编码器）"><span class="nav-number">2.2.</span> <span class="nav-text">发送端（编码器）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接收端（解码器）"><span class="nav-number">2.3.</span> <span class="nav-text">接收端（解码器）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#超声波通信技术应用场景："><span class="nav-number">2.4.</span> <span class="nav-text">超声波通信技术应用场景：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-声波支付"><span class="nav-number">2.4.1.</span> <span class="nav-text">1.声波支付</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-传输文件"><span class="nav-number">2.4.2.</span> <span class="nav-text">2.传输文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-传输少量信息"><span class="nav-number">2.4.3.</span> <span class="nav-text">3.传输少量信息</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rookie</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://rookie-liu.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://www.rookie.live/2015/09/29/SortingAlgorithm/';
+          this.page.identifier = '2015/09/29/SortingAlgorithm/';
+          this.page.title = '超声波传输技术';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://rookie-liu.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

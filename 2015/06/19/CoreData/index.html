@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="CoreData," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Rookie`Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="keywords" content="CoreData">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CoreData的使用">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.rookie.live&#x2F;2015&#x2F;06&#x2F;19&#x2F;CoreData&#x2F;index.html">
+<meta property="og:site_name" content="Rookie&#96;Blog">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlog82FCE919-B434-43E7-9431-CAD40B1B9C43.png?imageView2&#x2F;1&#x2F;w&#x2F;600&#x2F;h&#x2F;200">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlogcoreData1.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlogCoreData2.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlog1111.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlog2222.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlog3333.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlog977850D3-78F9-458D-BCD6-FF89EE85B55B.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlogE3371886-865D-4723-82B8-5588ED0E8F59.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlogD15881DB-6F7E-47C3-B973-29EA8E632C99.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlogD06A804C-0F69-48CE-ABAD-ECA979532D40.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlog558A151A-B4D6-4834-A3B6-46A02646A2C8.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlog715558BF-0F75-42FD-AF07-7909C6E9C376.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlogFE009721-D88F-436D-8371-596E994AF24C.png">
+<meta property="og:updated_time" content="2015-09-30T10:21:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlog82FCE919-B434-43E7-9431-CAD40B1B9C43.png?imageView2&#x2F;1&#x2F;w&#x2F;600&#x2F;h&#x2F;200">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.rookie.live/2015/06/19/CoreData/"/>
+
+
+
+
+
+  <title>CoreData的使用 | Rookie`Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Rookie`Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Always believe that something wonderful is about to happen</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            Commonweal 404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.rookie.live/2015/06/19/CoreData/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rookie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rookie`Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CoreData的使用</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-06-19T17:09:41+08:00">
+                2015-06-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/06/19/CoreData/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2015/06/19/CoreData/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlog82FCE919-B434-43E7-9431-CAD40B1B9C43.png?imageView2/1/w/600/h/200" />
+<a id="more"></a>
+
+<h3 id="CoreData-是什么"><a href="#CoreData-是什么" class="headerlink" title="CoreData 是什么?"></a>CoreData 是什么?</h3><ul>
+<li>Core Data 是一个模型层的技术。Core Data 帮助你建立代表程序状态的模型层。Core Data 也是一种持久化技术，它能将模型对象的状态持久化到磁盘，但它最重要的特点是：Core Data 不仅是一个加载、保存数据的框架，它还能和内存中的数据很好的共事</li>
+<li>Core Data是iOS5之后才出现的一个框架，它提供了对象-关系映射(ORM)的功能，即能够将OC对象转化成数据，保存在SQLite数据库文件中，也能够将保存在数据库中的数据还原成OC对象。在此数据操作期间，我们不需要编写任何SQL语句.</li>
+</ul>
+<h3 id="CoreData-基本概念"><a href="#CoreData-基本概念" class="headerlink" title="CoreData 基本概念"></a>CoreData 基本概念</h3><ul>
+<li><p>托管对象（managed object）<br>一个托管对象代表你想要保存到数据存储中的一个对象。这在概念上类似于SQL中的一条记录， 并且通常也包含一些域，这些域对应于你想要保存的对象的属性。</p>
+</li>
+<li><p>数据存储（data store）<br>Core Data支持4中类型的数据存储：SQLiteStore, XMLStore, BinaryStore, InMemoryStore。</p>
+</li>
+<li><p>托管对象上下文(managed object context)<br>托管对象上下文类似于应用程序和数据存储之间的一块缓冲区。这块缓冲区包含所有未被写入数据存储的托管对象。你可以添加、删除、更改缓冲区内的托管对象。在很多时候，当你需要读、插入、删除对象时，你将会调用托管对象上下文的方法。<br><code>操作实际内容 作用：插入数据  查询  更新  删除</code></p>
+</li>
+<li><p>持久化存储协调器（persistent store coordinator）<br>持久化存储协调器处理到数据存储的连接，并且包含一些底层信息，像用到数据存储的名字和位置。这个类通常被托管对象上下文用到。<br><code>NSPersistentStoreCoordinator(持久化存储助理) 相当于数据库的连接器</code></p>
+</li>
+<li><p>托管对象模型(managed object model)<br>托管对象模型是一个类，这个类包含每一个你想存储到数据存储中的托管对象的定义。<br><code>NSManagedObjectModel(被管理的对象模型)相当于实体，不过它包含 了实体间的关系</code></p>
+</li>
+</ul>
+<p>这里有我写的一个简单的Dmeo <a href="http://pan.baidu.com/s/1o6iO6AA" target="_blank" rel="noopener">http://pan.baidu.com/s/1o6iO6AA</a> <a href="http://pan.baidu.com/s/1o6iO6AA" target="_blank" rel="noopener">这里下载</a>提取码 <strong><em>3k2z</em></strong> , 有兴趣的可以自己下载来看..<br>这个 Demo 主要讲的是 CoreData 的原理上的问题, 利用NSManagedObjectContext来实现增删改查等基本的原来,用起来不够整洁方便, 看起来也过于繁琐! <strong><em>下面我们来看一个比现在这个看起来相对简单的Demo, 然后流程我也会讲到!</em></strong></p>
+<h3 id="CoreData-的使用"><a href="#CoreData-的使用" class="headerlink" title="CoreData 的使用"></a>CoreData 的使用</h3><ul>
+<li><p>首先我们先创建两个实体 <strong><em>PeopleInfo</em></strong> 和 <strong><em>CarInfo</em></strong><br>PeopleInfo实体中有: name , age , sex 三个属性<br>CarInfo实体中有: carName, carAge  两个属性</p>
+</li>
+<li><p>然后建立 <strong><em>PeopleInfo</em></strong> 和 <strong><em>CarInfo</em></strong>的关联关系<br>我这里的关系是一个人可以有很多辆汽车  </p>
+</li>
+<li><p><strong>PeopleInfo*</strong> 的属性和关系表</p>
+<img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlogcoreData1.png" />
+
+</li>
+</ul>
+<p><strong><em>CarInfo</em></strong> 的属性和关系表<br><img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlogCoreData2.png" /></p>
+<ul>
+<li>接着生成Model类<img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlog1111.png" />
+Editor->>Create NSManagedObject Subciass..
+<img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlog2222.png" />
+这里你们应该只有一个,在没有升级的情况下,那么就选定一个就可以了
+<img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlog3333.png" />
+这里可以两个一起生成, 编译如果有错误, 那么就重新生成一次,将原来的覆盖即可;(因为 Xcode 有时候会抽风)
+
+
+</li>
+</ul>
+<ul>
+<li><p>接着写一个ManageData管理的单利类,用来管理NSManagedObjectContext的一些增删改查的操作<br>这个单利的作用是对 CoreData 数据库的创建, 数据的增删改查等等一些操作</p>
+<img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlog977850D3-78F9-458D-BCD6-FF89EE85B55B.png" />
+对数据的创建, 并且新建一个NSManagedObjectContext,供整个单利来使用
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">- (void)setupManaegdObjectContext&#123;</span><br><span class="line">    NSURL *paths = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];</span><br><span class="line">    NSURL *storeURL = [paths URLByAppendingPathComponent:@&quot;text.sqlite&quot;];</span><br><span class="line">    self.managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];</span><br><span class="line">    self.managedObjectContext.persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[NSManagedObjectModel mergedModelFromBundles:nil]];</span><br><span class="line">    NSError *error;</span><br><span class="line">    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:</span><br><span class="line">                             [NSNumber numberWithBool:YES],NSMigratePersistentStoresAutomaticallyOption,[NSNumber numberWithBool:YES],NSInferMappingModelAutomaticallyOption,nil];</span><br><span class="line">    [self.managedObjectContext.persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&amp;error];</span><br><span class="line">    if (error) &#123;</span><br><span class="line">        NSLog(@&quot;setupManagedObjectContextError: %@&quot;, error);</span><br><span class="line">    &#125;</span><br><span class="line">    self.managedObjectContext.undoManager = [[NSUndoManager alloc] init];</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>接下来我们对我们要操作的实体类来添加一个Category(类目)<br>我们用这个类目来对整个实体类中得数据来进行操作, 比如在这里实体类中添加数据, 改变数据,删除数据等等, <code>之所以我们在这里用一个类目来扩展这个实体类是因为我们要升级原有的实体类,所以这些操作要在这个类的类目中来进行</code><br>这里我们针对PeopleInfo实体来新建一个类目</p>
+<img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlogE3371886-865D-4723-82B8-5588ED0E8F59.png" />
+
+<img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlogD15881DB-6F7E-47C3-B973-29EA8E632C99.png" />
+
+<p><code>Categray(类目)有什么作用呢</code></p>
+</li>
+</ul>
+<p>1.为没有源代码的类添加方法,因为我们拿不到源代码,所以不能添加实例变量但可以添加方法<br>2.具体操作:在相应的.h文件里声明,在.m文件里实现 声明和实现与其他普通的类一样<br>3.具体格式:在.h文件里 @interface 需要扩展的类名(NSString) (扩展类名)开头 @end结束 在.m文件里以:@implementation 需要扩展的类名(NSString) (扩展类名) @end结束<br>4.在main.m文件里的调用和其他方法一样<br><code>延展有什么作用呢</code><br>主要是为有源代码的类添加实例方法或对象 内容私有只在.m文件里实现,不进行声明.<br>1.在.m文件里的开头之前添加@interface 类名 (延展类名){添加实例变量和方法}@end结束<br>2.在.m文件的实现部分对延展里面的方法进行实现</p>
+<ul>
+<li><p>在PeopleInfo类目中写方添加一条数据的方法并实现<br>在.h中写方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+ (PeopleInfo *)addSomeDataManagedObjectContext:(NSManagedObjectContext *)context WhitName:(NSString *)name WhitSex:(NSString*)sex WhitAge:(NSString *)age;</span><br></pre></td></tr></table></figure>
+<p>在.m中实现方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">+ (PeopleInfo *)addSomeDataManagedObjectContext:(NSManagedObjectContext *)context WhitName:(NSString *)name WhitSex:(NSString *)sex WhitAge:(NSString *)age</span><br><span class="line">&#123;</span><br><span class="line">    PeopleInfo *peo = nil;</span><br><span class="line">    </span><br><span class="line">    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@&quot;PeopleInfo&quot;];</span><br><span class="line">    request.predicate = [NSPredicate predicateWithFormat:@&quot;age == %@&quot;, peo.age];</span><br><span class="line">    NSError *error = nil;</span><br><span class="line">    NSArray *matches = [context executeFetchRequest:request error:&amp;error];</span><br><span class="line">    if (!matches||[matches count] &gt; 1) &#123;</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        if (![matches count]) &#123;</span><br><span class="line">            peo = [NSEntityDescription insertNewObjectForEntityForName:@&quot;PeopleInfo&quot; inManagedObjectContext:context];</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            peo = [matches lastObject];</span><br><span class="line">        &#125;</span><br><span class="line">        peo.name = name;</span><br><span class="line">        peo.age = age;</span><br><span class="line">        peo.sex = sex;</span><br><span class="line">    &#125;</span><br><span class="line">    return peo;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在单利ManageData中利用NSManagedObjectContext来添数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (void)addDataWhitName:(NSString *)name WhitSex:(NSString*)sex WhitAge:(NSString *)age&#123;</span><br><span class="line">    [PeopleInfo addSomeDataManagedObjectContext:self.managedObjectContext WhitName:name WhitSex:sex WhitAge:age];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最后在ViewController中调用添加数据的方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[ManageData shareInstance] addDataWhitName:self.nameTextField.text WhitSex:self.sexTextField.text WhitAge:self.ageTextField.text];</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>在这里我只写了添加的一个操作, 剩余的操作请大家<a href="http://pan.baidu.com/s/1pJvDGM3" target="_blank" rel="noopener">下载Demo</a></p>
+<h3 id="CoreData-升级-版本升级"><a href="#CoreData-升级-版本升级" class="headerlink" title="CoreData 升级-版本升级"></a>CoreData 升级-版本升级</h3><ul>
+<li>升级分为两种,第一种是简单的升级, 在原来的基础上添加字段属性的.另外一种是比较复杂的操作,修改原来数据表的字段的名字或者属性. <h2 id="添加字段属性升级"><a href="#添加字段属性升级" class="headerlink" title="添加字段属性升级"></a>添加字段属性升级</h2></li>
+<li>如果您的APP已经上架,那么我们的CoreData 数据表不能进行操作, 否则就会有各种奇葩的错误, 如果我们想进行数据表的操作首先我们应该在原来的基础上进行升级, 然后再操作, 完成后再把我们的 CoreData 的 Model Version选择到我们已经升级的版本即可;</li>
+<li>选择要升级的版本进行升级<img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlogD06A804C-0F69-48CE-ABAD-ECA979532D40.png" />
+<img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlog558A151A-B4D6-4834-A3B6-46A02646A2C8.png" /></li>
+<li>升级完成后可以在新的表中添加新的字段什么的都可以, </li>
+<li>升级完成, 选择版本<img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlog715558BF-0F75-42FD-AF07-7909C6E9C376.png" /></li>
+<li>升级完成后再生成 Model 等文件, 和刚才的操作步骤一样<h2 id="修改原来字段名字操作"><a href="#修改原来字段名字操作" class="headerlink" title="修改原来字段名字操作"></a>修改原来字段名字操作</h2></li>
+<li>首先也是要升级一个新的版本(同上升级新), 在修改原有字段的名字<img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlogFE009721-D88F-436D-8371-596E994AF24C.png" /></li>
+<li>升级完成后再生成 Model 等文件, 和刚才的操作步骤一样</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CoreData/" rel="tag"># CoreData</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/05/27/PureLayout/" rel="next" title="使用PureLayout进行自动布局">
+                <i class="fa fa-chevron-left"></i> 使用PureLayout进行自动布局
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/06/26/iOS-Coding-standards/" rel="prev" title="Objective-C 编码规范">
+                Objective-C 编码规范 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Rookie" />
+            
+              <p class="site-author-name" itemprop="name">Rookie</p>
+              <p class="site-description motion-element" itemprop="description">Sometimes, the correct path is the tortured one.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/rookie-liu" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:Rookie_liu@126.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/rookie_liu" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/5973718613" target="_blank" title="weibo">
+                      
+                        <i class="fa fa-fw fa-globe"></i>weibo</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://onevcat.com/#blog" title="OneV's Den" target="_blank">OneV's Den</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.zybuluo.com/Rookie/note/826624" title="我的简历" target="_blank">我的简历</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://rookie.live/Love/index.html" title="My Love" target="_blank">My Love</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#CoreData-是什么"><span class="nav-number">1.</span> <span class="nav-text">CoreData 是什么?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CoreData-基本概念"><span class="nav-number">2.</span> <span class="nav-text">CoreData 基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CoreData-的使用"><span class="nav-number">3.</span> <span class="nav-text">CoreData 的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CoreData-升级-版本升级"><span class="nav-number">4.</span> <span class="nav-text">CoreData 升级-版本升级</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加字段属性升级"><span class="nav-number"></span> <span class="nav-text">添加字段属性升级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改原来字段名字操作"><span class="nav-number"></span> <span class="nav-text">修改原来字段名字操作</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rookie</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://rookie-liu.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://www.rookie.live/2015/06/19/CoreData/';
+          this.page.identifier = '2015/06/19/CoreData/';
+          this.page.title = 'CoreData的使用';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://rookie-liu.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

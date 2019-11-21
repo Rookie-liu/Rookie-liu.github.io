@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="多线程," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Rookie`Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="keywords" content="多线程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS 中的多线程">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.rookie.live&#x2F;2015&#x2F;05&#x2F;22&#x2F;performAND-dispatch&#x2F;index.html">
+<meta property="og:site_name" content="Rookie&#96;Blog">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlogdispatch.png?imageView2&#x2F;1&#x2F;w&#x2F;600&#x2F;h&#x2F;200">
+<meta property="og:updated_time" content="2016-12-08T11:01:57.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlogdispatch.png?imageView2&#x2F;1&#x2F;w&#x2F;600&#x2F;h&#x2F;200">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.rookie.live/2015/05/22/performAND-dispatch/"/>
+
+
+
+
+
+  <title>iOS 中的多线程 | Rookie`Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Rookie`Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Always believe that something wonderful is about to happen</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            Commonweal 404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.rookie.live/2015/05/22/performAND-dispatch/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rookie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rookie`Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS 中的多线程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-05-22T11:47:52+08:00">
+                2015-05-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/05/22/performAND-dispatch/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2015/05/22/performAND-dispatch/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlogdispatch.png?imageView2/1/w/600/h/200" />
+<a id="more"></a>
+## 为什么要使用多线程
+1. 好事的操作使用线程, 提高应用程序响应.
+2. 并行操作时使用线程，如C/S架构的服务器端并发线程响应用户的请求。
+3. 多CPU系统中，使用线程提高CPU利用率
+4. 改善程序结构。一个既长又复杂的进程可以考虑分为多个线程，成为几个独立或半独立的运行部分，这样的程序会利于理解和修改。
+
+<ul>
+<li>使用多线程的理由之一是和进程相比，它是一种非常<code>花销小，切换快</code>，更”节俭”的多任务操作方式。在Linux系统下，启动一个新的进程必须分配给它独立的地址空间，建立众多的数据表来维护它的代码段、堆栈段和数据段，这是一种”昂贵”的多任务工作方式。而运行于一个进程中的多个线程，它们彼此之间使用相同的地址空间，共享大部分数据，<code>启动一个线程所花费的空间远远小于启动一个进程所花费的空间</code>，而且，<code>线程间彼此切换所需的时间也远远小于进程间切换所需要的时间</code>。</li>
+<li>使用多线程的理由之二是线程间方便的通信机制。对不同进程来说，它们具有独立的数据空间，要进行数据的传递只能通过通信的方式进行，这种方式不仅费时，而且很不方便。线程则不然，由于同一进程下的线程之间共享数据空间，所以一个线程的数据可以直接为其它线程所用，这不仅快捷，而且方便。当然，数据的共享也带来其他一些问题，有的变量不能同时被两个线程所修改，有的子程序中声明为static的数据更有可能给多线程程序带来灾难性的打击，这些正是编写多线程程序时最需要注意的地方。<br><strong><em>除了以上所说的优点外，不和进程比较，多线程程序作为一种多任务、并发的工作方式，当然有以下的优点：</em></strong></li>
+</ul>
+<ol>
+<li><code>提高应用程序响应</code>。这对图形界面的程序尤其有意义，当一个操作耗时很长时，整个系统都会等待这个操作，此时程序不会响应键盘、鼠标、菜单的操作，而使用多线程技术，将耗时长的操作（time consuming）置于一个新的线程，可以避免这种尴尬的情况。</li>
+<li><code>多CPU系统更加有效</code>。操作系统会保证当线程数不大于CPU数目时，不同的线程运行于不同的CPU上。</li>
+<li><code>改善程序结构</code>一个既长又复杂的进程可以考虑分为多个线程，成为几个独立或半独立的运行部分，这样的程序会利于理解和修改。 </li>
+</ol>
+<h2 id="理解的线程"><a href="#理解的线程" class="headerlink" title="理解的线程"></a>理解的线程</h2><ul>
+<li>要讲解线程，不得不说一下进程，<code>进程是应用程序的执行实例</code>，每个进程是由私有的虚拟地址空间、代码、数据和其它系统资源组成。进程在运行时创建的资源随着进程的终止而死亡。线程的基本思想很简单，它是一个独立的执行流，是进程内部的一个独立的执行单元，相当于一个子程序，它对应Visual C++中的CwinThread类的对象。单独一个执行程序运行时，缺省的运行包含的一个主线程，主线程以函数地址的形式，如main或WinMain函数，提供程序的启动点，当主线程终止时，进程也随之终止，但根据需要，<code>应用程序又可以分解成许多独立执行的线程,每个线程并行的运行在同一进程中</code>。 </li>
+<li><code>一个进程中的所有线程都在该进程的虚拟地址空间中，使用该进程的全局变量和系统资源。</code>操作系统给每个线程分配不同的CPU时间片，在某一个时刻，CPU只执行一个时间片内的线程，多个时间片中的相应线程在CPU内轮流执行，由于每个时间片时间很短，所以对用户来说，仿佛各个线程在计算机中是并行处理的。操作系统是根据线程的优先级来安排CPU的时间，优先级高的线程优先运行，优先级低的线程则继续等待。</li>
+<li>线程被分为两种：<code>用户界面线程</code>和<code>工作线程（又称为后台线程）</code>。用户界面线程通常用来处理用户的输入并响应各种事件和消息，其实，应用程序的主执行线程CWinAPP对象就是一个用户界面线程，当应用程序启动时自动创建和启动，同样它的终止也意味着该程序的结束，进城终止。工作者线程用来执行程序的后台处理任务，比如计算、调度、对串口的读写操作等，它和用户界面线程的区别是它不用从CwinThread类派生来创建，对它来说最重要的是如何实现工作线程任务的运行控制函数。工作线程和用户界面线程启动时要调用同一个函数的不同版本；最后需要读者明白的是，一个进程中的所有线程共享它们父进程的变量，但同时每个线程可以拥有自己的变量。</li>
+</ul>
+<h2 id="多线程和异步操作"><a href="#多线程和异步操作" class="headerlink" title="多线程和异步操作"></a>多线程和异步操作</h2><ul>
+<li>多线程和异步操作两者都可以达到避免调用线程阻塞的目的，从而提高软件的可响应性。甚至有些时候我们就认为多线程和异步操作是等同的概念。但是，多线程和异步操作还是有一些区别的。而这些区别造成了使用多线程和异步操作的时机的区别。<br><strong><em>异步操作的本质</em></strong><br>所有的程序最终都会由计算机硬件来执行，所以为了更好的理解异步操作的本质，我们有必要了解一下它的硬件基础。 熟悉电脑硬件的朋友肯定对DMA这个词不陌生，硬盘、光驱的技术规格中都有明确DMA的模式指标，其实网卡、声卡、显卡也是有DMA功能的。DMA就是直接内存访问的意思，也就是说，拥有DMA功能的硬件在和内存进行数据交换的时候可以不消耗CPU资源。只要CPU在发起数据传输时发送一个指令，硬件就开始自己和内存交换数据，在传输完成之后硬件会触发一个中断来通知操作完成。这些无须消耗CPU时间的I/O操作正是异步操作的硬件基础。所以即使在DOS这样的单进程（而且无线程概念）系统中也同样可以发起异步的DMA操作。<br><strong><em>线程的本质</em></strong><br>线程不是一个计算机硬件的功能，而是<code>操作系统提供的一种逻辑功能</code>线程本质上是进程中一段并发运行的代码，所以线程需要操作系统投入CPU资源来运行和调度<br><strong><em>异步操作的优缺点</em></strong><br>因为异步操作无须额外的线程负担，并且使用回调的方式进行处理，在设计良好的情况下，处理函数可以不必使用共享变量（即使无法完全不用，最起码可以减少共享变量的数量），减少了死锁的可能。当然异步操作也并非完美无暇。编写异步操作的复杂程度较高，程序主要使用回调方式进行处理，与普通人的思维方式有些初入，而且难以调试。<br><strong><em>多线程的优缺点</em></strong><br>多线程的优点很明显，线程中的处理程序依然是顺序执行，符合普通人的思维习惯，所以编程简单。但是多线程的缺点也同样明显，线程的使用（滥用）会给系统带来上下文切换的额外负担。并且线程间的共享变量可能造成死锁的出现。<br><strong><em>使用范围</em></strong></li>
+<li>在了解了线程与异步操作各自的优缺点之后，我们可以来探讨一下线程和异步的合理用途。我认为：<code>当需要执行I/O操作时，使用异步操作比使用线程+同步I/O操作更合适</code>。I/O操作不仅包括了直接的文件、网络的读写，还包括数据库操作、Web Service、HttpRequest以及.net Remoting等跨进程的调用。</li>
+<li>而<code>线程的适用范围则是那种需要长时间CPU运算的场合</code>，例如耗时较长的图形处理和算法执行。但是往往由于使用线程编程的简单和符合习惯，所以很多朋友往往会使用线程来执行耗时较长的I/O操作。这样在只有少数几个并发操作的时候还无伤大雅，如果需要处理大量的并发操作时就不合适了。</li>
+</ul>
+<h2 id="iOS-中的多线程"><a href="#iOS-中的多线程" class="headerlink" title="iOS 中的多线程"></a>iOS 中的多线程</h2><ul>
+<li>多线程是一个比较轻量级的方法来实现单个应用程序内多个代码执行路径,在系统级别内，程序并排执行，程序分配到每个程序的执行时间是基于该程序的所需时间和其他程序的所需时间来决定的。</li>
+<li>然而，在每个程序内部，存在一个或者多个执行线程，它同时或在一个几乎同时发生的方式里执行不同的任务。</li>
+<li><strong>概要提示：*</strong><br>iPhone中的线程应用并不是无节制的，官方给出的资料显示，iPhone OS下的主线程的堆栈大小是1M，第二个线程开始就是512KB，并且该值不能通过编译器开关或线程API函数来更改，只有主线程有直接修改UI的能力</li>
+<li><strong>线程概述:*</strong></li>
+<li>有些程序是一条直线，起点到终点——如简单的hello world，运行打印完，它的生命周期便结束了，像是昙花一现。有些程序是一个圆，不断循环直到将它切断——如操作系统，一直运行直到你关机。</li>
+<li>一个运行着的程序就是一个进程或者叫做一个任务，一个进程至少包含一个线程，线程就是程序的执行流。Mac和IOS中的程序启动，创建好一个进程的同时，一个线程便开始运作，这个线程叫做主线程。主线成在程序中的位置和其他线程不同，它是其他线程最终的父线程，且所有的界面的显示操作即AppKit或UIKit的操作必须在主线程进行。</li>
+<li>系统中每一个进程都有自己独立的虚拟内存空间，而同一个进程中的多个线程则公用进程的内存空间。<br>每创建一个新的进成，都需要一些内存（如每个线程有自己的stack空间）和消耗一定的CPU时间。</li>
+<li>当多个进成对同一个资源出现争夺的时候需要注意线程安全问题</li>
+<li><strong>多线程的优势:*</strong></li>
+</ul>
+<ol>
+<li>充分发挥多核处理器优势,将不同线程任务分配给不同的处理器,真正进入”并行运算”状态;</li>
+<li>将耗时的任务分配到其他线程执行,由主线程负责统一更新界面会使应用程序更加流畅,用户体验更好;</li>
+<li>当硬件处理器的数量增加,程序会运行更快,而程序无需做任何调整.</li>
+</ol>
+<p><strong><em>弊端</em></strong><br>新建线程会消耗内存空间和CPU时间,线程太多会降低系统的运行性能.</p>
+<h2 id="iOS的三种多线程"><a href="#iOS的三种多线程" class="headerlink" title="iOS的三种多线程"></a>iOS的三种多线程</h2><ol>
+<li><strong><em>NSThread:</em></strong></li>
+</ol>
+<ul>
+<li>使用NSThread对象建立一个线程非常方便;</li>
+<li>但是!要使用NSThread管理多个线程非常困难,不推荐使用;</li>
+<li>技巧!使用[NSThread currentThread]跟踪任务所在线程,适用于这三种技术.  </li>
+</ul>
+<ol start="2">
+<li><strong><em>NSOperation/NSOperationQueue:</em></strong></li>
+</ol>
+<ul>
+<li>是使用GCD实现的一套Objective-C的API;</li>
+<li>是面向对象的多线程技术;</li>
+<li>提供了一些在GCD中不容易实现的特性,如:限制最大并发数量,操作之间的依赖关系.</li>
+</ul>
+<ol start="3">
+<li><strong><em>GCD—Grand Central Dispatch:</em></strong></li>
+</ol>
+<ul>
+<li>是基于C语言的底层API;</li>
+<li>用Block定义任务,使用起来非常灵活便捷;</li>
+<li>提供了更多的控制能力以及操作队列中所不能使用的底层函数.</li>
+</ul>
+<h3 id="NSThread"><a href="#NSThread" class="headerlink" title="NSThread"></a>NSThread</h3><p>NSThree是官方推荐的线程处理方式，它在处理机制上，需要开发者负责手动管理Thread的生命周期，包括子线程与主线程之间的同步等。线程共享同一应用程序的部分内存空间，它们拥有对数据相同的访问权限。你得协调多个线程 对同一数据的访问，一般做法是在访问之前加锁，这会导致一定的性能开销。<br><strong><em>使用步骤</em></strong></p>
+<ol>
+<li>声明一个NSCondition同步锁;</li>
+<li>声明若干个NSThread子线程;</li>
+<li>指定NSThread子线程的目标指行方法（可以在构造函数中指定）;</li>
+<li>设置子线程的名称;</li>
+<li>star启动子线程。<br>其中，子线程的执行方法一般只需要一个共同方法即可（可以通过线程名，分辨当前的执行线程）。下面通过代码演示NSThread类的使用。假设我们需要下载网络图片，在非异步形式的情况下，IOS界面必须等到图片下载完毕后，UI才会反应。这时利用多线程就可以达到异步下载的效果。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;UIKit/UIKit.h&gt;</span><br><span class="line">@interface ViewController1 : UIViewController&#123;</span><br><span class="line">    NSCondition *_condition;</span><br><span class="line">    NSThread *_thread_1;</span><br><span class="line">    NSThread *_thread_2;</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">@interface ViewController1 ()</span><br><span class="line">@end</span><br><span class="line">@implementation ViewController1</span><br><span class="line">- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil</span><br><span class="line">&#123;</span><br><span class="line">    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];</span><br><span class="line">    if (self) &#123;</span><br><span class="line">        // Custom initialization</span><br><span class="line">        self.title=@&quot;多线程NSThread&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    return self;</span><br><span class="line">&#125;</span><br><span class="line">- (void)viewDidLoad</span><br><span class="line">&#123;</span><br><span class="line">    [super viewDidLoad];                       </span><br><span class="line">    //创建一个进程锁，实现线程同步</span><br><span class="line">    _condition=[[NSCondition alloc] init];                </span><br><span class="line">    //创建线程1</span><br><span class="line">    _thread_1=[[NSThread alloc]initWithTarget:self selector:@selector(run) object:nil];</span><br><span class="line">    [_thread_1 setName:@&quot;thread_1&quot;];</span><br><span class="line">    [_thread_1 start];                                                                                                             </span><br><span class="line">    //创建线程2</span><br><span class="line">    _thread_2=[[NSThread alloc]initWithTarget:self selector:@selector(run) object:nil];</span><br><span class="line">    [_thread_2 setName:@&quot;thread_2&quot;];</span><br><span class="line">    [_thread_2 start];                                                                                                           </span><br><span class="line">&#125;</span><br><span class="line">#pragma mark--线程执行方法</span><br><span class="line">-(void)run&#123;</span><br><span class="line">    //进程上锁</span><br><span class="line">    [_condition lock];</span><br><span class="line">    NSLog(@&quot;运行的线程名：%@&quot;,[[NSThread currentThread]name]);</span><br><span class="line">    if ([[[NSThread currentThread]name] isEqualToString:@&quot;thread_1&quot;]) &#123;</span><br><span class="line">        NSLog(@&quot;111&quot;);</span><br><span class="line">        NSURL *imageUrl_1=[NSURL URLWithString:@&quot;http://t.beauty-soft.net/upload/ceiba20130224_014522_8679.jpg&quot;];</span><br><span class="line">        NSData *data_1=[NSData dataWithContentsOfURL:imageUrl_1];</span><br><span class="line">        UIImage *image_1=[UIImage imageWithData:data_1];</span><br><span class="line">        UIImageView *imageView_1=[[UIImageView alloc] initWithImage:image_1];</span><br><span class="line">        imageView_1.frame=CGRectMake(60, 20, 200, 200);</span><br><span class="line">        [self.view addSubview:imageView_1];</span><br><span class="line">        [imageView_1 release];                </span><br><span class="line">    &#125;else if([[[NSThread currentThread]name] isEqualToString:@&quot;thread_2&quot;])&#123;</span><br><span class="line">        NSLog(@&quot;222&quot;);                                                                                                           </span><br><span class="line">        NSURL *imageUrl_2=[NSURL URLWithString:@&quot;http://t.beauty-soft.net/upload/ceiba20120704_121437_3455.jpg&quot;];    </span><br><span class="line">        NSData *data_2=[NSData dataWithContentsOfURL:imageUrl_2];</span><br><span class="line">        UIImage *image_2=[UIImage imageWithData:data_2];</span><br><span class="line">        UIImageView *imageView_2=[[UIImageView alloc] initWithImage:image_2];</span><br><span class="line">        imageView_2.frame=CGRectMake(60, 250, 200, 200);</span><br><span class="line">        [self.view addSubview:imageView_2];</span><br><span class="line">        [imageView_2 release];</span><br><span class="line">    &#125;</span><br><span class="line">    //解锁</span><br><span class="line">    [_condition unlock];                                                                                                         </span><br><span class="line">&#125;</span><br><span class="line">-(void)dealloc&#123;</span><br><span class="line">    [_thread_1 release];</span><br><span class="line">    [_thread_2 release];</span><br><span class="line">    [_condition release];</span><br><span class="line">    [super dealloc];</span><br><span class="line">&#125;</span><br><span class="line">- (void)didReceiveMemoryWarning</span><br><span class="line">&#123;</span><br><span class="line">    [super didReceiveMemoryWarning];</span><br><span class="line">    // Dispose of any resources that can be recreated.</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+
+<h3 id="NSOperationQueue"><a href="#NSOperationQueue" class="headerlink" title="NSOperationQueue"></a>NSOperationQueue</h3><p>如果需要让线程同时并行运行多个，<code>可以将线程加入队列（Queue）中</code>，NSOperationQueue类就是一个<code>线程队列管理类</code>，他提供了线程并行、队列的管理。可以认为NSOperationQueue就是一个线程管理器，通过addOperations方法，我们可以一次性把多个（数组形式）线程添加到队列中。同时，NSOperationQueue允许通过setMaxConcurrentOperationCount方法设置队列的并行（同一时间）运行数量。<br><strong><em>使用步骤</em></strong></p>
+<ol>
+<li>声明一个NSOperationQueue对象;</li>
+<li>声明若干个NSInvocationOperation子线程对象，并指定回调方法;</li>
+<li>将NSInvocationOperation子线程添加到数组;</li>
+<li>把数组赋给NSOperationQueue类中的addOperations方法;</li>
+<li>实现回调方法;</li>
+<li>在回调方法中实现performSelectorOnMainThread方法，更新主线程上的界面UI元素。</li>
+</ol>
+<p>下面，使用NSOperationQueue类，实现前面NSThread类相同的功能（即下载图片）。代码如下。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;ViewController2.h&quot;</span><br><span class="line">@interface ViewController2 ()</span><br><span class="line">@end</span><br><span class="line">@implementation ViewController2</span><br><span class="line">- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil</span><br><span class="line">&#123;</span><br><span class="line">    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];</span><br><span class="line">    if (self) &#123;</span><br><span class="line">        // Custom initialization</span><br><span class="line">        self.title=@&quot;线程队列&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    return self;</span><br><span class="line">&#125;</span><br><span class="line">- (void)viewDidLoad</span><br><span class="line">&#123;</span><br><span class="line">    [super viewDidLoad];</span><br><span class="line">    // 线程队列管理器，实现线程并行运行</span><br><span class="line">    _opeartionQueue=[[NSOperationQueue alloc] init];</span><br><span class="line">    //队列最大同时运行数量</span><br><span class="line">    [_opeartionQueue setMaxConcurrentOperationCount:1];</span><br><span class="line"></span><br><span class="line">    tags=20;</span><br><span class="line">    //创建线程1</span><br><span class="line">    NSInvocationOperation *invocationOpearation_1=[[[NSInvocationOperation alloc] initWithTarget:self selector:@selector(run:) object:@&quot;http://t.beauty-soft.net/upload/ceiba20130224_014522_8679.jpg&quot;] autorelease];</span><br><span class="line">    //创建线程2</span><br><span class="line">    NSInvocationOperation *invocationOpearation_2=[[[NSInvocationOperation alloc] initWithTarget:self selector:@selector(run:) object:@&quot;http://t.beauty-soft.net/upload/ceiba20120704_121437_3455.jpg&quot;] autorelease];</span><br><span class="line">                                                                                                                                                           </span><br><span class="line">    NSArray *array=@[invocationOpearation_1,invocationOpearation_2];</span><br><span class="line">    //把程序添加到管理器中</span><br><span class="line">    [_opeartionQueue addOperations:array waitUntilFinished:YES];</span><br><span class="line">&#125;</span><br><span class="line">-(void)run:(NSString *)imageStrinUrl&#123;</span><br><span class="line">    NSLog(@&quot;%@&quot;,[_opeartionQueue operations]);</span><br><span class="line">    NSLog(@&quot;mainQueue%@&quot;,[NSOperationQueue mainQueue]);</span><br><span class="line">    NSLog(@&quot;i==%i&quot;,tags);</span><br><span class="line">    NSLog(@&quot;urlStr：%@&quot;,imageStrinUrl);</span><br><span class="line">    NSURL *url=[NSURL URLWithString:imageStrinUrl];</span><br><span class="line">    NSData *data=[NSData dataWithContentsOfURL:url];</span><br><span class="line">    UIImage *image=[UIImage imageWithData:data];</span><br><span class="line">    UIImageView *imageView=[[[UIImageView alloc] initWithImage:image]autorelease];</span><br><span class="line">    imageView.frame=CGRectMake(60, tags, 200, 200);</span><br><span class="line">    tags+=200;</span><br><span class="line">    //通知主线程更新UI</span><br><span class="line">    [self performSelectorOnMainThread:@selector(updateUI:) withObject:imageView waitUntilDone:NO];</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">-(void)updateUI:(UIImageView *)imageView&#123;</span><br><span class="line">    [self.view addSubview:imageView];</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">- (void)dealloc</span><br><span class="line">&#123;</span><br><span class="line">    [_opeartionQueue release];</span><br><span class="line">    [super dealloc];</span><br><span class="line">&#125;</span><br><span class="line">- (void)didReceiveMemoryWarning</span><br><span class="line">&#123;</span><br><span class="line">    [super didReceiveMemoryWarning];</span><br><span class="line">    // Dispose of any resources that can be recreated.</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<p>说到这里, 就不得不提一下这个 <strong><em>performSelector</em></strong> 了,么我们简单的介绍一下他的几种用法<br><strong><em>performSelector</em></strong><br>API是这么解释的 <code>Sends a specified message to the receiver and returns the result of the message.</code> </p>
+<ul>
+<li><strong>(id)performSelector:(SEL)aSelector</strong><br>API 解释:<code>A selector identifying the message to send. If aSelector is NULL, an NSInvalidArgumentException is raised.</code></li>
+<li><strong>(id)performSelector:(SEL)aSelector withObject:(id)anObject</strong><br>API 解释:<code>Sends a message to the receiver with an object as the argument.</code></li>
+<li><strong>(id)performSelector:(SEL)aSelector withObject:(id)anObject withObject:(id)anotherObject</strong><br>API 解释:<code>Sends a message to the receiver with two objects as arguments</code></li>
+<li><strong>(void)performSelector:(SEL)aSelector withObject:(id)anArgument afterDelay:(NSTimeInterval)delay</strong><br>API 解释:<code>Invokes a method of the receiver on the current thread using the default mode after a delay.</code> <code>常用的延迟执行的方法</code></li>
+<li><strong>(void)performSelector:(SEL)aSelector withObject:(id)anArgument afterDelay:(NSTimeInterval)delay</strong><br>API 解释:<code>Invokes a method of the receiver on the current thread using the default mode after a delay.</code></li>
+<li><strong>(void)performSelector:(SEL)aSelector withObject:(id)anArgument afterDelay:(NSTimeInterval)delay inModes:(NSArray *)modes</strong><br>API 解释:<code>Invokes a method of the receiver on the current thread using the specified modes after a delay.</code></li>
+<li><strong>(void)performSelectorInBackground:(SEL)aSelector withObject:(id)arg</strong><br>API 解释:<code>Invokes a method of the receiver on a new background thread.</code></li>
+<li><strong>(void)performSelectorOnMainThread:(SEL)aSelector withObject:(id)arg waitUntilDone:(BOOL)wait</strong><br>API 解释:<code>Invokes a method of the receiver on the main thread using the default mode.</code></li>
+</ul>
+<h3 id="GCD-Grand-Central-Dispatch"><a href="#GCD-Grand-Central-Dispatch" class="headerlink" title="GCD(Grand Central Dispatch)"></a>GCD(Grand Central Dispatch)</h3><p>这里转载于<a href="http://www.dreamingwish.com/article/gcd%E4%BB%8B%E7%BB%8D%EF%BC%88%E4%B8%80%EF%BC%89-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%92%8Cdispatch-queue.html" target="_blank" rel="noopener">Dreamingwish</a></p>
+<ul>
+<li>Grand Central Dispatch或者GCD，是一套低层API，提供了一种新的方法来进行并发程序编写。从基本功能上讲，GCD有点像NSOperationQueue，他们都允许程序将任务切分为多个单一任务然后提交至工作队列来并发地或者串行地执行。GCD比之NSOpertionQueue更底层更高效，并且它不是Cocoa框架的一部分。</li>
+<li>除了代码的平行执行能力，GCD还提供高度集成的事件控制系统。可以设置句柄来响应文件描述符、mach ports（Mach port 用于 OS X上的进程间通讯）、进程、计时器、信号、用户生成事件。这些句柄通过GCD来并发执行。</li>
+<li>GCD的API很大程度上基于block，当然，GCD也可以脱离block来使用，比如使用传统c机制提供函数指针和上下文指针。实践证明，当配合block使用时，GCD非常简单易用且能发挥其最大能力。</li>
+</ul>
+<p><strong><em>为何使用 GCD</em></strong></p>
+<ol>
+<li>易用: GCD比之thread跟简单易用。由于GCD基于work unit而非像thread那样基于运算，所以GCD可以控制诸如等待任务结束、监视文件描述符、周期执行代码以及工作挂起等任务。基于block的血统导致它能极为简单得在不同代码作用域之间传递上下文。</li>
+<li>效率: GCD被实现得如此轻量和优雅，使得它在很多地方比之专门创建消耗资源的线程更实用且快速。这关系到易用性：导致GCD易用的原因有一部分在于你可以不用担心太多的效率问题而仅仅使用它就行了。</li>
+<li>性能: GCD自动根据系统负载来增减线程数量，这就减少了上下文切换以及增加了计算效率。</li>
+</ol>
+<p><strong><em>GCD中有三种队列类型：</em></strong></p>
+<ol>
+<li>The main queue: 与主线程功能相同。实际上，提交至main queue的任务会在主线程中执行。main queue可以调用dispatch_get_main_queue()来获得。因为main queue是与主线程相关的，所以这是一个串行队列。</li>
+<li>Global queues: 全局队列是并发队列，并由整个进程共享。进程中存在三个全局队列：高、中（默认）、低三个优先级队列。可以调用dispatch_get_global_queue函数传入优先级来访问队列。</li>
+<li>用户队列: 用户队列 (GCD并不这样称呼这种队列, 但是没有一个特定的名字来形容这种队列，所以我们称其为用户队列) 是用函数 dispatch_queue_create 创建的队列. 这些队列是串行的。正因为如此，它们可以用来完成同步机制, 有点像传统线程中的mutex。</li>
+</ol>
+<p>下面转载于<a href="http://blog.devtang.com/blog/2012/02/22/use-gcd/" target="_blank" rel="noopener">唐巧的技术博客</a><br><strong><em>系统提供的dispatch方法</em></strong><br>为了方便地使用GCD，苹果提供了一些方法方便我们将block放在主线程 或 后台线程执行，或者延后执行。使用的例子如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">/  后台执行：</span><br><span class="line"> dispatch_async(dispatch_get_global_queue(0, 0), ^&#123;</span><br><span class="line">      // something</span><br><span class="line"> &#125;);</span><br><span class="line"> // 主线程执行：</span><br><span class="line"> dispatch_async(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">      // something</span><br><span class="line"> &#125;);</span><br><span class="line"> // 一次性执行：</span><br><span class="line"> static dispatch_once_t onceToken;</span><br><span class="line"> dispatch_once(&amp;onceToken, ^&#123;</span><br><span class="line">     // code to be executed once</span><br><span class="line"> &#125;);</span><br><span class="line"> // 延迟2秒执行：</span><br><span class="line"> double delayInSeconds = 2.0;</span><br><span class="line"> dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);</span><br><span class="line"> dispatch_after(popTime, dispatch_get_main_queue(), ^(void)&#123;</span><br><span class="line">     // code to be executed on the main queue after delay</span><br><span class="line"> &#125;);</span><br></pre></td></tr></table></figure>
+<p>dispatch_queue_t 也可以自己定义，如要要自定义queue，可以用dispatch_queue_create方法，示例如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dispatch_queue_t urls_queue = dispatch_queue_create(&quot;blog.devtang.com&quot;, NULL);</span><br><span class="line">dispatch_async(urls_queue, ^&#123;</span><br><span class="line">     // your code</span><br><span class="line">&#125;);</span><br><span class="line">dispatch_release(urls_queue);</span><br></pre></td></tr></table></figure>
+
+<p>另外，GCD还有一些高级用法，例如让后台2个线程并行执行，然后等2个线程都结束后，再汇总执行结果。这个可以用<code>dispatch_group</code>, <code>dispatch_group_async</code> 和 <code>dispatch_group_notify</code>来实现，示例如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">dispatch_group_t group = dispatch_group_create();</span><br><span class="line"> dispatch_group_async(group, dispatch_get_global_queue(0,0), ^&#123;</span><br><span class="line">      // 并行执行的线程一</span><br><span class="line"> &#125;);</span><br><span class="line"> dispatch_group_async(group, dispatch_get_global_queue(0,0), ^&#123;</span><br><span class="line">      // 并行执行的线程二</span><br><span class="line"> &#125;);</span><br><span class="line"> dispatch_group_notify(group, dispatch_get_global_queue(0,0), ^&#123;</span><br><span class="line">      // 汇总结果</span><br><span class="line"> &#125;);</span><br></pre></td></tr></table></figure>
+
+<p><strong><em>修改block之外的变量</em></strong><br>默认情况下，在程序块中访问的外部变量是复制过去的，即写操作不对原变量生效。但是你可以加上 __block来让其写操作生效，示例代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">__block int a = 0;</span><br><span class="line">void  (^foo)(void) = ^&#123;</span><br><span class="line">     a = 1;</span><br><span class="line">&#125;</span><br><span class="line">foo();</span><br><span class="line">// 这里，a的值被修改为1</span><br></pre></td></tr></table></figure>
+
+<p><strong><em>后台执行</em></strong><br>使用block的另一个用处是可以让程序在后台较长久的运行。在以前，当app被按home键退出后，app仅有最多5秒钟的时候做一些保存或清理资源的工作。但是应用可以调用UIApplication的<code>beginBackgroundTaskWithExpirationHandler</code>方法，让app最多有10分钟的时间在后台长久运行。这个时间可以用来做清理本地缓存，发送统计数据等工作。</p>
+<p>让程序在后台长久运行的示例代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">// AppDelegate.h文件</span><br><span class="line">@property (assign, nonatomic) UIBackgroundTaskIdentifier backgroundUpdateTask;</span><br><span class="line"></span><br><span class="line">// AppDelegate.m文件</span><br><span class="line">- (void)applicationDidEnterBackground:(UIApplication *)application</span><br><span class="line">&#123;</span><br><span class="line">    [self beingBackgroundUpdateTask];</span><br><span class="line">    // 在这里加上你需要长久运行的代码</span><br><span class="line">    [self endBackgroundUpdateTask];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)beingBackgroundUpdateTask</span><br><span class="line">&#123;</span><br><span class="line">    self.backgroundUpdateTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^&#123;</span><br><span class="line">        [self endBackgroundUpdateTask];</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)endBackgroundUpdateTask</span><br><span class="line">&#123;</span><br><span class="line">    [[UIApplication sharedApplication] endBackgroundTask: self.backgroundUpdateTask];</span><br><span class="line">    self.backgroundUpdateTask = UIBackgroundTaskInvalid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里感谢<a href="http://www.dreamingwish.com/article/gcd%E4%BB%8B%E7%BB%8D%EF%BC%88%E4%B8%80%EF%BC%89-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%92%8Cdispatch-queue.html" target="_blank" rel="noopener">Dreamingwish</a>  , <a href="http://blog.devtang.com/blog/2012/02/22/use-gcd/" target="_blank" rel="noopener">唐巧的技术博客</a><br><strong><em>performSelector: 和dispatch_time的不同</em></strong></p>
+<ul>
+<li><p>iOS中timer相关的延时调用，常见的有NSObject中的performSelector:withObject:afterDelay:这个方法在调用的时候会设置当前runloop中timer，还有一种延时，直接使用NSTimer来配置任务。</p>
+</li>
+<li><p>这两种方式都一个共同的前提，就是当前线程里面需要有一个运行的runloop并且这个runloop里面有一个timer。</p>
+</li>
+<li><p>我们知道：只有主线程会在创建的时候默认自动运行一个runloop，并且有timer，普通的子线程是没有这些的。这样就带来一个问题了，有些时候我们并不确定我们的模块是不是会异步调用到，而我们在写这样的延时调用的时候一般都不会去检查运行时的环境，这样在子线程中被调用的时候，我们的代码中的延时调用的代码就会一直等待timer的调度，但是实际上在子线程中又没有这样的timer，这样我们的代码就永远不会被调到。</p>
+</li>
+<li><p>在有多线程操作的环境中，这样performSelector的延时调用，其实是缺乏安全性的。而且如果做延时,延迟的时间因为ronloop的原因延时时间可能不受控制,我们可以用另一套方案来解决这个问题，就是使用GCD中的dispatch_after来实现单次的延时调用</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="tag"># 多线程</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/05/21/iOS-optimizedTableView/" rel="next" title="UITableView 的优化">
+                <i class="fa fa-chevron-left"></i> UITableView 的优化
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/05/25/internationalization/" rel="prev" title="iOS 国际化">
+                iOS 国际化 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Rookie" />
+            
+              <p class="site-author-name" itemprop="name">Rookie</p>
+              <p class="site-description motion-element" itemprop="description">Sometimes, the correct path is the tortured one.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/rookie-liu" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:Rookie_liu@126.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/rookie_liu" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/5973718613" target="_blank" title="weibo">
+                      
+                        <i class="fa fa-fw fa-globe"></i>weibo</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://onevcat.com/#blog" title="OneV's Den" target="_blank">OneV's Den</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.zybuluo.com/Rookie/note/826624" title="我的简历" target="_blank">我的简历</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://rookie.live/Love/index.html" title="My Love" target="_blank">My Love</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#理解的线程"><span class="nav-number">1.</span> <span class="nav-text">理解的线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多线程和异步操作"><span class="nav-number">2.</span> <span class="nav-text">多线程和异步操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iOS-中的多线程"><span class="nav-number">3.</span> <span class="nav-text">iOS 中的多线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iOS的三种多线程"><span class="nav-number">4.</span> <span class="nav-text">iOS的三种多线程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NSThread"><span class="nav-number">4.1.</span> <span class="nav-text">NSThread</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NSOperationQueue"><span class="nav-number">4.2.</span> <span class="nav-text">NSOperationQueue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GCD-Grand-Central-Dispatch"><span class="nav-number">4.3.</span> <span class="nav-text">GCD(Grand Central Dispatch)</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rookie</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://rookie-liu.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://www.rookie.live/2015/05/22/performAND-dispatch/';
+          this.page.identifier = '2015/05/22/performAND-dispatch/';
+          this.page.title = 'iOS 中的多线程';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://rookie-liu.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

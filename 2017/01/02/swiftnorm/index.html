@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="代码规范," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Rookie`Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="##一、命名###1.类型  类型名称（如 struct, enum, class, typedef, associatedtype, protocol 等）使用大驼峰命名法命名。 变量和常量则以小驼峰命名法命名。  1234567enum Planet &amp;#123;    case mercury, venus, earth, mars, jupiter, saturn, uranus, nep">
+<meta name="keywords" content="代码规范">
+<meta property="og:type" content="article">
+<meta property="og:title" content="swift代码规范">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.rookie.live&#x2F;2017&#x2F;01&#x2F;02&#x2F;swiftnorm&#x2F;index.html">
+<meta property="og:site_name" content="Rookie&#96;Blog">
+<meta property="og:description" content="##一、命名###1.类型  类型名称（如 struct, enum, class, typedef, associatedtype, protocol 等）使用大驼峰命名法命名。 变量和常量则以小驼峰命名法命名。  1234567enum Planet &amp;#123;    case mercury, venus, earth, mars, jupiter, saturn, uranus, nep">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-07-25T01:14:30.000Z">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.rookie.live/2017/01/02/swiftnorm/"/>
+
+
+
+
+
+  <title>swift代码规范 | Rookie`Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Rookie`Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Always believe that something wonderful is about to happen</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            Commonweal 404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.rookie.live/2017/01/02/swiftnorm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rookie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rookie`Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">swift代码规范</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-02T19:49:33+08:00">
+                2017-01-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/01/02/swiftnorm/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/01/02/swiftnorm/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>##一、命名<br>###1.类型</p>
+<ul>
+<li>类型名称（如 struct, enum, class, typedef, associatedtype, protocol 等）使用<strong>大驼峰命名法</strong>命名。</li>
+<li>变量和常量则以<strong>小驼峰命名法</strong>命名。</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Planet</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> mercury, venus, earth, mars, jupiter, saturn, uranus, neptune</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> mobileNo: <span class="type">String</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<p>###2.协议<br>根据苹果接口设计指导准则，协议名称用来描述一些东西是什么的时候是名词，例如：Collection, WidgetFactory。若协议名称用来描述能力应该以 -ing, -able, 或 -ible 结尾，例如：Equatable, Resizing。</p>
+<p>###3.类前缀</p>
+<ul>
+<li>Swift中类别(类，结构体)在编译时会把模块设置为默认的命名空间，所以不用为了区分类别而添加前缀，比如RW。</li>
+<li>如果担心来自不同模块的两个名称发生冲突，可以在使用时添加模块名称来区分。注意不要滥用模块名称，仅在有可能发生冲突或疑惑的场景下使用。如：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import SomeModule </span><br><span class="line">let myClass = SomeModule.UsefulClass()</span><br></pre></td></tr></table></figure>
+
+<p>###4.参数命名<br>####委托<br>在定义委托方法时，第一个未命名参数应是委托数据源。<br>正确代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">func namePickerView(_ namePickerView: NamePickerView, didSelectName name: String)</span><br><span class="line"></span><br><span class="line">func namePickerViewShouldReload(_ namePickerView: NamePickerView) -&gt; Bool</span><br></pre></td></tr></table></figure>
+
+<p>错误代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">func didSelectName(namePicker: NamePickerViewController, name: String)</span><br><span class="line"></span><br><span class="line">func namePickerShouldReload() -&gt; Bool</span><br></pre></td></tr></table></figure>
+
+<p>####泛型<br>泛型类参数应具有描述性，遵守“大骆驼命名法”。如果一个参数名没有具体的含义，可以使用传统单大写字符，如T,  U, 或V等。<br>正确代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">struct Stack&lt;Element&gt;&#123; ... &#125;</span><br><span class="line">func writeTo &lt;Target: OutputStream&gt;(to Target: inout Target)</span><br><span class="line">func swap(_ a: inout T, _ b: inout T)</span><br></pre></td></tr></table></figure>
+
+<p>错误代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">struct Stack&lt;T&gt;&#123; ... &#125;</span><br><span class="line">func write&lt;target: OutputStream&gt; (to target: inout target)</span><br><span class="line">func swap&lt;Thing&gt;(_ a: inout Thing, _ b: inout Thing)</span><br></pre></td></tr></table></figure>
+
+
+<p>##二、代码逻辑<br>###1.类型推断<br>尽量使用类型推断以减少多余的冗余类型信息，例如：<br>正确的写法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let currentLocation = Location()</span><br></pre></td></tr></table></figure>
+
+<p>错误的写法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let currentLocation: Location = Location()</span><br></pre></td></tr></table></figure>
+
+<p>###2.self推断</p>
+<ul>
+<li>让编译器在所有允许的地方推断 self 。</li>
+<li>在 init 中设置参数时显性地使用 self 。</li>
+<li>在 non-escaping closures 中显性地使用 self 。</li>
+<li>在避免命名冲突时使用 self 。<br>例：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class BoardLocation  &#123;</span><br><span class="line">    let row: Int, column: Int</span><br><span class="line">    init(row: Int, column: Int)  &#123;</span><br><span class="line">        self.row = row</span><br><span class="line">        self.column = column</span><br><span class="line">        let closure = &#123;</span><br><span class="line">            print(self.row)    </span><br><span class="line">         &#125;  </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>###3.常量</p>
+<ul>
+<li>类常量应该在类型里声明为<code>static</code>。使用<code>static</code>修饰常量可以允许他们在被引用的时候不需要实例化类型。</li>
+<li>除了单例以外，应尽量避免生成全局常量。</li>
+<li>定义常量使用 <strong>let</strong> 关键字，定义变量使用 <strong>var</strong> 关键字， 如果变量的值未来不会发生变化要使用常量。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">struct PhysicsModel &#123;</span><br><span class="line">    static var speedOfLightInAVacuum = 299_792_458</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">class Spaceship &#123;</span><br><span class="line">    static let topSpeed = PhysicsModel.speedOfLightInAVacuum</span><br><span class="line">    var speed: Double</span><br><span class="line">     </span><br><span class="line">    func fullSpeedAhead() &#123;</span><br><span class="line">        speed = Spaceship.topSpeed</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>###4.计算型类型属性</p>
+<ul>
+<li>当只需要继承 getter 方法时，返回简单的 Computed 属性即可。</li>
+</ul>
+<p>正确代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class Example &#123;</span><br><span class="line">    var age: UInt32 &#123;</span><br><span class="line">        return arc4random()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>错误代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class Example &#123;</span><br><span class="line">    var age: UInt32 &#123;</span><br><span class="line">        get &#123;</span><br><span class="line">            return arc4random()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果你在属性中添加了 set 或者 didSet ，那么你应该显示地提供 get 方法。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class Person &#123;</span><br><span class="line">    var age: Int &#123;</span><br><span class="line">        get &#123;</span><br><span class="line">            return Int(arc4random())</span><br><span class="line">        &#125;</span><br><span class="line">        set &#123;</span><br><span class="line">            print(&quot;That&apos;s not your age.&quot;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>###5.单例<br>Swift中单例很简单，Swift 的 runtime 会保证单例的创建并且采用线程安全的方式访问：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class ControversyManager &#123;</span><br><span class="line">    static let sharedInstance = ControversyManager()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>单例通常只需要访问”sharedInstance”的静态属性，除非你有不得已的原因去重命名它。注意，不要用静态函数或者全局函数去访问你的单例。</p>
+<p>###6.错误处理<br>可以使用<code>do/try/catch</code>机制，避免使用<code>try!</code>和<code>try?</code></p>
+<p>###7.可选值</p>
+<ul>
+<li>声明一个函数的某个参数可以为 nil 时，用<code>？</code></li>
+<li>当你确定某个变量在使用时已经确定不是 nil 时，在后面加<code>!</code></li>
+</ul>
+<p>###8.扩展声明周期<br>用 [weak self] 和 guard let strongSelf = self else { return } 模式扩展生命周期。用 [weak self] 比 [unowned self] 更好。<br>正确代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">resource.request().onComplete &#123; [weak self] response in</span><br><span class="line">  guard let strongSelf = self else &#123; return &#125;</span><br><span class="line">  let model = strongSelf.updateModel(response)</span><br><span class="line">  strongSelf.updateUI(model)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>错误代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// might crash if self is released before response returns</span><br><span class="line">resource.request().onComplete &#123; [unowned self] response in</span><br><span class="line">  let model = self.updateModel(response)</span><br><span class="line">  self.updateUI(model)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// deallocate could happen between updating the model and updating UI</span><br><span class="line">resource.request().onComplete &#123; [weak self] response in</span><br><span class="line">  let model = self?.updateModel(response)</span><br><span class="line">  self?.updateUI(model)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>##三、代码结构<br>###1.注释</p>
+<ul>
+<li>使用Xcode8自带的注释功能，快捷键<code>Option+Command+/</code></li>
+<li>使用<code>// MARK:</code>分隔代码（类似于OC中的<code>#pragma mark</code>） </li>
+</ul>
+<p>###2.缩进<br>遵守Xcode内置的缩进格式</p>
+<p>###3.类型<br>优先使用Swift原生类型，可以根据需要使用Objective-C提供的方法，因为Swift提供了到Objective-C的桥接 。<br>正确代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let width = 120.0  // Double</span><br><span class="line">let widthString = (width as NSNumber).stringValue // String</span><br></pre></td></tr></table></figure>
+
+<p>错误代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let width: NSNumber = 120.0 // NSNumber</span><br><span class="line">let widthString: NSString=width.stringValue  // NSString</span><br></pre></td></tr></table></figure>
+
+
+<p>###4.协议一致性<br>当一个对象要实现协议一致性时，推荐使用 <strong>extension</strong> 隔离协议中的方法集，这样让相关方法和协议集中显示在一起，也简化了类支持一个协议和实现相关方法的流程。<br>正确代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class MyViewcontroller: UIViewController &#123;</span><br><span class="line">      // 方法</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">extension MyViewcontroller: UITableViewDataSource &#123;</span><br><span class="line">      // UITableViewDataSource 方法</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">extension MyViewcontroller: UIScrollViewDelegate &#123;</span><br><span class="line">      // UIScrollViewDelegate 方法</span><br><span class="line">&#125; </span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">错误代码：</span><br></pre></td></tr></table></figure>
+<p>class MyViewcontroller: UIViewController, UITableViewDataSource, UIScrollViewDelegate {<br>       // 所有的方法<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">###5.良好的类定义</span><br><span class="line">* 属性，变量，常量和参数等在声明定义时，其中: 符号后有空格，而: 符号前没有空格，比如x: Int, 和Circle: Shape</span><br><span class="line">* 定义多个变量/数据结构时，出于相同的目的和上下文，可以定义在同一行。</span><br><span class="line">* 缩进 getter，setter 的定义和属性观察器的定义。</span><br><span class="line">* 不需要添加`internal`这样的默认的修饰符。也不需要在重写一个方法时添加访问修饰符。</span><br><span class="line">* 给那些不打算被继承的类使用`final`修饰符</span><br></pre></td></tr></table></figure>
+<p>final class Circle: Shape {<br>  var x: Int, y: Int<br>  var radius: Double<br>  var diameter: Double{<br>      get {<br>        returnradius * 2<br>     }<br>     set {<br>        radius=newValue/2<br>    }<br>  }<br>  init(x: Int, y: Int, radius: Double) {<br>      self.x = x<br>      self.y = y<br>      self.radius = radius<br>  }</p>
+<p>  convenience init(x: Int, y: Int, diameter: Double) {<br>     self.init(x: x, y: y, radius: diameter/2)<br>  }</p>
+<p>  func describe() -&gt; String{<br>    return”I am a circle at(centerString())with an        area of(computeArea())”<br>  }<br>  override func computeArea() -&gt; Double{<br>    return M_PI * radius * radius<br>  }</p>
+<p>  private func centerString()-&gt;String{<br>    return “((x),(y))”<br>  }<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">###6.控制流程</span><br><span class="line">* 循环使用for-in表达式，而不使用 while 表达式。  </span><br><span class="line">正确代码：</span><br></pre></td></tr></table></figure>
+<p>for _ in 0..&lt;3 {<br>  print(“Hello three times”)<br>}</p>
+<p>for(index, person) in attendeeList.enumerate() {<br>    print(“(person)is at position #(index)”)<br>}</p>
+<p>for index in 0.stride(from: 0, to: items.count, by: 2) {<br>  print(index)<br>}<br>for index in (0…3).reverse() {<br>    print(index)<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">错误代码：</span><br></pre></td></tr></table></figure>
+<p>var i=0<br>while i&lt;3 {<br>  print(“Hello three times”)<br>  i+=1<br>}</p>
+<p>var i=0<br>while i&lt;3 {<br>  let person = attendeeList[i]<br>  print(“(person)is at position #(i)”)<br>  i+=1<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* Switch 模块中不用显式使用break。</span><br><span class="line"></span><br><span class="line">###7.黄金路径</span><br><span class="line">当编码遇到条件判断时，左边的距离是黄金路径或幸福路径，因为路径越短，速度越快。不要嵌套if循环，多个返回语句是可以的。guard 就为此而生的。  </span><br><span class="line">正确代码：</span><br></pre></td></tr></table></figure>
+<p>func computeFFT(context: Context?, inputData: InputData?)  throws -&gt; Frequencies {<br>    guard let context = context else {throwFFTError.NoContext }</p>
+<p>   guard let inputData = inputData else { throwFFTError.NoInputData }</p>
+<p>  //计算frequencies<br>  return frequencies<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">错误代码：</span><br></pre></td></tr></table></figure>
+<p>func computeFFT(context: Context?, inputData: InputData?) throws -&gt; Frequencies {<br>if let context = context {<br>    if let inputData = inputData {<br>           // 计算frequencies<br>          return frequencies<br>    } else {<br>         throwFFTError.NoInputData<br>     }<br>   } else {<br>      throwFFTError.NoContext<br>   }<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">当有多个条件需要用 guard 或 if let 解包，可用复合语句避免嵌套。</span><br></pre></td></tr></table></figure>
+<p>guard let number1=number1, number2=number2, number3=number3 else{<br>    fatalError(“impossible”)<br>}<br>// 处理number</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">###8.语法糖</span><br></pre></td></tr></table></figure>
+<p>//对空的数据和字典，使用类型注解<br>var names:  [String] = []<br>var lookup:  [String: Int] = [:]</p>
+<p>var deviceModels: [String]<br>var employees: [Int:String]<br>var faxNumber: Int?</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">###9.函数</span><br><span class="line">自由函数不依附于任何类或类型，应该节制地使用。  </span><br><span class="line">正确代码：</span><br></pre></td></tr></table></figure>
+<p>let sorted = items.mergeSort() // 易发现性<br>rocket.launch()  // 可读性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">错误代码：</span><br></pre></td></tr></table></figure>
+<p>let sorted = mergeSort(items)// 不易被发现<br>launch(&amp;rocket)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">天然的自由函数：</span><br></pre></td></tr></table></figure>
+<p>let value = max(x,y,z)  // another free function that feels natural</p>
+<pre><code>
+
+参考链接：  
+[最详尽的 Swift 代码规范指南](http://www.cocoachina.com/swift/20160725/17176.html)  
+[Swift 3.0 编码规范](http://www.jianshu.com/p/583025f702a8)  
+[17条 Swift 最佳实践规范](http://www.cocoachina.com/swift/20151010/13664.html)  
+[一份比较通用的iOS代码规范，包括Objective-C和Swift](https://github.com/ValiantCat/iOS-Code-Style)  
+[Swift 编码规范（中文）](http://www.jianshu.com/p/288ea00dcfcf)
+
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/" rel="tag"># 代码规范</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/13/aboutuploadAppstoreProblem/" rel="next" title="上传 Appstore 错误 - ERROR ITMS-90168">
+                <i class="fa fa-chevron-left"></i> 上传 Appstore 错误 - ERROR ITMS-90168
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/09/objectCnorm/" rel="prev" title="OC代码规范">
+                OC代码规范 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Rookie" />
+            
+              <p class="site-author-name" itemprop="name">Rookie</p>
+              <p class="site-description motion-element" itemprop="description">Sometimes, the correct path is the tortured one.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/rookie-liu" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:Rookie_liu@126.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/rookie_liu" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/5973718613" target="_blank" title="weibo">
+                      
+                        <i class="fa fa-fw fa-globe"></i>weibo</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://onevcat.com/#blog" title="OneV's Den" target="_blank">OneV's Den</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.zybuluo.com/Rookie/note/826624" title="我的简历" target="_blank">我的简历</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://rookie.live/Love/index.html" title="My Love" target="_blank">My Love</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rookie</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://rookie-liu.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://www.rookie.live/2017/01/02/swiftnorm/';
+          this.page.identifier = '2017/01/02/swiftnorm/';
+          this.page.title = 'swift代码规范';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://rookie-liu.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

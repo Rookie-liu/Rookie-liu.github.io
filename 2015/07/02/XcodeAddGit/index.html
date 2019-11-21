@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Git的使用," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Rookie`Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="keywords" content="Git的使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git在Xcode中的使用(未完待续)">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.rookie.live&#x2F;2015&#x2F;07&#x2F;02&#x2F;XcodeAddGit&#x2F;index.html">
+<meta property="og:site_name" content="Rookie&#96;Blog">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlogF455F9EE-1B04-4F2A-8DD4-BE6C288C95C4.png?imageView2&#x2F;1&#x2F;w&#x2F;600&#x2F;h&#x2F;200">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlog1.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlog22.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlog33.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlog44.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlog55.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlog66.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlog7.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlog8.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlog9.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlog10.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlog11.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlog12.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlog13.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlog14.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlog15.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlog16.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlog17.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlog18.png">
+<meta property="og:updated_time" content="2015-09-30T10:21:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;7xisto.com1.z0.glb.clouddn.com&#x2F;RookieBlogF455F9EE-1B04-4F2A-8DD4-BE6C288C95C4.png?imageView2&#x2F;1&#x2F;w&#x2F;600&#x2F;h&#x2F;200">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.rookie.live/2015/07/02/XcodeAddGit/"/>
+
+
+
+
+
+  <title>Git在Xcode中的使用(未完待续) | Rookie`Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Rookie`Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Always believe that something wonderful is about to happen</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            Commonweal 404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.rookie.live/2015/07/02/XcodeAddGit/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rookie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rookie`Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Git在Xcode中的使用(未完待续)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-07-02T18:18:43+08:00">
+                2015-07-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/07/02/XcodeAddGit/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2015/07/02/XcodeAddGit/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlogF455F9EE-1B04-4F2A-8DD4-BE6C288C95C4.png?imageView2/1/w/600/h/200" />
+<a id="more"></a>
+
+<h3 id="Git在Xcode的两种用法"><a href="#Git在Xcode的两种用法" class="headerlink" title="Git在Xcode的两种用法"></a>Git在Xcode的两种用法</h3><p>Git 到底是什么, 基本是怎么使用的, 我之前有简单的介绍, 有不明白的可以<a href="http://rookie-liu.github.io/2015/05/08/gitUseCourse/" target="_blank" rel="noopener">跳转去看</a>. 也可以去看看<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/" target="_blank" rel="noopener">廖雪峰的Git</a>, 什么疯子的使用啦, 多人协作, 创建标签啦都有, 有兴趣的可以去看看. </p>
+<p>随着对iOS 的开发和不断学习 , 个人也感觉到 Git 使用的重要性. 无论是团队开发还是个人开发中, Git 都是必不可少的使用利器. 并且在 Xcode 中就已经集成了 Git 的一大部分功能, 比如提交, 上传, 更新下载, 创建分支, 管理分支, 添加仓库源等等功能. 基于 Git 的代码托管服务的我目前知道的有两个, 国外的不用说 必须是 <code>Github</code>, 国内的就是 <code>Git@OSC</code>. 那么我现在来针对国内的 <code>Git@OSC</code> 来说一下…其实一般的公司如果使用 git 都会搭建属于自己的 Git 服务器, 使用的方法和他们两个都是基本相同的. <code>Git的使用我这里分为两种情况!</code></p>
+<ul>
+<li>在开始创建工程的时候就加入 Git 使用的.</li>
+<li>还有一种就是你已经创建了工程, 中途加入 Git 使用的.</li>
+</ul>
+<h2 id="在开始创建工程的时候加入-Git"><a href="#在开始创建工程的时候加入-Git" class="headerlink" title="在开始创建工程的时候加入 Git"></a>在开始创建工程的时候加入 Git</h2><p>大体思路: 在 <a href="https://git.oschina.net" target="_blank" rel="noopener">Git@OSC</a>中注册—-&gt;创建一个代码仓库—-&gt;生成 <a href="http://git.oschina.net/oschina/git-osc/wikis/帮助#ssh-keys" target="_blank" rel="noopener">SSH 的公钥</a>—-&gt;新建工程勾选 Git 服务—-&gt;添加远程仓库源—-&gt;基本上大功告成啦.</p>
+<ol>
+<li>在<a href="https://git.oschina.net" target="_blank" rel="noopener">Git@OSC</a>中注册一个账号, 这个就不用细说了吧, 如果这个不能注册您也就不用往下看了, 哈哈😄</li>
+<li>注册完成后添加一个代码仓库</li>
+</ol>
+<ul>
+<li>添加一个代码仓库<img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlog1.png" /></li>
+<li>创建一个代码仓库<br>这里的 Gitgnore 是用来忽略特殊文件的, 这里会给你自动生成, 就不必手动在添加你的特殊文件.有些时候，你必须把某些文件放到Git工作目录中，但又不能提交它们，比如保存了数据库密码的配置文件啦，等等，每次<code>git status</code>都会显示<code>Untracked files</code> …，有强迫症的童鞋心里肯定不爽。</li>
+</ul>
+<p>好在Git考虑到了大家的感受，这个问题解决起来也很简单，在Git工作区的根目录下创建一个特殊的<code>.gitignore</code>文件，然后把要忽略的文件名填进去，Git就会自动忽略这些文件。</p>
+<p>不需要从头写<code>.gitignore</code>文件，GitHub已经为我们准备了各种配置文件，只需要组合一下就可以使用了。所有配置文件可以直接在线浏览：<a href="https://github.com/github/gitignore" target="_blank" rel="noopener">https://github.com/github/gitignore</a><br><img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlog22.png" /></p>
+<ul>
+<li>完成之后你会看都这样一些东东<img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlog33.png" /></li>
+</ul>
+<ol start="3">
+<li>生成 SSH 公钥 </li>
+</ol>
+<ul>
+<li>这里你可以访问<a href="http://git.oschina.net/oschina/git-osc/wikis/帮助#ssh-keys" target="_blank" rel="noopener">这里</a>的 SSH Keys 来看怎么样生成一个 SSH 公钥, 我这里将给你在终端做一遍.</li>
+<li>打开终端:生成公钥<br>输入: <code>ssh-keygen -t rsa -C &quot;Rookie_liu@126.com&quot;</code>   这里的邮箱替换成你们自己的注册邮箱<br>出现:<code>Generating public/private rsa key pair.</code><br><code>Enter file in which to save the key (/Users/rookie/.ssh/id_rsa):</code> 这里选择你生成公钥的名字和位置, 默认位置为/Users/rookie/.ssh/id_rsa<br>我这里在<code>Enter file in which to save the key (/Users/rookie/.ssh/id_rsa):</code> 后面输入: FristSSH<br>出现:<code>Enter passphrase (empty for no passphrase):</code>这里让你输入一个密码, 空的也行<br>我这里在<code>Enter passphrase (empty for no passphrase):</code>直接 Enter 也就是为空<br>出现<code>Enter same passphrase again:</code> 在点击 Enter 为空<br>接着出现:<br>Your identification has been saved in FristSSH.<br>Your public key has been saved in FristSSH.pub.<br>The key fingerprint is:<br>c1:9c:3e:3b:87:e4:82:3a:34:80:20:44:09:17:f5:31 <a href="mailto:Rookie_liu@126.com" target="_blank" rel="noopener">Rookie_liu@126.com</a><br>The key’s randomart image is:</li>
+</ul>
+<p>+–[ RSA 2048]—-+<br>|=o+o. E          |<br>|oo   . = .       |<br>|+     . =        |<br>|o      . .       |<br>| .      S        |<br>|  o  . o +       |<br>| . .. . = .      |<br>|  ..   . o       |<br>|  ..             |<br>+—————–+<br>生成公钥成功啦 , 不信看图<br><img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlog44.png" /></p>
+<ul>
+<li>然后再把FristSSH.pub中的内容加入git@osc 的SSH密钥中<br>在终端输入: cat /Users/rookie/FristSSH.pub   这个路径就是我们生成FristSSH.pub的路径.<br>然后会出现:好长好长一串字符, 这个就是我们需要的公钥 , 这里我们把它复制下来, 添加后他会让你输入一遍当前用户的密码<img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlog55.png" />
+看这里, 看这里, 就添加成功啦 . 
+<img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlog66.png" />
+<img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlog7.png" /></li>
+<li>添加 SSH 并连接<br>终端输入:ssh-add /Users/rookie/FirstSSh  这里添加的是另外你生成的那个文件<br>终端出现:Enter passphrase for /Users/rookie/Rookie: 输入密码 , 我们刚刚是空, 回车即可<br>终端出现Identity added: /Users/rookie/FristSSH (/Users/rookie/FristSSH)<br>然后验证,在终端输入:ssh -T <a href="mailto:git@git.oschina.net" target="_blank" rel="noopener">git@git.oschina.net</a><br>终端出现:Welcome to Git@OSC, Rookie_liu!</li>
+</ul>
+<p>我尼玛, 就这样 SSH 终于添加完成啦 , 是不是很简单呢啊 .</p>
+<ol start="4">
+<li><p>还要设置一下个人信息, 让人家要知道你是谁把<br>终端输入:<br>git config –global user.name “Rookie_liu”<br>git config –global user.email <a href="mailto:Rookie_liu@126.com" target="_blank" rel="noopener">Rookie_liu@126.com</a></p>
+</li>
+<li><p>新建并且设置上 Git 服务<br>其实也没有什么啦,就是在新建项目的时候, 勾选这里就行了, 看图吧 . </p>
+<img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlog8.png" /></li>
+<li><p>最后一步啦设置项目远程仓库源</p>
+</li>
+</ol>
+<ul>
+<li>首先复制一下我们刚刚创建项目时候的 SSH 远程仓库地址, <img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlog9.png" /></li>
+<li>然后在我们的 Xcode 中添加远程仓库源<br>打开 Xcode 中的配置信息<img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlog10.png" />
+添加仓库源
+<img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlog11.png" />
+添加完成啦
+<img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlog12.png" />
+这样就配置完成啦, 哈哈哈, 还可以吧. 挺简单的.  你可以用 Xcode 中集成的来做 Git 的上传和下载, 当然你也可以使用终端来进行操作 .</li>
+</ul>
+<ol start="7">
+<li>最后验证<br>我们使用 Xcode 来验证一下看是否可以上传上去, 你也可以在终端进行上传, 不过在终端上传的话如果文件有时候有冲突你是不会看到的 , 然后上传完了如果有冲突你就傻了, 啥, 你不会在终端上传 , 那么<a href="http://rookie-liu.github.io/2015/05/08/gitUseCourse/" target="_blank" rel="noopener">请移步</a>, 这里有简单的使用, 如果想更牛逼的使用方法请问度娘或者谷哥哥吧. </li>
+</ol>
+<ul>
+<li>我们在项目中随意添加一些东西 , 做一些改变<img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlog13.png" /></li>
+<li>然后在 Commit<img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlog14.png" /></li>
+<li>填写 commit 的信息, 这里越详细越好, 然后提交<img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlog15.png" /></li>
+<li>接着Push 到我们的远程仓库就行啦<img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlog16.png" />
+我们这里没有分支, 那么就提交到 master 主分支就行啦
+<img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlog17.png" /></li>
+<li>然后在看你的远程代码仓库, 有没有啦<br>不管你有没有 , 反正我这里是有了<img src="http://7xisto.com1.z0.glb.clouddn.com/RookieBlog18.png" />
+OK 啦 , 这回才算是大功告成啦 , 啊啊 , 好累的说!!! 差不多就这样了吧 , 
+
+
+</li>
+</ul>
+<h2 id="在已有的项目中加入-Git"><a href="#在已有的项目中加入-Git" class="headerlink" title="在已有的项目中加入 Git"></a>在已有的项目中加入 Git</h2><p>其实这里面的前几步都是和前面一样的.<br>大体思路: 在 <a href="https://git.oschina.net" target="_blank" rel="noopener">Git@OSC</a>中注册—-&gt;创建一个代码仓库—-&gt;生成 <a href="http://git.oschina.net/oschina/git-osc/wikis/帮助#ssh-keys" target="_blank" rel="noopener">SSH 的公钥</a>—-&gt;在终端打开的工程文件—-&gt;初始化 Git 服务—-&gt;添加远程仓库源—-&gt;<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/0013758404317281e54b6f5375640abbb11e67be4cd49e0000" target="_blank" rel="noopener">忽略特殊文件</a>—-&gt;大功告成啦.</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Git%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="tag"># Git的使用</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/07/02/XcodeTechnique/" rel="next" title="Xcode使用技巧">
+                <i class="fa fa-chevron-left"></i> Xcode使用技巧
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/07/16/thirdToos/" rel="prev" title="公司用中会用到的iOS开源库和第三方组件(不断更新...)">
+                公司用中会用到的iOS开源库和第三方组件(不断更新...) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Rookie" />
+            
+              <p class="site-author-name" itemprop="name">Rookie</p>
+              <p class="site-description motion-element" itemprop="description">Sometimes, the correct path is the tortured one.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/rookie-liu" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:Rookie_liu@126.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/rookie_liu" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/5973718613" target="_blank" title="weibo">
+                      
+                        <i class="fa fa-fw fa-globe"></i>weibo</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://onevcat.com/#blog" title="OneV's Den" target="_blank">OneV's Den</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.zybuluo.com/Rookie/note/826624" title="我的简历" target="_blank">我的简历</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://rookie.live/Love/index.html" title="My Love" target="_blank">My Love</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Git在Xcode的两种用法"><span class="nav-number">1.</span> <span class="nav-text">Git在Xcode的两种用法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在开始创建工程的时候加入-Git"><span class="nav-number"></span> <span class="nav-text">在开始创建工程的时候加入 Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在已有的项目中加入-Git"><span class="nav-number"></span> <span class="nav-text">在已有的项目中加入 Git</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rookie</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://rookie-liu.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://www.rookie.live/2015/07/02/XcodeAddGit/';
+          this.page.identifier = '2015/07/02/XcodeAddGit/';
+          this.page.title = 'Git在Xcode中的使用(未完待续)';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://rookie-liu.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
