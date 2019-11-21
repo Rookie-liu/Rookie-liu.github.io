@@ -5,9 +5,9 @@
   <subtitle>Always believe that something wonderful is about to happen</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://www.rookie.live/"/>
+  <link href="http://rookie.live/"/>
   <updated>2018-10-25T08:47:19.000Z</updated>
-  <id>http://www.rookie.live/</id>
+  <id>http://rookie.live/</id>
   
   <author>
     <name>Rookie</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>隐私权政策</title>
-    <link href="http://www.rookie.live/2018/10/25/privacyagreement/"/>
-    <id>http://www.rookie.live/2018/10/25/privacyagreement/</id>
+    <link href="http://rookie.live/2018/10/25/privacyagreement/"/>
+    <id>http://rookie.live/2018/10/25/privacyagreement/</id>
     <published>2018-10-25T08:45:14.000Z</published>
     <updated>2018-10-25T08:47:19.000Z</updated>
     
@@ -32,17 +32,17 @@
     </summary>
     
     
-      <category term="Apple" scheme="http://www.rookie.live/categories/Apple/"/>
+      <category term="Apple" scheme="http://rookie.live/categories/Apple/"/>
     
     
-      <category term="Apple" scheme="http://www.rookie.live/tags/Apple/"/>
+      <category term="Apple" scheme="http://rookie.live/tags/Apple/"/>
     
   </entry>
   
   <entry>
     <title>gradle各种版本下载</title>
-    <link href="http://www.rookie.live/2018/05/11/gradleDown/"/>
-    <id>http://www.rookie.live/2018/05/11/gradleDown/</id>
+    <link href="http://rookie.live/2018/05/11/gradleDown/"/>
+    <id>http://rookie.live/2018/05/11/gradleDown/</id>
     <published>2018-05-11T06:20:48.000Z</published>
     <updated>2018-04-10T02:56:37.000Z</updated>
     
@@ -55,17 +55,17 @@
     </summary>
     
     
-      <category term="Android" scheme="http://www.rookie.live/categories/Android/"/>
+      <category term="Android" scheme="http://rookie.live/categories/Android/"/>
     
     
-      <category term="gradle下载" scheme="http://www.rookie.live/tags/gradle%E4%B8%8B%E8%BD%BD/"/>
+      <category term="gradle下载" scheme="http://rookie.live/tags/gradle%E4%B8%8B%E8%BD%BD/"/>
     
   </entry>
   
   <entry>
     <title>Android DataBinding使用详解</title>
-    <link href="http://www.rookie.live/2018/04/13/DataBindingan/"/>
-    <id>http://www.rookie.live/2018/04/13/DataBindingan/</id>
+    <link href="http://rookie.live/2018/04/13/DataBindingan/"/>
+    <id>http://rookie.live/2018/04/13/DataBindingan/</id>
     <published>2018-04-13T06:20:48.000Z</published>
     <updated>2018-04-13T08:43:51.000Z</updated>
     
@@ -79,17 +79,17 @@
     </summary>
     
     
-      <category term="Android" scheme="http://www.rookie.live/categories/Android/"/>
+      <category term="Android" scheme="http://rookie.live/categories/Android/"/>
     
     
-      <category term="BinDing" scheme="http://www.rookie.live/tags/BinDing/"/>
+      <category term="BinDing" scheme="http://rookie.live/tags/BinDing/"/>
     
   </entry>
   
   <entry>
     <title>为 Hexo 博客加入 Disqus 评论</title>
-    <link href="http://www.rookie.live/2018/04/13/hexoaddDisqus/"/>
-    <id>http://www.rookie.live/2018/04/13/hexoaddDisqus/</id>
+    <link href="http://rookie.live/2018/04/13/hexoaddDisqus/"/>
+    <id>http://rookie.live/2018/04/13/hexoaddDisqus/</id>
     <published>2018-04-13T06:20:48.000Z</published>
     <updated>2018-04-09T14:47:08.000Z</updated>
     
@@ -103,17 +103,17 @@
     </summary>
     
     
-      <category term="Hexo使用指南" scheme="http://www.rookie.live/categories/Hexo%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/"/>
+      <category term="Hexo使用指南" scheme="http://rookie.live/categories/Hexo%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/"/>
     
     
-      <category term="Disqus 评论" scheme="http://www.rookie.live/tags/Disqus-%E8%AF%84%E8%AE%BA/"/>
+      <category term="Disqus 评论" scheme="http://rookie.live/tags/Disqus-%E8%AF%84%E8%AE%BA/"/>
     
   </entry>
   
   <entry>
     <title>Android开发规范</title>
-    <link href="http://www.rookie.live/2018/04/11/androidspecification/"/>
-    <id>http://www.rookie.live/2018/04/11/androidspecification/</id>
+    <link href="http://rookie.live/2018/04/11/androidspecification/"/>
+    <id>http://rookie.live/2018/04/11/androidspecification/</id>
     <published>2018-04-11T06:20:48.000Z</published>
     <updated>2018-04-11T03:28:54.000Z</updated>
     
@@ -124,17 +124,17 @@
     </summary>
     
     
-      <category term="Android" scheme="http://www.rookie.live/categories/Android/"/>
+      <category term="Android" scheme="http://rookie.live/categories/Android/"/>
     
     
-      <category term="开发规范" scheme="http://www.rookie.live/tags/%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/"/>
+      <category term="开发规范" scheme="http://rookie.live/tags/%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/"/>
     
   </entry>
   
   <entry>
     <title>Google推荐——Glide使用详解</title>
-    <link href="http://www.rookie.live/2018/03/23/Glideuse/"/>
-    <id>http://www.rookie.live/2018/03/23/Glideuse/</id>
+    <link href="http://rookie.live/2018/03/23/Glideuse/"/>
+    <id>http://rookie.live/2018/03/23/Glideuse/</id>
     <published>2018-03-23T06:20:48.000Z</published>
     <updated>2018-04-09T14:22:52.000Z</updated>
     
@@ -145,17 +145,17 @@
     </summary>
     
     
-      <category term="Android" scheme="http://www.rookie.live/categories/Android/"/>
+      <category term="Android" scheme="http://rookie.live/categories/Android/"/>
     
     
-      <category term="Glide使用详解" scheme="http://www.rookie.live/tags/Glide%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3/"/>
+      <category term="Glide使用详解" scheme="http://rookie.live/tags/Glide%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3/"/>
     
   </entry>
   
   <entry>
     <title>Android基础：Fragment，看这篇就够了</title>
-    <link href="http://www.rookie.live/2018/02/15/Fragmentst/"/>
-    <id>http://www.rookie.live/2018/02/15/Fragmentst/</id>
+    <link href="http://rookie.live/2018/02/15/Fragmentst/"/>
+    <id>http://rookie.live/2018/02/15/Fragmentst/</id>
     <published>2018-02-15T06:20:48.000Z</published>
     <updated>2018-04-09T13:58:58.000Z</updated>
     
@@ -167,17 +167,17 @@
     </summary>
     
     
-      <category term="Android" scheme="http://www.rookie.live/categories/Android/"/>
+      <category term="Android" scheme="http://rookie.live/categories/Android/"/>
     
     
-      <category term="Fragment" scheme="http://www.rookie.live/tags/Fragment/"/>
+      <category term="Fragment" scheme="http://rookie.live/tags/Fragment/"/>
     
   </entry>
   
   <entry>
     <title>Android学习资源</title>
-    <link href="http://www.rookie.live/2018/01/15/Androidst/"/>
-    <id>http://www.rookie.live/2018/01/15/Androidst/</id>
+    <link href="http://rookie.live/2018/01/15/Androidst/"/>
+    <id>http://rookie.live/2018/01/15/Androidst/</id>
     <published>2018-01-15T06:20:48.000Z</published>
     <updated>2018-04-09T13:51:47.000Z</updated>
     
@@ -189,17 +189,17 @@
     </summary>
     
     
-      <category term="Android" scheme="http://www.rookie.live/categories/Android/"/>
+      <category term="Android" scheme="http://rookie.live/categories/Android/"/>
     
     
-      <category term="Android学习" scheme="http://www.rookie.live/tags/Android%E5%AD%A6%E4%B9%A0/"/>
+      <category term="Android学习" scheme="http://rookie.live/tags/Android%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title>Android 开源项目分类汇总</title>
-    <link href="http://www.rookie.live/2018/01/15/androidhuiong/"/>
-    <id>http://www.rookie.live/2018/01/15/androidhuiong/</id>
+    <link href="http://rookie.live/2018/01/15/androidhuiong/"/>
+    <id>http://rookie.live/2018/01/15/androidhuiong/</id>
     <published>2018-01-15T06:20:48.000Z</published>
     <updated>2018-04-09T13:56:41.000Z</updated>
     
@@ -210,17 +210,17 @@
     </summary>
     
     
-      <category term="Android" scheme="http://www.rookie.live/categories/Android/"/>
+      <category term="Android" scheme="http://rookie.live/categories/Android/"/>
     
     
-      <category term="Android项目汇总" scheme="http://www.rookie.live/tags/Android%E9%A1%B9%E7%9B%AE%E6%B1%87%E6%80%BB/"/>
+      <category term="Android项目汇总" scheme="http://rookie.live/tags/Android%E9%A1%B9%E7%9B%AE%E6%B1%87%E6%80%BB/"/>
     
   </entry>
   
   <entry>
     <title>六度空间理论：通过六个人你就能够认识任何一个陌生人</title>
-    <link href="http://www.rookie.live/2017/12/24/liudukongjian/"/>
-    <id>http://www.rookie.live/2017/12/24/liudukongjian/</id>
+    <link href="http://rookie.live/2017/12/24/liudukongjian/"/>
+    <id>http://rookie.live/2017/12/24/liudukongjian/</id>
     <published>2017-12-24T06:20:48.000Z</published>
     <updated>2018-04-09T13:47:07.000Z</updated>
     
@@ -231,17 +231,17 @@
     </summary>
     
     
-      <category term="六度空间" scheme="http://www.rookie.live/categories/%E5%85%AD%E5%BA%A6%E7%A9%BA%E9%97%B4/"/>
+      <category term="六度空间" scheme="http://rookie.live/categories/%E5%85%AD%E5%BA%A6%E7%A9%BA%E9%97%B4/"/>
     
     
-      <category term="六度空间" scheme="http://www.rookie.live/tags/%E5%85%AD%E5%BA%A6%E7%A9%BA%E9%97%B4/"/>
+      <category term="六度空间" scheme="http://rookie.live/tags/%E5%85%AD%E5%BA%A6%E7%A9%BA%E9%97%B4/"/>
     
   </entry>
   
   <entry>
     <title>如何理解「墨菲定律」？</title>
-    <link href="http://www.rookie.live/2017/11/04/mofei/"/>
-    <id>http://www.rookie.live/2017/11/04/mofei/</id>
+    <link href="http://rookie.live/2017/11/04/mofei/"/>
+    <id>http://rookie.live/2017/11/04/mofei/</id>
     <published>2017-11-04T06:20:48.000Z</published>
     <updated>2018-04-09T13:45:22.000Z</updated>
     
@@ -252,17 +252,17 @@
     </summary>
     
     
-      <category term="墨菲定律" scheme="http://www.rookie.live/categories/%E5%A2%A8%E8%8F%B2%E5%AE%9A%E5%BE%8B/"/>
+      <category term="墨菲定律" scheme="http://rookie.live/categories/%E5%A2%A8%E8%8F%B2%E5%AE%9A%E5%BE%8B/"/>
     
     
-      <category term="墨菲定律" scheme="http://www.rookie.live/tags/%E5%A2%A8%E8%8F%B2%E5%AE%9A%E5%BE%8B/"/>
+      <category term="墨菲定律" scheme="http://rookie.live/tags/%E5%A2%A8%E8%8F%B2%E5%AE%9A%E5%BE%8B/"/>
     
   </entry>
   
   <entry>
     <title>广告页面开发员原理</title>
-    <link href="http://www.rookie.live/2017/10/15/iosadvertising/"/>
-    <id>http://www.rookie.live/2017/10/15/iosadvertising/</id>
+    <link href="http://rookie.live/2017/10/15/iosadvertising/"/>
+    <id>http://rookie.live/2017/10/15/iosadvertising/</id>
     <published>2017-10-15T06:20:48.000Z</published>
     <updated>2018-04-09T13:43:21.000Z</updated>
     
@@ -275,17 +275,17 @@
     </summary>
     
     
-      <category term="iOS开发" scheme="http://www.rookie.live/categories/iOS%E5%BC%80%E5%8F%91/"/>
+      <category term="iOS开发" scheme="http://rookie.live/categories/iOS%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="Xcode" scheme="http://www.rookie.live/tags/Xcode/"/>
+      <category term="Xcode" scheme="http://rookie.live/tags/Xcode/"/>
     
   </entry>
   
   <entry>
     <title>iOS架构实践干货</title>
-    <link href="http://www.rookie.live/2017/09/25/iosarchitecture/"/>
-    <id>http://www.rookie.live/2017/09/25/iosarchitecture/</id>
+    <link href="http://rookie.live/2017/09/25/iosarchitecture/"/>
+    <id>http://rookie.live/2017/09/25/iosarchitecture/</id>
     <published>2017-09-25T06:20:48.000Z</published>
     <updated>2018-04-09T13:40:25.000Z</updated>
     
@@ -297,17 +297,17 @@
     </summary>
     
     
-      <category term="iOS开发" scheme="http://www.rookie.live/categories/iOS%E5%BC%80%E5%8F%91/"/>
+      <category term="iOS开发" scheme="http://rookie.live/categories/iOS%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="Xcode" scheme="http://www.rookie.live/tags/Xcode/"/>
+      <category term="Xcode" scheme="http://rookie.live/tags/Xcode/"/>
     
   </entry>
   
   <entry>
     <title>iOS 中常用的宏</title>
-    <link href="http://www.rookie.live/2017/08/05/iosmacro/"/>
-    <id>http://www.rookie.live/2017/08/05/iosmacro/</id>
+    <link href="http://rookie.live/2017/08/05/iosmacro/"/>
+    <id>http://rookie.live/2017/08/05/iosmacro/</id>
     <published>2017-08-05T06:20:48.000Z</published>
     <updated>2018-04-09T13:40:18.000Z</updated>
     
@@ -319,17 +319,17 @@
     </summary>
     
     
-      <category term="iOS开发" scheme="http://www.rookie.live/categories/iOS%E5%BC%80%E5%8F%91/"/>
+      <category term="iOS开发" scheme="http://rookie.live/categories/iOS%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="宏" scheme="http://www.rookie.live/tags/%E5%AE%8F/"/>
+      <category term="宏" scheme="http://rookie.live/tags/%E5%AE%8F/"/>
     
   </entry>
   
   <entry>
     <title>iPhone手机十周年回顾</title>
-    <link href="http://www.rookie.live/2017/07/03/iphonehuigu/"/>
-    <id>http://www.rookie.live/2017/07/03/iphonehuigu/</id>
+    <link href="http://rookie.live/2017/07/03/iphonehuigu/"/>
+    <id>http://rookie.live/2017/07/03/iphonehuigu/</id>
     <published>2017-07-03T01:49:33.000Z</published>
     <updated>2017-07-25T06:49:55.000Z</updated>
     
@@ -343,17 +343,17 @@
     </summary>
     
     
-      <category term="iOS开发" scheme="http://www.rookie.live/categories/iOS%E5%BC%80%E5%8F%91/"/>
+      <category term="iOS开发" scheme="http://rookie.live/categories/iOS%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="公众账号" scheme="http://www.rookie.live/tags/%E5%85%AC%E4%BC%97%E8%B4%A6%E5%8F%B7/"/>
+      <category term="公众账号" scheme="http://rookie.live/tags/%E5%85%AC%E4%BC%97%E8%B4%A6%E5%8F%B7/"/>
     
   </entry>
   
   <entry>
     <title>拿什么保护我们的成果</title>
-    <link href="http://www.rookie.live/2017/06/26/proourapp/"/>
-    <id>http://www.rookie.live/2017/06/26/proourapp/</id>
+    <link href="http://rookie.live/2017/06/26/proourapp/"/>
+    <id>http://rookie.live/2017/06/26/proourapp/</id>
     <published>2017-06-26T01:49:33.000Z</published>
     <updated>2017-07-25T06:55:04.000Z</updated>
     
@@ -366,17 +366,17 @@
     </summary>
     
     
-      <category term="iOS开发" scheme="http://www.rookie.live/categories/iOS%E5%BC%80%E5%8F%91/"/>
+      <category term="iOS开发" scheme="http://rookie.live/categories/iOS%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="公众账号" scheme="http://www.rookie.live/tags/%E5%85%AC%E4%BC%97%E8%B4%A6%E5%8F%B7/"/>
+      <category term="公众账号" scheme="http://rookie.live/tags/%E5%85%AC%E4%BC%97%E8%B4%A6%E5%8F%B7/"/>
     
   </entry>
   
   <entry>
     <title>Shell常用命令</title>
-    <link href="http://www.rookie.live/2017/06/13/sellmingling/"/>
-    <id>http://www.rookie.live/2017/06/13/sellmingling/</id>
+    <link href="http://rookie.live/2017/06/13/sellmingling/"/>
+    <id>http://rookie.live/2017/06/13/sellmingling/</id>
     <published>2017-06-13T01:49:33.000Z</published>
     <updated>2017-07-25T01:50:30.000Z</updated>
     
@@ -389,17 +389,17 @@
     </summary>
     
     
-      <category term="iOS开发" scheme="http://www.rookie.live/categories/iOS%E5%BC%80%E5%8F%91/"/>
+      <category term="iOS开发" scheme="http://rookie.live/categories/iOS%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="shell" scheme="http://www.rookie.live/tags/shell/"/>
+      <category term="shell" scheme="http://rookie.live/tags/shell/"/>
     
   </entry>
   
   <entry>
     <title>服务器维护指南</title>
-    <link href="http://www.rookie.live/2017/05/12/servicepro/"/>
-    <id>http://www.rookie.live/2017/05/12/servicepro/</id>
+    <link href="http://rookie.live/2017/05/12/servicepro/"/>
+    <id>http://rookie.live/2017/05/12/servicepro/</id>
     <published>2017-05-12T01:49:33.000Z</published>
     <updated>2017-07-25T07:00:00.000Z</updated>
     
@@ -414,17 +414,17 @@
     </summary>
     
     
-      <category term="iOS开发" scheme="http://www.rookie.live/categories/iOS%E5%BC%80%E5%8F%91/"/>
+      <category term="iOS开发" scheme="http://rookie.live/categories/iOS%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="服务器" scheme="http://www.rookie.live/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+      <category term="服务器" scheme="http://rookie.live/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   
   <entry>
     <title>iOS 项目添加 React Native</title>
-    <link href="http://www.rookie.live/2017/05/03/reactnativeaddios/"/>
-    <id>http://www.rookie.live/2017/05/03/reactnativeaddios/</id>
+    <link href="http://rookie.live/2017/05/03/reactnativeaddios/"/>
+    <id>http://rookie.live/2017/05/03/reactnativeaddios/</id>
     <published>2017-05-03T01:49:33.000Z</published>
     <updated>2017-07-25T01:41:31.000Z</updated>
     
@@ -435,17 +435,17 @@
     </summary>
     
     
-      <category term="iOS开发" scheme="http://www.rookie.live/categories/iOS%E5%BC%80%E5%8F%91/"/>
+      <category term="iOS开发" scheme="http://rookie.live/categories/iOS%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="reactnative" scheme="http://www.rookie.live/tags/reactnative/"/>
+      <category term="reactnative" scheme="http://rookie.live/tags/reactnative/"/>
     
   </entry>
   
   <entry>
     <title>我的作品</title>
-    <link href="http://www.rookie.live/2017/05/02/mycreation/"/>
-    <id>http://www.rookie.live/2017/05/02/mycreation/</id>
+    <link href="http://rookie.live/2017/05/02/mycreation/"/>
+    <id>http://rookie.live/2017/05/02/mycreation/</id>
     <published>2017-05-02T01:49:33.000Z</published>
     <updated>2017-07-28T05:22:59.000Z</updated>
     
@@ -461,10 +461,10 @@
     </summary>
     
     
-      <category term="iOS开发" scheme="http://www.rookie.live/categories/iOS%E5%BC%80%E5%8F%91/"/>
+      <category term="iOS开发" scheme="http://rookie.live/categories/iOS%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="作品" scheme="http://www.rookie.live/tags/%E4%BD%9C%E5%93%81/"/>
+      <category term="作品" scheme="http://rookie.live/tags/%E4%BD%9C%E5%93%81/"/>
     
   </entry>
   
