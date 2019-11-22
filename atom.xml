@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://rookie.live/"/>
-  <updated>2019-11-22T08:41:48.089Z</updated>
+  <updated>2019-11-22T08:56:23.613Z</updated>
   <id>http://rookie.live/</id>
   
   <author>
@@ -21,13 +21,11 @@
     <link href="http://rookie.live/2019/11/22/flutterorrn/"/>
     <id>http://rookie.live/2019/11/22/flutterorrn/</id>
     <published>2019-11-22T08:37:34.000Z</published>
-    <updated>2019-11-22T08:41:48.089Z</updated>
+    <updated>2019-11-22T08:56:23.613Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;本文转自掘金&lt;a href=&quot;https://juejin.im/user/582aca2ba22b9d006b59ae68&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;恋猫de小郭&lt;/a&gt;的 &lt;a href=&quot;https://juejin.im/post/5d0bac156fb9a07ec56e7f15&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;全网最全 Flutter 与 React Native 深入对比分析
-&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;临冬之际，移动端跨平台在经历数年沉浮之后，如今还能在舞台聚光灯下雀跃的， 也只剩下 React Native 和 Flutter 了，作为沉淀了数年的 “豪门” 与 19 年当红的 “新贵” ，它们之间的 “针锋相对” 也成了开发者们关心的事情。&lt;/p&gt;
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;临冬之际，移动端跨平台在经历数年沉浮之后，如今还能在舞台聚光灯下雀跃的， 也只剩下 React Native 和 Flutter 了，作为沉淀了数年的 “豪门” 与 19 年当红的 “新贵” ，它们之间的 “针锋相对” 也成了开发者们关心的事情。&lt;/p&gt;
     
     </summary>
     
