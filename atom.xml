@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://rookie.live/"/>
-  <updated>2019-11-22T08:56:23.613Z</updated>
+  <updated>2019-11-23T07:39:49.611Z</updated>
   <id>http://rookie.live/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS13越狱,Checkra1n非完美越狱工具发布支持iPhone 5s – iPhone X, iOS 12.3 and up</title>
+    <link href="http://rookie.live/2019/11/23/jailbreakiOS13/"/>
+    <id>http://rookie.live/2019/11/23/jailbreakiOS13/</id>
+    <published>2019-11-23T07:38:34.000Z</published>
+    <updated>2019-11-23T07:39:49.611Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;他来了, 他终于来了 , 记忆中自从&lt;a href=&quot;http://www.pangu.io/?flag=cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;盘古越狱&lt;/a&gt;团队进行完美越狱后之后进行的越狱总会有各种各样的问题
+        
+      
+    
+    </summary>
+    
+    
+      <category term="越狱" scheme="http://rookie.live/categories/%E8%B6%8A%E7%8B%B1/"/>
+    
+    
+      <category term="iOS越狱" scheme="http://rookie.live/tags/iOS%E8%B6%8A%E7%8B%B1/"/>
+    
+  </entry>
   
   <entry>
     <title>Flutter 与 React Native 深入对比分析</title>
@@ -439,27 +467,6 @@
     
     
       <category term="服务器" scheme="http://rookie.live/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS 项目添加 React Native</title>
-    <link href="http://rookie.live/2017/05/03/reactnativeaddios/"/>
-    <id>http://rookie.live/2017/05/03/reactnativeaddios/</id>
-    <published>2017-05-03T01:49:33.000Z</published>
-    <updated>2017-07-25T01:41:31.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;package-json-中的版本号&quot;&gt;&lt;a href=&quot;#package-json-中的版本号&quot; class=&quot;headerlink&quot; title=&quot;package.json 中的版本号&quot;&gt;&lt;/a&gt;package.json 中的版本号&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;name&amp;quot;: &amp;quot;testReactNative&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;version&amp;quot;: &amp;quot;0.0.1&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;private&amp;quot;: true,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;scripts&amp;quot;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;start&amp;quot;: &amp;quot;node node_modules/react-native/local-cli/cli.js start&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;dependencies&amp;quot;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;react&amp;quot;: &amp;quot;16.0.0-alpha.12&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;react-native&amp;quot;: &amp;quot;0.45.1&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-      <category term="iOS开发" scheme="http://rookie.live/categories/iOS%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="reactnative" scheme="http://rookie.live/tags/reactnative/"/>
     
   </entry>
   

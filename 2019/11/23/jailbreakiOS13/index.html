@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="iOS越狱," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Rookie`Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="他来了, 他终于来了 , 记忆中自从盘古越狱团队进行完美越狱后之后进行的越狱总会有各种各样的问题 , 这次终于他又来了 checkra1n 发布 iPhone 5s – iPhone X, iOS 12.3 and up 越狱工具, 不过这个越狱工具目前只有 mac 版本   Important informationThis release is an early beta preview a">
+<meta name="keywords" content="iOS越狱">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS13越狱,Checkra1n非完美越狱工具发布支持iPhone 5s – iPhone X, iOS 12.3 and up">
+<meta property="og:url" content="http:&#x2F;&#x2F;rookie.live&#x2F;2019&#x2F;11&#x2F;23&#x2F;jailbreakiOS13&#x2F;index.html">
+<meta property="og:site_name" content="Rookie&#96;Blog">
+<meta property="og:description" content="他来了, 他终于来了 , 记忆中自从盘古越狱团队进行完美越狱后之后进行的越狱总会有各种各样的问题 , 这次终于他又来了 checkra1n 发布 iPhone 5s – iPhone X, iOS 12.3 and up 越狱工具, 不过这个越狱工具目前只有 mac 版本   Important informationThis release is an early beta preview a">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;Rookie&#x2F;c1tybrgwa24nknsipkr32j23&#x2F;image_1dqbdqhhp19b2hce1p43mupkka9.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;Rookie&#x2F;4f7ojpynwi41k6f6squlxh1l&#x2F;image_1dqbepgrg1nelks10g7so93e13.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;Rookie&#x2F;23jgkxe2p962un1rol90xztf&#x2F;image_1dqbel2ev1g6962r1l4hibf8hdm.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;Rookie&#x2F;r83mw9iw8rcuk5k6z3hh6vdq&#x2F;image_1dqbff9csa313qqfu8719o9920.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;Rookie&#x2F;hfpw417grgzflrxtboawtqoi&#x2F;image_1dqbfuhpti2sv7e74q124b1dco2d.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;Rookie&#x2F;vj1tbdg4va0x5nez2fk6lgjt&#x2F;image_1dqbfv88cgevs1a1kp1ikpavs2q.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;Rookie&#x2F;90pytd592ckxx5bcr9ugu4pc&#x2F;image_1dqbg03g3huc1af51u4jtilmn937.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;Rookie&#x2F;aljthij49nrxjlw6yxwftseb&#x2F;image_1dqbg0f1vethhn2kc7ivglse3k.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;Rookie&#x2F;nn3i3k97tdifcd08meqc6gim&#x2F;image_1dqbg0sp512ph1djrtsj1hat18q941.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;Rookie&#x2F;lrj5xpeebr3rr8rxvgr3eswi&#x2F;image_1dqbgv8431cbq1vpvnijvv37rt4e.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;Rookie&#x2F;115cxkst8yii02wqgvvops30&#x2F;image_1dqbh2cgg1pvl1v7iohplk36ag58.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;Rookie&#x2F;9kfasxylnkhjghf62g9qgo0y&#x2F;image_1dqbhdg6718mn4kfg1v1mhc7o162.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;Rookie&#x2F;jq6h5evw5hdcu49p3t4i8684&#x2F;image_1dqbh46vf1vc814ro1edu1r1mtid5l.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;Rookie&#x2F;ey3usjpafdhwvfn5v4rkod3i&#x2F;image_1dqbhoojn1eltmm31isn927vnj7c.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;Rookie&#x2F;3foipac75mts7fb58272dyzm&#x2F;image_1dqbhqn0u5gu1kukicrf701gne7p.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;Rookie&#x2F;qnugzn3t0dk1y54xuq3ohygv&#x2F;image_1dqbhsv7b1rj5s28c46173n67986.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;Rookie&#x2F;kigc5kjnx03ajajjeemo5i0b&#x2F;image_1dqbhud6f1i7a1f97rjl1rlt1a078j.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;Rookie&#x2F;5c1byufidxwyma3lbqv4hua2&#x2F;image_1dqbi9un21njietf1f3518eg1od290.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;Rookie&#x2F;7br4inm09v10c94i7af1odq8&#x2F;1931574494021_.pic.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;Rookie&#x2F;ygam4f587azribkxyei5o35f&#x2F;1921574494020_.pic.jpg">
+<meta property="og:updated_time" content="2019-11-23T07:39:49.611Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;Rookie&#x2F;c1tybrgwa24nknsipkr32j23&#x2F;image_1dqbdqhhp19b2hce1p43mupkka9.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://rookie.live/2019/11/23/jailbreakiOS13/"/>
+
+
+
+
+
+  <title>iOS13越狱,Checkra1n非完美越狱工具发布支持iPhone 5s – iPhone X, iOS 12.3 and up | Rookie`Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Rookie`Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Always believe that something wonderful is about to happen</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            Commonweal 404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" target="_blank" rel="noopener" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://rookie.live/2019/11/23/jailbreakiOS13/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rookie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rookie`Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS13越狱,Checkra1n非完美越狱工具发布支持iPhone 5s – iPhone X, iOS 12.3 and up</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-23T15:38:34+08:00">
+                2019-11-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%B6%8A%E7%8B%B1/" itemprop="url" rel="index">
+                    <span itemprop="name">越狱</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/11/23/jailbreakiOS13/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/11/23/jailbreakiOS13/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  1.5k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>他来了, 他终于来了 , 记忆中自从<a href="http://www.pangu.io/?flag=cn" target="_blank" rel="noopener">盘古越狱</a>团队进行完美越狱后之后进行的越狱总会有各种各样的问题 , 这次终于他又来了 checkra1n 发布 iPhone 5s – iPhone X, iOS 12.3 and up 越狱工具, 不过这个<a href="https://checkra.in/" target="_blank" rel="noopener">越狱工具</a>目前只有 mac 版本</p>
+</blockquote>
+<p><img src="http://static.zybuluo.com/Rookie/c1tybrgwa24nknsipkr32j23/image_1dqbdqhhp19b2hce1p43mupkka9.png" alt="image_1dqbdqhhp19b2hce1p43mupkka9.png-26.1kB"></p>
+<h2 id="Important-information"><a href="#Important-information" class="headerlink" title="Important information"></a>Important information</h2><p>This release is an early beta preview and as such should not be installed on a primary device. We strongly recommend proceeding with caution.</p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意!!!"></a>注意!!!</h2><p><code>checkra1n</code> 也指出, 这个还是在 beta 版本,越狱需要谨慎哦</p>
+<h2 id="关于checkra1n"><a href="#关于checkra1n" class="headerlink" title="关于checkra1n"></a>关于checkra1n</h2><p>checkra1n 是由众多知名开发者共同合作的项目，主要是利用checkm8 的Bootrom硬体漏洞所开发而成，算是一个非完美的越狱漏洞。</p>
+<h3 id="Bootrom是什么"><a href="#Bootrom是什么" class="headerlink" title="Bootrom是什么"></a>Bootrom是什么</h3><p>Bootrom是什么呢？Bootrom是含有系统启动时的最初代码的只读内存芯片。因为bootrom代码是设备启动过程的核心部分，而且无法修改，因此如果其中存在漏洞，那么就可以利用该漏洞对设备进行劫持。</p>
+<p>安全研究人员@axi0mX称在bootrom中发现了漏洞，而且将利用该漏洞所需的代码开源在github上了。<br><img src="http://static.zybuluo.com/Rookie/4f7ojpynwi41k6f6squlxh1l/image_1dqbepgrg1nelks10g7so93e13.png" alt="image_1dqbepgrg1nelks10g7so93e13.png-97.6kB"><br>Github地址 <a href="https://github.com/axi0mX/ipwndfu" target="_blank" rel="noopener">ipwndfu</a></p>
+<h2 id="Checkm8-漏洞"><a href="#Checkm8-漏洞" class="headerlink" title="Checkm8 漏洞"></a>Checkm8 漏洞</h2><p><code>checkra1n</code> 指出本次越狱基<code>于BootRom</code> 漏洞, axi0mX将漏洞命名为<code>「checkm8」</code>，如使用中文來說，也就是國際象棋「將軍（checkmate）」意思。, 影响iPhone 4S（A5芯片）到iPhone X（A11芯片）的所有设备。</p>
+<p><img src="http://static.zybuluo.com/Rookie/23jgkxe2p962un1rol90xztf/image_1dqbel2ev1g6962r1l4hibf8hdm.png" alt="image_1dqbel2ev1g6962r1l4hibf8hdm.png-104.1kB"></p>
+<p> 1、<code>Checkm8</code>需要通过物理手段来接入iPhone，并不能遥控执行。<br> 2、这个漏洞只能造成临时的越狱，每次重启后都需要再进行破解。<br> 3、<code>Checkm8</code>是不能越过Secure Enclave和Touch ID的保护。<br> 4、利用<code>Checkm8</code>漏洞来安装挟持软件需要很特定的环境下，而且这个漏洞也不能直接用来获得被安全加密的信息。<br> 5、<code>Checkm8</code>漏洞更有意义的作用其实是给安全人员、爱好者和骇客们来研究iPhone的底层。</p>
+<pre><code>此外该漏洞的可利用环境也是受限的。用户需要将iPhone或iPad连接到主机，并进入DFU模式，只有在这种模式才有可能被利用。
+
+axi0mX 指出，这种攻击不能远程执行，而必须通过 USB 进行。此外，每次都必须通过计算机启用，这就限制了越狱的实用性。目前还没有出现利用checkm8漏洞的实际的越狱行为，也不能简单地下载一个工具去破解设备、下载应用程序和修改iOS。</code></pre><h3 id="BootRom-漏洞「checkm8」该怎么用？"><a href="#BootRom-漏洞「checkm8」该怎么用？" class="headerlink" title="BootRom 漏洞「checkm8」该怎么用？"></a>BootRom 漏洞「checkm8」该怎么用？</h3><ul>
+<li><p>Use a cable to connect device to your Mac. Hold buttons as needed to enter DFU Mode.</p>
+</li>
+<li><p>First run ./ipwndfu -p to exploit the device. Repeat the process if it fails, it is not reliable.</p>
+</li>
+<li><p>Run ./ipwndfu –dump-rom to get a dump of SecureROM.</p>
+</li>
+<li><p>Run ./ipwndfu –decrypt-gid KEYBAG to decrypt a keybag.</p>
+</li>
+<li><p>Run ./ipwndfu –demote to demote device and enable JTAG.</p>
+</li>
+</ul>
+<p><img src="http://static.zybuluo.com/Rookie/r83mw9iw8rcuk5k6z3hh6vdq/image_1dqbff9csa313qqfu8719o9920.png" alt="image_1dqbff9csa313qqfu8719o9920.png-375kB"></p>
+<h3 id="checkra1n-越狱前注意事项"><a href="#checkra1n-越狱前注意事项" class="headerlink" title="checkra1n 越狱前注意事项"></a>checkra1n 越狱前注意事项</h3><blockquote>
+<p> 主要是记得备份, 变砖概不负责<br> 测试版本不建议安装在主力机上，请小心操作，建议等正式稳定版再越狱也不迟。</p>
+</blockquote>
+<ul>
+<li>目前越狱工具属于测试版，一定会出现不稳定状态，可等后续更新。</li>
+<li>设备重开机过后，就需要透过uncover重新激活越狱环境，这并非是完美越狱。</li>
+<li>如原本iOS 12.x 已经使用unc0ver越狱，不建议当前跳到checkra1n上使用。</li>
+<li>目前仅支持macOS，不支援Windows 或Linux ，不过后续会推出。</li>
+</ul>
+<h3 id="越狱工具checkra1n-使用"><a href="#越狱工具checkra1n-使用" class="headerlink" title="越狱工具checkra1n 使用"></a>越狱工具checkra1n 使用</h3><p>步骤 1 </p>
+<p>首先通过macOS 下载越狱工具，并点击两下打开，将checkra1n 往右拖拉到Applications 资料夹内。<br><img src="http://static.zybuluo.com/Rookie/hfpw417grgzflrxtboawtqoi/image_1dqbfuhpti2sv7e74q124b1dco2d.png" alt="image_1dqbfuhpti2sv7e74q124b1dco2d.png-45.4kB"></p>
+<p>步骤 2</p>
+<p>打开checkra1n时，会出现无法打开和无法验证开发者警告视窗，此时先点击「取消」继续。</p>
+<p><img src="http://static.zybuluo.com/Rookie/vj1tbdg4va0x5nez2fk6lgjt/image_1dqbfv88cgevs1a1kp1ikpavs2q.png" alt="image_1dqbfv88cgevs1a1kp1ikpavs2q.png-62.1kB"></p>
+<p>步骤 3</p>
+<p>到「系统偏好设定」内，选择「安全性与隐私权」。会看见『「checkra1n」资到阻挡无法使用，因为他不是来自己是别的开发者』提示，只要点击「强制打开」即可。</p>
+<p><img src="http://static.zybuluo.com/Rookie/90pytd592ckxx5bcr9ugu4pc/image_1dqbg03g3huc1af51u4jtilmn937.png" alt="image_1dqbg03g3huc1af51u4jtilmn937.png-183.8kB"></p>
+<p><img src="http://static.zybuluo.com/Rookie/aljthij49nrxjlw6yxwftseb/image_1dqbg0f1vethhn2kc7ivglse3k.png" alt="image_1dqbg0f1vethhn2kc7ivglse3k.png-136kB"></p>
+<p>最后点击「打开」即可顺利开启checkra1n越狱工具。</p>
+<p><img src="http://static.zybuluo.com/Rookie/nn3i3k97tdifcd08meqc6gim/image_1dqbg0sp512ph1djrtsj1hat18q941.png" alt="image_1dqbg0sp512ph1djrtsj1hat18q941.png-84.5kB"></p>
+<blockquote>
+<p>多数 mac 使用者可能已经打开未知来源打开, 2 , 3 步骤忽略即可</p>
+</blockquote>
+<p>步骤 4</p>
+<p>打开Checkra1n工具，点击“start按钮”开始使用<br><img src="http://static.zybuluo.com/Rookie/lrj5xpeebr3rr8rxvgr3eswi/image_1dqbgv8431cbq1vpvnijvv37rt4e.png" alt="image_1dqbgv8431cbq1vpvnijvv37rt4e.png-177kB"></p>
+<p>步骤 5<br>进入 DFU 模式, 直接进入到下一步</p>
+<p><img src="http://static.zybuluo.com/Rookie/115cxkst8yii02wqgvvops30/image_1dqbh2cgg1pvl1v7iohplk36ag58.png" alt="image_1dqbh2cgg1pvl1v7iohplk36ag58.png-125.3kB"></p>
+<p>步骤 6<br>进入 DFU 模式, 按照指示进行操作, 点击 start 开始按钮<br><img src="http://static.zybuluo.com/Rookie/9kfasxylnkhjghf62g9qgo0y/image_1dqbhdg6718mn4kfg1v1mhc7o162.png" alt="image_1dqbhdg6718mn4kfg1v1mhc7o162.png-184.4kB"><br>然后按照步骤进行操作</p>
+<ol>
+<li>开始</li>
+<li>按住侧边电源按钮</li>
+<li>松开侧边电源键</li>
+<li>同时按住电源键和下音量键</li>
+<li>松开电源按钮 继续按住下音量键</li>
+</ol>
+<blockquote>
+<p>这里如果不成功多试几次就可以了</p>
+</blockquote>
+<p><img src="http://static.zybuluo.com/Rookie/jq6h5evw5hdcu49p3t4i8684/image_1dqbh46vf1vc814ro1edu1r1mtid5l.png" alt="image_1dqbh46vf1vc814ro1edu1r1mtid5l.png-136.8kB"></p>
+<p>步骤 7<br>然后后进入到手机重启页面<br><img src="http://static.zybuluo.com/Rookie/ey3usjpafdhwvfn5v4rkod3i/image_1dqbhoojn1eltmm31isn927vnj7c.png" alt="image_1dqbhoojn1eltmm31isn927vnj7c.png-389.7kB"></p>
+<p>步骤 8<br>手机重新启动后 打开手机发现 多一个 checkra1n 软件<br><img src="http://static.zybuluo.com/Rookie/3foipac75mts7fb58272dyzm/image_1dqbhqn0u5gu1kukicrf701gne7p.png" alt="image_1dqbhqn0u5gu1kukicrf701gne7p.png-399.3kB"></p>
+<p>步骤 9<br>打开 checkra1n 进行下载 Cydia </p>
+<blockquote>
+<p>如果当前网络下载不成功,可能需要翻墙下载</p>
+</blockquote>
+<p><img src="http://static.zybuluo.com/Rookie/qnugzn3t0dk1y54xuq3ohygv/image_1dqbhsv7b1rj5s28c46173n67986.png" alt="image_1dqbhsv7b1rj5s28c46173n67986.png-279.7kB"></p>
+<p><img src="http://static.zybuluo.com/Rookie/kigc5kjnx03ajajjeemo5i0b/image_1dqbhud6f1i7a1f97rjl1rlt1a078j.png" alt="image_1dqbhud6f1i7a1f97rjl1rlt1a078j.png-220.9kB"></p>
+<p>步骤 10<br>安装完 Cydia  可以开始愉快的玩耍啦 <del>~</del><br><img src="http://static.zybuluo.com/Rookie/5c1byufidxwyma3lbqv4hua2/image_1dqbi9un21njietf1f3518eg1od290.png" alt="image_1dqbi9un21njietf1f3518eg1od290.png-386.3kB"></p>
+<h2 id="一些源"><a href="#一些源" class="headerlink" title="一些源"></a>一些源</h2><blockquote>
+<p>国内有些源和插件目前还不支持iOS13 , 安装后会进入到安全模式, 卸载插件即可</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">http://julioverne.github.io/</span><br><span class="line">https://repo.packix.com/</span><br><span class="line">https://repo.packix.com/</span><br><span class="line">https://xtm3x.github.io/repo/</span><br><span class="line">https://sparkdev.me/</span><br><span class="line">http://cydia.zodttd.com/repo/cydia/</span><br><span class="line"> https://apt.alfhaily.me/</span><br><span class="line">https://gilesgc.github.io/repo/</span><br><span class="line">https://chr0nict.github.io/Nepeta-Mirror/</span><br><span class="line">https://conorthedev.github.io/repo/</span><br><span class="line"> https://repo.chariz.io/</span><br><span class="line">Big Boss: Comes pre installed</span><br><span class="line">Dynastic: Comes pre installed</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="一些插件TWEAKS"><a href="#一些插件TWEAKS" class="headerlink" title="一些插件TWEAKS"></a>一些插件TWEAKS</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">Artisty </span><br><span class="line">Canvas</span><br><span class="line">CCModules </span><br><span class="line">CircleIcons </span><br><span class="line">Clean Home Screen </span><br><span class="line">Clean Player </span><br><span class="line">ColorMyBattery</span><br><span class="line">DismissAnywhere</span><br><span class="line">DismissProgress</span><br><span class="line">DoubleCut </span><br><span class="line">EasySwitcherX </span><br><span class="line">Filza FIler Manager </span><br><span class="line">Flame</span><br><span class="line">FloatingDock</span><br><span class="line">HideYourApps </span><br><span class="line">HideBarX</span><br><span class="line">Keyboard Accio </span><br><span class="line">MakeRespringsGreatAgain </span><br><span class="line">MessageTypingIndicators</span><br><span class="line">NoDNDBanner</span><br><span class="line">OhMyFlash</span><br><span class="line">PasscodeText</span><br><span class="line">PullToRespring </span><br><span class="line">RealCC </span><br><span class="line">SimplePasscodeButtons</span><br><span class="line">SleepyTime </span><br><span class="line">SmallSiri</span><br><span class="line">StatusSwitcher</span><br><span class="line">SwipeForMore</span><br><span class="line">TapTapFlip</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="https://besttechinfo.com/jailbreak-ios-13-tweaks/" target="_blank" rel="noopener">其他插件</a></p>
+</blockquote>
+<h2 id="最后的展示成果物"><a href="#最后的展示成果物" class="headerlink" title="最后的展示成果物"></a>最后的展示成果物</h2><p><img src="http://static.zybuluo.com/Rookie/7br4inm09v10c94i7af1odq8/1931574494021_.pic.jpg" alt="1931574494021_.pic.jpg-155kB"></p>
+<p><img src="http://static.zybuluo.com/Rookie/ygam4f587azribkxyei5o35f/1921574494020_.pic.jpg" alt="1921574494020_.pic.jpg-118kB"></p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a href="https://www.cnbeta.com/articles/tech/894541.htm" target="_blank" rel="noopener">为何说Checkm8漏洞对iPhone用户的杀伤力几乎为零</a><br><a href="https://mrmad.com.tw/iphone-bootrom-checkm8" target="_blank" rel="noopener">iPhone硬體漏洞代碼被公開！能讓數億台iOS設備降級和完美越獄</a><br><a href="https://www.expreview.com/70774.html" target="_blank" rel="noopener">苹果iPhone那个Checkm8漏洞虽然很大，但也并非随便破解</a><br><a href="https://twitter.com/axi0mX" target="_blank" rel="noopener">axi0mX twitter</a><br><a href="https://www.xiaoyuanjiu.com/13133.html" target="_blank" rel="noopener">iOS 12.3<del>13.2.2 越狱工具checkra1n教程，支持iPhone 5s</del>X</a><br><a href="https://www.youtube.com/watch?v=yqnY6HTLRc8" target="_blank" rel="noopener">插件 youtube 视频</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS%E8%B6%8A%E7%8B%B1/" rel="tag"># iOS越狱</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/11/22/flutterorrn/" rel="next" title="Flutter 与 React Native 深入对比分析">
+                <i class="fa fa-chevron-left"></i> Flutter 与 React Native 深入对比分析
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Rookie" />
+            
+              <p class="site-author-name" itemprop="name">Rookie</p>
+              <p class="site-description motion-element" itemprop="description">Sometimes, the correct path is the tortured one.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/rookie-liu" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:Rookie_liu@126.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/rookie_liu" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/5973718613" target="_blank" title="weibo">
+                      
+                        <i class="fa fa-fw fa-globe"></i>weibo</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://onevcat.com/#blog" title="OneV's Den" target="_blank">OneV's Den</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.zybuluo.com/Rookie/note/826624" title="我的简历" target="_blank">我的简历</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://rookie.live/Love/index.html" title="My Love" target="_blank">My Love</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Important-information"><span class="nav-number">1.</span> <span class="nav-text">Important information</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意"><span class="nav-number">2.</span> <span class="nav-text">注意!!!</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于checkra1n"><span class="nav-number">3.</span> <span class="nav-text">关于checkra1n</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bootrom是什么"><span class="nav-number">3.1.</span> <span class="nav-text">Bootrom是什么</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Checkm8-漏洞"><span class="nav-number">4.</span> <span class="nav-text">Checkm8 漏洞</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#BootRom-漏洞「checkm8」该怎么用？"><span class="nav-number">4.1.</span> <span class="nav-text">BootRom 漏洞「checkm8」该怎么用？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#checkra1n-越狱前注意事项"><span class="nav-number">4.2.</span> <span class="nav-text">checkra1n 越狱前注意事项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#越狱工具checkra1n-使用"><span class="nav-number">4.3.</span> <span class="nav-text">越狱工具checkra1n 使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些源"><span class="nav-number">5.</span> <span class="nav-text">一些源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些插件TWEAKS"><span class="nav-number">6.</span> <span class="nav-text">一些插件TWEAKS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最后的展示成果物"><span class="nav-number">7.</span> <span class="nav-text">最后的展示成果物</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参考链接"><span class="nav-number">7.1.</span> <span class="nav-text">参考链接</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rookie</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://rookie-1.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://rookie.live/2019/11/23/jailbreakiOS13/';
+          this.page.identifier = '2019/11/23/jailbreakiOS13/';
+          this.page.title = 'iOS13越狱,Checkra1n非完美越狱工具发布支持iPhone 5s – iPhone X, iOS 12.3 and up';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://rookie-1.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+  
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
