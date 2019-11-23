@@ -6,6 +6,8 @@
     <content><![CDATA[<blockquote>
 <p>他来了, 他终于来了 , 记忆中自从<a href="http://www.pangu.io/?flag=cn" target="_blank" rel="noopener">盘古越狱</a>团队进行完美越狱后之后进行的越狱总会有各种各样的问题 , 这次终于他又来了 checkra1n 发布 iPhone 5s – iPhone X, iOS 12.3 and up 越狱工具, 不过这个<a href="https://checkra.in/" target="_blank" rel="noopener">越狱工具</a>目前只有 mac 版本</p>
 </blockquote>
+<a id="more"></a>
+
 <p><img src="http://static.zybuluo.com/Rookie/c1tybrgwa24nknsipkr32j23/image_1dqbdqhhp19b2hce1p43mupkka9.png" alt="image_1dqbdqhhp19b2hce1p43mupkka9.png-26.1kB"></p>
 <h2 id="Important-information"><a href="#Important-information" class="headerlink" title="Important information"></a>Important information</h2><p>This release is an early beta preview and as such should not be installed on a primary device. We strongly recommend proceeding with caution.</p>
 <h2 id="注意"><a href="#注意" class="headerlink" title="注意!!!"></a>注意!!!</h2><p><code>checkra1n</code> 也指出, 这个还是在 beta 版本,越狱需要谨慎哦</p>
@@ -6070,7 +6072,7 @@ Editor->>Create NSManagedObject Subciass..
 <p>Reference-style 引用方式：<br>[link text][id]<br>[id]: <a href="https://www.mozilla.org" target="_blank" rel="noopener">https://www.mozilla.org</a> “title text”</p>
 <p>Relative reference to a repository file 引用存储文件：<br><a href="../path/file/readme.text" title="title text">link text</a></p>
 <p>还能这样使用：<br>[link text][]<br>[link text]: <a href="http://www.reddit.com" target="_blank" rel="noopener">http://www.reddit.com</a></p>
-<p>Email 邮件：<br><a href="mailto:&#101;&#120;&#97;&#x6d;&#x70;&#108;&#101;&#64;&#101;&#120;&#x61;&#x6d;&#x70;&#108;&#x65;&#x2e;&#99;&#111;&#x6d;">&#101;&#120;&#97;&#x6d;&#x70;&#108;&#101;&#64;&#101;&#120;&#x61;&#x6d;&#x70;&#108;&#x65;&#x2e;&#99;&#111;&#x6d;</a></p>
+<p>Email 邮件：<br><a href="mailto:&#101;&#x78;&#x61;&#x6d;&#112;&#108;&#x65;&#x40;&#x65;&#x78;&#97;&#x6d;&#112;&#108;&#x65;&#46;&#99;&#111;&#x6d;">&#101;&#x78;&#x61;&#x6d;&#112;&#108;&#x65;&#x40;&#x65;&#x78;&#97;&#x6d;&#112;&#108;&#x65;&#46;&#99;&#111;&#x6d;</a></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Inline-style 内嵌方式：</span><br><span class="line">[link text](https://www.google.com <span class="string">"title text"</span>)</span><br><span class="line"></span><br><span class="line">Reference-style 引用方式：</span><br><span class="line">[link text][id]</span><br><span class="line">[id]: https://www.mozilla.org <span class="string">"title text"</span></span><br><span class="line"></span><br><span class="line">Relative reference to a repository file 引用存储文件：</span><br><span class="line">[link text](../path/file/readme.text <span class="string">"title text"</span>)</span><br><span class="line"></span><br><span class="line">还能这样使用：</span><br><span class="line">[link text][]</span><br><span class="line">[link text]: http://www.reddit.com</span><br><span class="line"></span><br><span class="line">Email 邮件：</span><br><span class="line">&lt;example@example.com&gt;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
