@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://rookie.live/"/>
-  <updated>2019-12-06T05:42:47.697Z</updated>
+  <updated>2019-12-06T09:56:20.269Z</updated>
   <id>http://rookie.live/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Flutter Go 代码开发规范</title>
+    <link href="http://rookie.live/2019/12/06/flutterspecification/"/>
+    <id>http://rookie.live/2019/12/06/flutterspecification/</id>
+    <published>2019-12-06T09:56:17.000Z</published>
+    <updated>2019-12-06T09:56:20.269Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Flutter Go 代码开发规范  Powered by 阿里拍卖前端团队&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;版权声明样式&lt;br&gt; //Copyright (c) 2018-present, Alibaba Group Holding Limited. All rights reserved.&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="flutter" scheme="http://rookie.live/categories/flutter/"/>
+    
+    
+      <category term="flutter" scheme="http://rookie.live/tags/flutter/"/>
+    
+  </entry>
   
   <entry>
     <title>Material 组件之 MaterialApp、Scaffold、AppBar</title>
@@ -433,29 +459,6 @@
 &lt;p&gt;十年前的今天, 史蒂夫.乔布斯在2007年的 MacWorld大会上宣布了倍受期待的产品,他是iPod + phone + internet device 的结合体.这一代产品重新定义了手机. 在这十年中这部产品有哪些变化呢?&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;img src=&quot;http://static.zybuluo.com/Rookie/4qyl4do5sazoaa403sgi82s0/iphones_light.gif&quot; alt=&quot;iphones_light.gif-180.5kB&quot;&gt;&lt;br&gt;十年 iPhone 产品图&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="iOS开发" scheme="http://rookie.live/categories/iOS%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="公众账号" scheme="http://rookie.live/tags/%E5%85%AC%E4%BC%97%E8%B4%A6%E5%8F%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>拿什么保护我们的成果</title>
-    <link href="http://rookie.live/2017/06/26/proourapp/"/>
-    <id>http://rookie.live/2017/06/26/proourapp/</id>
-    <published>2017-06-26T01:49:33.000Z</published>
-    <updated>2017-07-25T06:55:04.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;程序猿，色剂丝，地球上最苦逼的职业之一，当自己辛辛苦苦、没日没夜的赶工，如生孩子般辛苦的完成了App的制作，却在不久之后发现了很多在外观和设计理念上都足以以假乱真的App出现了，可能你的心里已经在画个圈圈诅咒那些抄袭者了，但却不知道该如何用实际行动去对付他们，真的没有办法去防止这种现象的出现，维护自己的权益吗&lt;/p&gt;
-&lt;/blockquote&gt;
     
     </summary>
     
