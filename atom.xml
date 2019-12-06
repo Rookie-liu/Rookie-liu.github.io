@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://rookie.live/"/>
-  <updated>2019-11-23T07:41:11.013Z</updated>
+  <updated>2019-12-06T05:42:47.697Z</updated>
   <id>http://rookie.live/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Material 组件之 MaterialApp、Scaffold、AppBar</title>
+    <link href="http://rookie.live/2019/12/06/flutterMeterialApp/"/>
+    <id>http://rookie.live/2019/12/06/flutterMeterialApp/</id>
+    <published>2019-12-06T05:42:34.000Z</published>
+    <updated>2019-12-06T05:42:47.697Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;官方将 Material 组件分为为几个类型：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;应用程序结构和导航&lt;/li&gt;
+&lt;li&gt;Button&lt;/li&gt;
+&lt;li&gt;输入和选择&lt;/li&gt;
+&lt;li&gt;对话框，警告弹框和面板&lt;/li&gt;
+&lt;li&gt;信息显示&lt;/li&gt;
+&lt;li&gt;布局&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="flutter" scheme="http://rookie.live/categories/flutter/"/>
+    
+    
+      <category term="flutter" scheme="http://rookie.live/tags/flutter/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>flutter中的生命周期</title>
+    <link href="http://rookie.live/2019/12/03/flutterlifeCycle/"/>
+    <id>http://rookie.live/2019/12/03/flutterlifeCycle/</id>
+    <published>2019-12-03T05:46:10.000Z</published>
+    <updated>2019-12-06T05:46:24.344Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;和其他的视图框架比如android的Activity一样，flutter中的视图Widget也存在生命周期，生命周期的回调函数提现在了State上面。理解flutter的生命周期，对我们写出一个合理的控件至关重要。组件State的生命周期整理如下图所示：&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="flutter" scheme="http://rookie.live/categories/flutter/"/>
+    
+    
+      <category term="flutter" scheme="http://rookie.live/tags/flutter/"/>
+    
+  </entry>
   
   <entry>
     <title>iOS13越狱,Checkra1n非完美越狱工具发布支持iPhone 5s – iPhone X, iOS 12.3 and up</title>
@@ -414,54 +464,6 @@
     
     
       <category term="公众账号" scheme="http://rookie.live/tags/%E5%85%AC%E4%BC%97%E8%B4%A6%E5%8F%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Shell常用命令</title>
-    <link href="http://rookie.live/2017/06/13/sellmingling/"/>
-    <id>http://rookie.live/2017/06/13/sellmingling/</id>
-    <published>2017-06-13T01:49:33.000Z</published>
-    <updated>2017-07-25T01:50:30.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;查找删除&quot;&gt;&lt;a href=&quot;#查找删除&quot; class=&quot;headerlink&quot; title=&quot;查找删除&quot;&gt;&lt;/a&gt;查找删除&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;//删除文件夹下的所有 .svn 文件&lt;br&gt;find . -name “.svn” | xargs rm -Rf&lt;br&gt;//删除文件夹下的所有 .git 文件&lt;br&gt;find . -name “.git” | xargs rm -Rf&lt;br&gt;输入 touch .gitignore 在文件夹就生成了一个“.gitignore”文件。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="iOS开发" scheme="http://rookie.live/categories/iOS%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="shell" scheme="http://rookie.live/tags/shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>服务器维护指南</title>
-    <link href="http://rookie.live/2017/05/12/servicepro/"/>
-    <id>http://rookie.live/2017/05/12/servicepro/</id>
-    <published>2017-05-12T01:49:33.000Z</published>
-    <updated>2017-07-25T07:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;随机密码生成&quot;&gt;随机密码生成&lt;/h3&gt;
-
-
-
-&lt;pre class=&quot;prettyprint hljs-dark&quot;&gt;&lt;code class=&quot;hljs cpp&quot;&gt;openssl rand -base64 &lt;span class=&quot;hljs-number&quot;&gt;32&lt;/span&gt;&lt;br&gt;date | md5sum&lt;br&gt;date +%s | sha256sum | base64 | head -c &lt;span class=&quot;hljs-number&quot;&gt;32&lt;/span&gt; ; echo&lt;br&gt;cat /dev/urandom | tr -dc _A-Z-a-z-&lt;span class=&quot;hljs-number&quot;&gt;0&lt;/span&gt;-&lt;span class=&quot;hljs-number&quot;&gt;9&lt;/span&gt;+$.?*&lt;span class=&quot;hljs-preprocessor&quot;&gt;#\/@! | head -c${&lt;span class=&quot;hljs-number&quot;&gt;1&lt;/span&gt;:-&lt;span class=&quot;hljs-number&quot;&gt;64&lt;/span&gt;};echo;&lt;/span&gt;&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-    
-      <category term="iOS开发" scheme="http://rookie.live/categories/iOS%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="服务器" scheme="http://rookie.live/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   

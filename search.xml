@@ -1,6 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Material 组件之 MaterialApp、Scaffold、AppBar</title>
+    <url>/2019/12/06/flutterMeterialApp/</url>
+    <content><![CDATA[<p>官方将 Material 组件分为为几个类型：</p>
+<ul>
+<li>应用程序结构和导航</li>
+<li>Button</li>
+<li>输入和选择</li>
+<li>对话框，警告弹框和面板</li>
+<li>信息显示</li>
+<li>布局</li>
+</ul>
+<a id="more"></a>
+
+
+<h2 id="1-MaterialApp"><a href="#1-MaterialApp" class="headerlink" title="1.MaterialApp"></a>1.MaterialApp</h2><blockquote>
+<p>说到 Material 组件，不得不提到 MaterialApp，它包含了许多 Widget，这些 Widget 通常是实现 Material Design 的应用程序所必需的。<br>MaterialApp 在此前的文章都用过，简单的使用这里就不介绍了，这里主要介绍下路由。<br>移动 App 中通常通过全屏元素 “屏幕” 或 “页面” 来显示内容。在 Flutter 中，这些元素被称为 route（路由），它们由 Navigator 管理。Navigator 不仅管理了一堆 route，还提供管理堆栈的方法 Navigator.push 和 Navigator.pop，通过路由对象的进出栈来控制页面的跳转。<br>flutter 路由的使用方式主要有两种，一种是新建路由，一种是注册路由。我们分别用这两种方式写例子：<br>首屏是第一个界面，通过第一个界面的按钮跳转到第二页，点击第二页的按钮回到第一页。</p>
+</blockquote>
+<h3 id="1-1-新建路由"><a href="#1-1-新建路由" class="headerlink" title="1.1 新建路由"></a>1.1 新建路由</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import &apos;package:flutter/material.dart&apos;;</span><br><span class="line"></span><br><span class="line">void main() =&gt; runApp(MyApp());</span><br><span class="line"></span><br><span class="line">class MyApp extends StatelessWidget &#123;</span><br><span class="line"> @override</span><br><span class="line"> Widget build(BuildContext context) &#123;</span><br><span class="line"> return MaterialApp(</span><br><span class="line"> title: &apos;Material Components&apos;,</span><br><span class="line"> home: FirstPage(),</span><br><span class="line"> );</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class FirstPage extends StatelessWidget &#123;</span><br><span class="line"> @override</span><br><span class="line"> Widget build(BuildContext context) &#123;</span><br><span class="line"> return Scaffold(</span><br><span class="line"> appBar: AppBar(</span><br><span class="line"> title: Text(&apos;第一页&apos;),</span><br><span class="line"> ),</span><br><span class="line"> body: Padding(</span><br><span class="line"> padding: EdgeInsets.all(30.0),</span><br><span class="line"> child: RaisedButton(</span><br><span class="line"> child:  Text(&apos;跳转到第二页&apos;),</span><br><span class="line"> onPressed: () &#123;</span><br><span class="line"> Navigator.push(//1</span><br><span class="line"> context,</span><br><span class="line"> MaterialPageRoute(builder: (context) =&gt; SecondPage()),</span><br><span class="line"> );</span><br><span class="line"> &#125;,</span><br><span class="line"> ),</span><br><span class="line"> ),</span><br><span class="line"> );</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class SecondPage extends StatelessWidget &#123;</span><br><span class="line"> @override</span><br><span class="line"> Widget build(BuildContext context) &#123;</span><br><span class="line"> return Scaffold(</span><br><span class="line"> appBar: AppBar(</span><br><span class="line"> title: Text(&apos;第二页&apos;),</span><br><span class="line"> ),</span><br><span class="line"> body: Padding(</span><br><span class="line"> padding: EdgeInsets.all(30.0),</span><br><span class="line"> child: RaisedButton(</span><br><span class="line"> child: Text(&apos;回到上一页&apos;),</span><br><span class="line"> onPressed: () &#123;</span><br><span class="line"> Navigator.pop(context);//2</span><br><span class="line"> &#125;),</span><br><span class="line"> ),</span><br><span class="line"> );</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注释 1 处调用了 Navigator.push，将新建的路由添加到 Navigator 管理的 route 堆栈的栈顶，这个路由我们可以自定义，但是建议使用 MaterialPageRoute，它是一个模态路由，可以自适应各个平台进行页面替换，并提供了相应的页面切换动画。在 Android 平台时，页面进入动画是向上滑动并淡出，退出是相反的动画，如果是在 iOS 平台 ，页面进入动画是从右侧滑入，退出是相反的动画。<br>点击’跳转到第二页’按钮时会跳转到 SecondPage。注释 2 处的 Navigator.pop 用于弹出 route 堆栈最顶层的 Route。效果如下两个图所示。</p>
+<p><img src="http://static.zybuluo.com/Rookie/jhognme171dxt8t321sq2znb/image_1dr2mgjbco6m1a9iuh0q2c1ei19.png" alt="image_1dr2mgjbco6m1a9iuh0q2c1ei19.png-45kB"></p>
+<h3 id="1-2-注册路由"><a href="#1-2-注册路由" class="headerlink" title="1.2 注册路由"></a>1.2 注册路由</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mport &apos;package:flutter/material.dart&apos;;</span><br><span class="line">void main() =&gt; runApp(MyApp());</span><br><span class="line"></span><br><span class="line">class MyApp extends StatelessWidget &#123;</span><br><span class="line"> @override</span><br><span class="line"> Widget build(BuildContext context) &#123;</span><br><span class="line"> return MaterialApp(</span><br><span class="line"> title: &apos;Material Components&apos;,</span><br><span class="line"> home: FirstPage(),</span><br><span class="line"> routes:  &lt;String, WidgetBuilder&gt;&#123;//1</span><br><span class="line"> &apos;/first&apos;: (BuildContext context) =&gt; FirstPage(),</span><br><span class="line"> &apos;/second&apos;: (BuildContext context) =&gt; SecondPage(),</span><br><span class="line"> &#125;,</span><br><span class="line"> initialRoute: &apos;/first&apos; ,</span><br><span class="line"> );</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class FirstPage extends StatelessWidget &#123;</span><br><span class="line"> @override</span><br><span class="line"> Widget build(BuildContext context) &#123;</span><br><span class="line"> return Scaffold(</span><br><span class="line"> appBar: AppBar(</span><br><span class="line"> title: Text(&apos;第一页&apos;),</span><br><span class="line"> ),</span><br><span class="line"> body: Padding(</span><br><span class="line"> padding: EdgeInsets.all(30.0),</span><br><span class="line"> child: RaisedButton(</span><br><span class="line"> child: Text(&apos;跳转到第二页&apos;),</span><br><span class="line"> onPressed: () &#123;</span><br><span class="line"> Navigator.pushNamed(context, &apos;/second&apos;);//2</span><br><span class="line"> &#125;,</span><br><span class="line"> ),</span><br><span class="line"> ),</span><br><span class="line"> );</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class SecondPage extends StatelessWidget &#123;</span><br><span class="line"> @override</span><br><span class="line"> Widget build(BuildContext context) &#123;</span><br><span class="line"> return Scaffold(</span><br><span class="line"> appBar: AppBar(</span><br><span class="line"> title: Text(&apos;第二页&apos;),</span><br><span class="line"> ),</span><br><span class="line"> body: Padding(</span><br><span class="line"> padding: EdgeInsets.all(30.0),</span><br><span class="line"> child: RaisedButton(</span><br><span class="line"> child: Text(&apos;回到上一页&apos;),</span><br><span class="line"> onPressed: () &#123;</span><br><span class="line"> Navigator.of(context).pop();</span><br><span class="line"> &#125;),</span><br><span class="line"> ),</span><br><span class="line"> );</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>通过注释 1 处的 routes 用于初始化一个路由列表，当推送路由时，将在 routes 中查找路径名称，如果名称存在，则关联的 WidgetBuilder 用于构造 MaterialPageRoute。注释 2 处的 Navigator.pushNamed 和 Navigator.push 作用类似，只不过 pushNamed 的参数为路由的名称。</p>
+<h2 id="2-Scaffold"><a href="#2-Scaffold" class="headerlink" title="2. Scaffold"></a>2. Scaffold</h2><p>Scaffold 同样属于 Material 组件，它实现了 Material Design 的基本布局结构，因此它经常会作为 MaterialApp 的子 Widget, Scaffold 会自动填充可用的空间，这通常意味着它将占据整个窗口或屏幕，并且 Scaffold 会自动适配屏幕。我们的布局就是在 Scaffold 中进行编写的。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import &apos;package:flutter/material.dart&apos;;</span><br><span class="line"></span><br><span class="line">void main() =&gt; runApp(MyApp());</span><br><span class="line"></span><br><span class="line">class MyApp extends StatelessWidget &#123;</span><br><span class="line"> // This widget is the root of your application.</span><br><span class="line"> @override</span><br><span class="line"> Widget build(BuildContext context) &#123;</span><br><span class="line"> return MaterialApp(</span><br><span class="line"> home: Scaffold(</span><br><span class="line"> appBar: AppBar(</span><br><span class="line"> title: Text(&apos;Scaffold示例&apos;),</span><br><span class="line"> ),</span><br><span class="line"> body: Padding(</span><br><span class="line"> padding: EdgeInsets.all(30.0),</span><br><span class="line"> child: Text(&apos;Scaffold&apos;),</span><br><span class="line"> ),</span><br><span class="line"> bottomNavigationBar: BottomAppBar(</span><br><span class="line"> child: Container(height: 50),</span><br><span class="line"> ),</span><br><span class="line"> drawer: Drawer(</span><br><span class="line"> child: Center(</span><br><span class="line"> child: Text(&apos;抽屉&apos;),</span><br><span class="line"> ),</span><br><span class="line"> ),</span><br><span class="line"> floatingActionButton: FloatingActionButton(</span><br><span class="line"> child: Icon(Icons.add),</span><br><span class="line"> ),</span><br><span class="line"> ),</span><br><span class="line"> );</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Scaffold 的属性有很多，例子中用了几个属性：</p>
+<ul>
+<li>appBar：用于设置顶部的标题栏。</li>
+<li>body：显示 Scaffold 的主要内容。</li>
+<li>bottomNavigationBar：用于设置 Scaffold 的底部导航栏，</li>
+<li>drawer：用于设置抽屉效果。</li>
+<li>floatingActionButton：用于设置位于右下角的按钮。<br>效果如下所示：</li>
+</ul>
+<p><img src="http://static.zybuluo.com/Rookie/dft04130cya0jgoibc3v1i57/image_1dr2mk3r6j27dma1mu7bo21uqim.png" alt="image_1dr2mk3r6j27dma1mu7bo21uqim.png-36.8kB"></p>
+<p>可以看到在 AppBar 上有个抽屉的按钮，点击按钮就会滑出抽屉。</p>
+<ol start="3">
+<li>AppBar<blockquote>
+<p>AppBar 由 toolbar 和其他的可选 Widget 组成，比如 TabBar 和 FlexibleSpaceBar。<br>AppBar 会在顶部显示 leading、title、actions 等内容，底部 bottom 通常显示 TabBar，下图展示了这些内容的位置分布</p>
+</blockquote>
+</li>
+</ol>
+<p><img src="http://static.zybuluo.com/Rookie/l3gmmi70uy2vw70opzekrt89/image_1dr2mle6mfggktq1pnu4kqmdo13.png" alt="image_1dr2mle6mfggktq1pnu4kqmdo13.png-28.1kB"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">import &apos;package:flutter/material.dart&apos;;</span><br><span class="line"></span><br><span class="line">void main() =&gt; runApp(MyApp());</span><br><span class="line">class MyApp extends StatelessWidget &#123;</span><br><span class="line"> @override</span><br><span class="line"> Widget build(BuildContext context) &#123;</span><br><span class="line"> return MaterialApp(</span><br><span class="line"> home: MyScaffld(),</span><br><span class="line"> );</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MyScaffld extends StatelessWidget &#123;</span><br><span class="line"> @override</span><br><span class="line"> Widget build(BuildContext context) &#123;</span><br><span class="line"> return Scaffold(</span><br><span class="line"> appBar: AppBar(</span><br><span class="line"> title: Text(&apos;AppBar示例&apos;),</span><br><span class="line"> leading: FlutterLogo(colors: Colors.lightGreen),</span><br><span class="line"> actions: &lt;Widget&gt;[</span><br><span class="line"> IconButton(</span><br><span class="line"> icon: Icon(Icons.share),</span><br><span class="line"> onPressed: () &#123;</span><br><span class="line"> print(&apos;添加按钮&apos;);</span><br><span class="line"> &#125;,</span><br><span class="line"> ),</span><br><span class="line"> ],</span><br><span class="line"> ),</span><br><span class="line"> );</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这次没有把所有代码写在 MyApp 类中，而是将 Scaffld 的定义放在了 MyScaffld 类中。<br><img src="http://static.zybuluo.com/Rookie/o3r5e6y6ut283kssryr154yi/image_1dr2mmtv9nans8q5a81t0e1dut1g.png" alt="image_1dr2mmtv9nans8q5a81t0e1dut1g.png-25kB"></p>
+<p>上面代码的 Widget 树如下所示，遵守 Material Design 准则的 flutter 应用的 Widget 树大致也是如此。</p>
+<p><img src="http://static.zybuluo.com/Rookie/2www21kubif8d1wiwyktt6ch/image_1dr2mnal98m11o8l1h821dpm1cr71t.png" alt="image_1dr2mnal98m11o8l1h821dpm1cr71t.png-8.6kB"></p>
+]]></content>
+      <categories>
+        <category>flutter</category>
+      </categories>
+      <tags>
+        <tag>flutter</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>flutter中的生命周期</title>
+    <url>/2019/12/03/flutterlifeCycle/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>和其他的视图框架比如android的Activity一样，flutter中的视图Widget也存在生命周期，生命周期的回调函数提现在了State上面。理解flutter的生命周期，对我们写出一个合理的控件至关重要。组件State的生命周期整理如下图所示：</p>
+<a id="more"></a>
+
+
+<p><img src="http://static.zybuluo.com/Rookie/cxe8zdyulberx8obr2cm9x5k/image_1dr29f7692aogmg15vi122tbu39.png" alt="image_1dr29f7692aogmg15vi122tbu39.png-54.8kB"></p>
+<p>大致可以看成三个阶段</p>
+<ul>
+<li>初始化（插入渲染树）</li>
+<li>状态改变（在渲染树中存在）</li>
+<li>销毁（从渲染树种移除）</li>
+</ul>
+<p>StatefulWidget 需要借助于 State 对象，在特定的阶段来处理用户的交互或其内部数据的变化，并体现在 UI 上。这个特定的阶段，就涵盖来一个组件从加载到卸载的全过程，即生命周期。Flutter 中的 Widget 也存在生命周期，并且通过 State 来体现。<br>而 App 则是一个特殊的 Widget。除了需要处理视图显示的各个阶段（即视图的生命周期）之外，还需要应对应用从启动到退出所经历的各个状态（App 的生命周期）。</p>
+<h2 id="State-的生命周期"><a href="#State-的生命周期" class="headerlink" title="State 的生命周期"></a>State 的生命周期</h2><p><img src="http://static.zybuluo.com/Rookie/6l99n7htvore8u76o9v5vlyp/image_1dr29otdsjdn1u66p721bvrmsr1m.png" alt="image_1dr29otdsjdn1u66p721bvrmsr1m.png-176.6kB"></p>
+<ol>
+<li>StatefulWidget.createState()</li>
+</ol>
+<p>Framework 调用会通过调用 StatefulWidget.createState() 来创建一个 State。</p>
+<ol start="2">
+<li>initState()</li>
+</ol>
+<p>新创建的 State 会和一个 BuildContext 产生关联，此时认为 State 已经被安装好了，initState() 函数将会被调用。<br>通常，我们可以重写这个函数，进行初始化操作。</p>
+<ol start="3">
+<li>didChangeDependencies()</li>
+</ol>
+<p>在 initState() 调用结束后，这个函数会被调用。</p>
+<p>事实上，当 State 对象的依赖关系发生变化时，这个函数总会被 Framework 调用。</p>
+<ol start="4">
+<li>build()</li>
+</ol>
+<p>经过以上步骤，系统认为一个 State 已经准备好了，就会调用 build() 来构建视图。</p>
+<p>我们需要在这个函数中，返回一个 Widget。</p>
+<ol start="5">
+<li>deactivate()</li>
+</ol>
+<p>当 State 被暂时从视图树中移除时，会调用这个函数。</p>
+<p>页面切换时，也会调用它，因为此时 State 在视图树中的位置发生了变化，需要先暂时移除后添加。</p>
+<p>⚠️注意，重写的时候必须要调用 super.deactivate()。</p>
+<ol start="6">
+<li><p>dispose()当 State 被永久的从视图树中移除，Framework 会调用该函数。在销毁前触发，我们可以在这里进行最终的资源释放。在调用这个函数之前，总会先调用 deactivate()。<br>⚠️注意，重写的时候必须要调用 super.dispose()。</p>
+</li>
+<li><p>didUpdateWidget(covariant T oldWidget)</p>
+</li>
+</ol>
+<p>当 widget 的配置发生变化时，会调用这个函数。</p>
+<p>比如，Hot-reload 的时候就会调用这个函数。</p>
+<p>这个函数调用后，会调用 build()。</p>
+<ol start="8">
+<li>setState()</li>
+</ol>
+<p>当我需要更新 State 的视图时，需要手动调用这个函数，它会触发 build() 。</p>
+<p>State 的生命周期，指的是在用户参与的情况下，其关联的 Widget 所经历的，从创建到显示再到更新最后到停止，直至销毁等各个过程阶段。State 的生命周期可以分为 3 个阶段：创建（插入视图树）、更新（在视图树中存在）、销毁（从视图树中移除）。</p>
+<h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><p>State 初始化时会依次执行：构造方法 -&gt; initState -&gt; disChangeDependencies -&gt; build，随后完成页面渲染。<br>初始化过程中每个方法的意义如下：</p>
+<ul>
+<li>构造方法是 State 生命周期的起点，Flutter 会通过调用 StatefulWidget.createState() 来创建一个 State。可以通过构造方法，来接收父 Widget 传递的初始化 UI 配置数据。这些配置数据，决定了 Widget 最初的呈现效果。</li>
+<li>initState，会在 State 对象被插入视图树的时候调用。这个函数在 State 的生命周期中只会被调用一次，所以可以在这里做一些初始化工作，比如为状态变量设定默认值。</li>
+<li>didChangeDependencies 则来专门处理 State 对象依赖关系变化，会在 initState() 调用结束后，被 Flutter 调用。<br>build，作用是构建视图。经过以上步骤，Framework 认为 State 已经准备好了，于是调用 build。可以在这个函数中，根据父 Widget 传递过来的初始化配置数据，以及 State 的当前状态，创建一个 Widget 然后返回。</li>
+</ul>
+<h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><p>Widget 的状态更新，主要由 3 个方法触发：setState、didchangeDependencies 与 didUpdateWidget.<br>如上三个方法对应的调用场景：</p>
+<ul>
+<li>setState：当状态数据发生变化时，通过调用这个方法告诉 Flutter：“这儿的数据变了，请使用更新后的数据重建 UI！”。</li>
+<li>didChangeDependencies：State 对象的依赖关系发生变化后，Flutter 会回调这个方法，随后触发组建构建。典型的场景是，系统语言 Locale 或应用主题改变时，系统会通知 State 执行 didChangeDependencies 回调方法。</li>
+<li>didUpdateWidget：当 Widget 的配置发生变化时，比如，父 Widget 触发重建（即父 Widget 的状态发生变化时），热重载时，系统会调用这个函数</li>
+</ul>
+<p><strong>一旦这三个方法被调用，Flutter 随后就会销毁老 Widget，并调用 build 方法重建 widget。</strong></p>
+<h3 id="销毁"><a href="#销毁" class="headerlink" title="销毁"></a>销毁</h3><p>组件销毁比较简单。比如组件被移除，或是页面销毁的时候，系统会调用 deactivate 和 dispose 这两个方法，来移除或销毁组件。</p>
+<p>具体调用机制如下：</p>
+<ul>
+<li>当组件的可见状态发生变化时，deactivate 函数会被调用，这时 State 会被暂时从视图树中移除。值得注意的是，页面切换时，由于 State 对象在视图树中的位置发生了变化，需要先暂时移除后再重新添加，重新触发组件构建，因此这个函数也会被调用。</li>
+<li>当 Sate 被永久地从视图树中移除时，Flutter 会调用 dispose 函数。而一旦到这个阶段，组件就要被销毁了，所以我们可以在这里进行最终的资源释放、移除监听、清理环境，等等。</li>
+</ul>
+<p><img src="http://static.zybuluo.com/Rookie/th90rqxzxtt3ebovz15mr4pc/image_1dr2a1q2q1tej17p815mh7sm1j023.png" alt="image_1dr2a1q2q1tej17p815mh7sm1j023.png-67.1kB"></p>
+<h2 id="App-生命周期"><a href="#App-生命周期" class="headerlink" title="App 生命周期"></a>App 生命周期</h2><p>视图的生命周期，定义了视图的加载到构建的全过程，其回调机制能够确保我们可以根据视图的状态选择合适的时机做恰当的事情。App 的生命周期，则定义了 App 从启动到退出的全过程。<br>在原生 Android、iOS 开发中，有时需要在对应的 App 生命周期事件中做相应处理，比如 App 从后台进入前台、从前台退到后台，或是在 UI 绘制完成后做一些处理。<br>在原生开发中，可以通过重写 Activity、ViewController 生命周期回调方法，或是注册应用程序的相关通知，来监听 App 的生命周期并做相应的处理。而在 Flutter 中，我们可以利用 WidgetsBindingObserver 类，来实现同样的需求。<br>WidgetsBindingObserver 中具体回调函数有如下一些方法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">abstract class WidgetsBindingObserver &#123;</span><br><span class="line">  // 页面 pop</span><br><span class="line">  Future&lt;bool&gt; didPopRoute() =&gt; Future&lt;bool&gt;.value(false);</span><br><span class="line">  // 页面 push</span><br><span class="line">  Future&lt;bool&gt; didPushRoute(String route) =&gt; Future&lt;bool&gt;.value(false);</span><br><span class="line">  // 系统窗口相关改变回调，如旋转</span><br><span class="line">  void didChangeMetrics() &#123; &#125;</span><br><span class="line">  // 文本缩放系数变化</span><br><span class="line">  void didChangeTextScaleFactor() &#123; &#125;</span><br><span class="line">  // 系统亮度变化</span><br><span class="line">  void didChangePlatformBrightness() &#123; &#125;</span><br><span class="line">  // 本地化语言变化</span><br><span class="line">  void didChangeLocales(List&lt;Locale&gt; locale) &#123; &#125;</span><br><span class="line">  //App 生命周期变化</span><br><span class="line">  void didChangeAppLifecycleState(AppLifecycleState state) &#123; &#125;</span><br><span class="line">  // 内存警告回调</span><br><span class="line">  void didHaveMemoryPressure() &#123; &#125;</span><br><span class="line">  //Accessibility 相关特性回调</span><br><span class="line">  void didChangeAccessibilityFeatures() &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="生命周期回调"><a href="#生命周期回调" class="headerlink" title="生命周期回调"></a>生命周期回调</h3><p>didChangeAppLifecycleState 回调函数中，有一个参数类型为 AppLifecycleState 的枚举类，这个枚举类是 Flutter 对 App 生命周期状态的封装。它的常用状态包括 resumed、inactive、paused 这三个。</p>
+<ul>
+<li>resumed：可见的，并能响应用户的输入；</li>
+<li>inactive：处在不活动状态，无法处理用户响应；</li>
+<li>paused：不可见并不能响应用户的输入，但是在后台继续活动中。</li>
+</ul>
+<p>案例分享：在 initState 时注册来监听器，在 didChangeAppLifecycleState 回调方法中打印来当前的 App 状态，最后在 dispose 时把监听器移除：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class _MyHomePageState extends State&lt;MyHomePage&gt; with WidgetsBindingObserver &#123;</span><br><span class="line">  ...</span><br><span class="line">  @override</span><br><span class="line">  @mustCallSuper</span><br><span class="line">  void initState() &#123;</span><br><span class="line">    super.initState();</span><br><span class="line">    WidgetsBinding.instance.addObserver(this); // 注册监听器</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  @mustCallSuper</span><br><span class="line">  void dispose() &#123;</span><br><span class="line">    super.dispose();</span><br><span class="line">    WidgetsBinding.instance.removeObserver(this); // 移除监听器</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  void didChangeAppLifecycleState(AppLifecycleState state) async &#123;</span><br><span class="line">    print(&quot;$state&quot;);</span><br><span class="line">    if (state == AppLifecycleState.resumed) &#123;</span><br><span class="line">      // do sth</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>尝试这切换一下前、后台，观察控制台输出的 App 状态，可以发现：</p>
+<ul>
+<li>从后台切入前台，控制台打印的 App 生命周期变化如下：AppLifecycleState.paused -&gt; AppLifecycleState.inactive -&gt; AppLifecycleState.resumed;</li>
+<li>从前台退回后台，控制台打印的 App 生命周期变化则变成了：AppLifecycleState.resumed -&gt; AppLifecycleState.inactive -&gt; AppLifecycleState.paused</li>
+</ul>
+<h3 id="帧绘制回调"><a href="#帧绘制回调" class="headerlink" title="帧绘制回调"></a>帧绘制回调</h3><p>除了需要监听 App 的生命周期回调做相应的处理之外，有时候还需要在组件渲染之后做一些与显示安全相关的操作。<br>在 iOS 开发中，可以通过 dispatch_async(dispatch_get_main_queue(),^{…}) 方法，让操作在下一个 RunLoop 执行；在 Android 开发中，可以通过 View.post() 插入消息队列，来保证在组件渲染后进行相关操作。<br><strong>在 Flutter 中实现同样的需求会更简单： 依然使用万能的 WidgetsBinding 来实现。</strong></p>
+<p>WidgetsBinding 提供了单次 Frame 绘制回调，以及实时 Frame 绘制回调两种机制，来分别满足不同的需求：</p>
+<ul>
+<li>单次 Frame 绘制回调，通过 addPostFrameCallback 实现。它会在当前 Frame 绘制完成后进行回调，并只会回调一次，如果要再次监听则需要再设置一次。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">WidgetsBinding.instance.addPostFrameCallback((_)&#123;</span><br><span class="line">      print(&quot; 单次 Frame 绘制回调&quot;); // 只回调一次</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>实时 Frame 绘制回调，则通过 addPersistentFrameCallback 实现。这个函数会在每次绘制 Frame 结束后进行回调，可以用作 FPS 检测。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">WidgetsBinding.instance.addPersistentFrameCallback((_)&#123;</span><br><span class="line">      print(&quot; 实时 Frame 绘制回调&quot;); //  每帧都回调</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://juejin.im/post/5d8c8fbaf265da5b9e0d2eb6" target="_blank" rel="noopener">参考链接</a></p>
+]]></content>
+      <categories>
+        <category>flutter</category>
+      </categories>
+      <tags>
+        <tag>flutter</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>iOS13越狱,Checkra1n非完美越狱工具发布支持iPhone 5s – iPhone X, iOS 12.3 and up</title>
     <url>/2019/11/23/jailbreakiOS13/</url>
     <content><![CDATA[<blockquote>
@@ -6072,7 +6239,7 @@ Editor->>Create NSManagedObject Subciass..
 <p>Reference-style 引用方式：<br>[link text][id]<br>[id]: <a href="https://www.mozilla.org" target="_blank" rel="noopener">https://www.mozilla.org</a> “title text”</p>
 <p>Relative reference to a repository file 引用存储文件：<br><a href="../path/file/readme.text" title="title text">link text</a></p>
 <p>还能这样使用：<br>[link text][]<br>[link text]: <a href="http://www.reddit.com" target="_blank" rel="noopener">http://www.reddit.com</a></p>
-<p>Email 邮件：<br><a href="mailto:&#101;&#x78;&#x61;&#x6d;&#112;&#108;&#x65;&#x40;&#x65;&#x78;&#97;&#x6d;&#112;&#108;&#x65;&#46;&#99;&#111;&#x6d;">&#101;&#x78;&#x61;&#x6d;&#112;&#108;&#x65;&#x40;&#x65;&#x78;&#97;&#x6d;&#112;&#108;&#x65;&#46;&#99;&#111;&#x6d;</a></p>
+<p>Email 邮件：<br><a href="mailto:&#101;&#x78;&#97;&#x6d;&#112;&#x6c;&#101;&#64;&#x65;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#x63;&#111;&#109;">&#101;&#x78;&#97;&#x6d;&#112;&#x6c;&#101;&#64;&#x65;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#x63;&#111;&#109;</a></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Inline-style 内嵌方式：</span><br><span class="line">[link text](https://www.google.com <span class="string">"title text"</span>)</span><br><span class="line"></span><br><span class="line">Reference-style 引用方式：</span><br><span class="line">[link text][id]</span><br><span class="line">[id]: https://www.mozilla.org <span class="string">"title text"</span></span><br><span class="line"></span><br><span class="line">Relative reference to a repository file 引用存储文件：</span><br><span class="line">[link text](../path/file/readme.text <span class="string">"title text"</span>)</span><br><span class="line"></span><br><span class="line">还能这样使用：</span><br><span class="line">[link text][]</span><br><span class="line">[link text]: http://www.reddit.com</span><br><span class="line"></span><br><span class="line">Email 邮件：</span><br><span class="line">&lt;example@example.com&gt;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
